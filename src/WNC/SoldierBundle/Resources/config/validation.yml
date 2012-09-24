@@ -1,0 +1,16 @@
+WNC\SoldierBundle\Entity\Soldier:
+    properties:
+        file:
+            - Image: {groups: [Registration]}
+        comments:
+            - Blank: ~
+        self_description:
+            - Blank: ~
+            
+            
+Application\Sonata\UserBundle\Entity\User:
+    properties:
+      firstname:
+        - NotBlank: ~
+      lastname:
+        - NotBlank: ~

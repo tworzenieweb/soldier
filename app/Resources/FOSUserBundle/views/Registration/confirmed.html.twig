@@ -1,0 +1,19 @@
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+<h4>Registration form</h4>
+<br />
+
+{% block fos_user_content %}
+
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+    {% endif %}
+
+    <p>Now you can add <a href="{{ path('soldier') }}">soldiers</a></p>
+
+{% endblock fos_user_content %}
+
+{% endblock %}

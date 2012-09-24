@@ -1,0 +1,8 @@
+<p class="right">Show per page: 
+
+{% for value in options %}
+    <a href="{{ path('soldier_page', {maxPage: value}) }}">{% if value == maxPage %}<strong>{{ value }}</strong>{% else %}{{ value }}{% endif %}</a> |
+{% endfor %}
+
+<a href="{{ path('soldier_page', {maxPage: 9999999}) }}">{% if 9999999 == maxPage %}<strong>All</strong>{% else %}All{% endif %}</a>
+</p>

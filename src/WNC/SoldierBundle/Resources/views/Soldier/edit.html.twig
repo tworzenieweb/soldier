@@ -1,0 +1,46 @@
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+
+    
+        {% for key, flash in app.session.getFlashes() %}
+        <div class="alert-box success">{{ flash }}<a href="" class="close">&times;</a>
+        </div>
+        {% endfor %}  
+
+<h1>Soldier edit</h1>
+
+<form action="{{ path('soldier_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_errors(edit_form) }}
+
+    {{ form_row(edit_form.user.firstname) }}
+    {{ form_row(edit_form.user.lastname) }}
+    {{ form_row(edit_form.user.email) }}
+    {{ form_row(edit_form.city) }}
+    {{ form_row(edit_form.mothers_name) }}
+    {{ form_row(edit_form.service_end_date) }}
+    {{ form_row(edit_form.army_unit) }}
+    {{ form_row(edit_form.gender) }}
+    {{ form_row(edit_form.file) }}
+    {{ form_row(edit_form.self_description) }}
+    {{ form_row(edit_form.video) }}
+    {{ form_row(edit_form.wants_to_contact) }}
+    {{ form_row(edit_form.comments) }}
+    
+
+    {{ form_row(edit_form._token) }}
+    {{ form_row(edit_form.user.plainPassword) }}
+    <div class="six columns">
+    <button type="submit" class="button">Update</button>
+    <a href="{{ path('soldier') }}" class="button">Back to the list</a>
+    </div>
+
+    <div class="six columns">
+    <form action="{{ path('soldier_delete', { 'id': entity.id }) }}" method="post" class="right">
+            {{ form_widget(delete_form) }}
+            <button type="submit" class="button">Delete</button>
+        </form>
+        </div>
+</form>
+
+{% endblock %}	

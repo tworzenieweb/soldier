@@ -1,0 +1,11 @@
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+<h4>Registration form</h4>
+<br />
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}
+
+{% endblock %}

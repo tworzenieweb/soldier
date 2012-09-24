@@ -1,0 +1,99 @@
+body.cms-edit-mode div.cms-container {
+    min-height: 50px;
+
+    background: #999; /* for non-css3 browsers */
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#eeeeee'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #ddd,  #eee); /* for firefox 3.6+ */
+
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px #8493A6;
+    margin: 1px;
+}
+
+body.cms-edit-mode div.cms-block-element {
+    min-height: 25px;
+    margin: 2px;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px #8493A6;
+}
+
+body.cms-edit-mode {
+    background-color: white !important;
+    background-image: none !important;
+    color: black !important;
+    padding-top: 40px;
+}
+
+body.cms-edit-mode div.cms-block-element {
+    min-height: 20px;
+    background-color: #BE9B4D;
+}
+
+body.cms-edit-mode div.cms-container-root {
+    padding-top: 15px;
+    background-color: #C53214;
+    padding-bottom: 15px
+}
+
+body.cms-edit-mode div.cms-block-hand-over {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BE9B4D', endColorstr='#eeeeee'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#BE9B4D), to(#eee)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #BE9B4D,  #eee); /* for firefox 3.6+ */
+    cursor: pointer;
+}
+
+body.cms-edit-mode div.cms-container-start {
+    background: #cccccc;
+}
+
+body.cms-edit-mode div.cms-container.cms-block-internal {
+    background: #FF4C00;
+}
+
+body.cms-edit-mode div.cms-container {
+    background: #A12000;
+}
+
+body.cms-edit-mode div.cms-container:hover {
+    background-color: #cccccc;
+}
+
+div.sonata-page-top-bar {
+
+}
+
+div.sonata-page-top-bar label {
+    color: #BFBFBF;
+}
+
+body.cms-edit-mode div.cms-block-start {
+    background: white;
+}
+
+body.cms-edit-mode div.cms-block-placeholder {
+    background: yellow;
+}
+
+body.cms-edit-mode div.cms-fake-block {
+    height: 1px;
+    min-height: 1px;
+    background: #cccccc;
+}
+
+body div.cms-fake-block {
+    display:none;
+}
+
+textarea.title {
+    font-size: 1.5em;
+    font-family: "Lucida Grande";
+    height: 100px;
+    width: 500px
+}
+
+body.cms-edit-mode div.cms-container {
+    min-height: 50px;
+    min-width: 150px;
+}

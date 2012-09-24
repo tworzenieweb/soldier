@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sonata.user.admin.user.class">WNC\SoldierBundle\Admin\UserAdmin</parameter>
+    </parameters>
+    <!--
+
+    <services>
+        <service id="wnc_soldier.example" class="%wnc_soldier.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+    
+    <services>
+        <service id="wnc_soldier.type.jqueryDate" class="WNC\SoldierBundle\Form\Extension\Type\JqueryDateType">
+            <tag name="form.type" alias="jqueryDate" />
+        </service>
+        <service id="wnc_soldier.type.city_selector" class="WNC\SoldierBundle\Form\Type\CityType">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <tag name="form.type" alias="city_selector" />
+        </service>
+        <service id="wnc_soldier.form.handler.registration" class="WNC\SoldierBundle\Form\Handler\RegistrationFormHandler" scope="request" public="false">
+            <argument type="service" id="fos_user.registration.form" />
+            <argument type="service" id="request" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="fos_user.mailer" />
+            <argument type="service" id="fos_user.util.token_generator" />
+        </service>
+        <service id="wnc_soldier.security.interactive_login_listener" class="WNC\SoldierBundle\EventListener\InteractiveLoginListener">
+            <argument type="service" id="router" />
+            <tag name="kernel.event_listener" event="security.interactive_login" method="onSecurityInteractiveLogin" priority="255" />
+        </service>
+    </services>
+    
+    
+
+</container>

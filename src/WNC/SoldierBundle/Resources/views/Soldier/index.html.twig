@@ -1,0 +1,61 @@
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+
+<div class="row">
+<div class="six columns"><h1>Soldiers</h1></div>
+
+<div class="six columns">
+
+{% include 'WNCSoldierBundle:Soldier:pagination_control.html.twig' with {'options': [10, 30, 90], 'maxPage': maxPage} %}
+
+</div>
+</div>
+
+
+{% if pagination.count %}
+
+<table class="records_list">
+<thead>
+<tr>
+{# sorting of properties based on query components #}
+    <th{% if pagination.isSorted('u.firstname') %} class="sorted"{% endif %}>{{ pagination.sortable('First Name', 'u.firstname')|raw }}</th>
+    <th{% if pagination.isSorted('u.lastname') %} class="sorted"{% endif %}>{{ pagination.sortable('Last Name', 'u.lastname')|raw }}</th>
+    <th{% if pagination.isSorted('u.email') %} class="sorted"{% endif %}>{{ pagination.sortable('Email', 'u.email')|raw }}</th>
+    <th{% if pagination.isSorted('c.name') %} class="sorted"{% endif %}>{{ pagination.sortable('City', 'c.name')|raw }}</th>
+    <th{% if pagination.isSorted('s.service_end_date') %} class="sorted"{% endif %}>{{ pagination.sortable('End Date', 's.service_end_date')|raw }}</th>
+    <th></th>
+</tr>
+</thead>
+
+<tbody>
+{# table body #}
+{% for soldier in pagination %}
+<tr>
+    <td>{{ soldier.user.firstname }}</td>
+    <td>{{ soldier.user.lastname }}</td>
+    <td>{{ soldier.user.email}}</td>
+    <td>{{ soldier.city.name}}</td>
+    <td>{{ soldier.serviceEndDate|date("m/d/Y") }}</td>
+    <td>
+                        <a href="{{ path('soldier_show', { 'id': soldier.id }) }}" class="tiny button">show</a>
+                        <a href="{{ path('soldier_edit', { 'id': soldier.id }) }}" class="tiny button">edit</a>
+                 
+                
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{# display navigation #}
+<div class="navigation twelve columns">
+    {{ pagination.render()|raw }}
+</div>
+
+{% else %}
+<p>Sorry no records in database</p>
+{% endif %}
+
+<p><a href="{{ path('soldier_new') }}" class="button small secondary">Create a new entry</a></p>
+
+{% endblock %}	

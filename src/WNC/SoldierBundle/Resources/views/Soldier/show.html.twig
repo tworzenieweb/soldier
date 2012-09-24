@@ -1,0 +1,32 @@
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+
+
+
+<h4>Soldier {{ entity.user.firstname }} {{ entity.user.lastname }} <a href="{{ path('soldier_edit', { 'id': entity.id }) }}">Edit</a></h4>
+<br />
+{% for label, value in map %}
+
+    <div class="offset-by-one eleven columns space-30">
+        
+        <div class="four columns"><strong>{{ label }}</strong></div>
+        <div class="eight columns">{{ value|raw }}</div>
+
+    </div>
+
+{% endfor %}
+
+
+    <div class="six columns">
+    <a href="{{ path('soldier') }}" class="button">Back to the list</a>
+    </div>
+
+    <div class="six columns">
+        <form action="{{ path('soldier_delete', { 'id': entity.id }) }}" method="post" class="right">
+            {{ form_widget(delete_form) }}
+            <button type="submit" class="button">Delete</button>
+        </form>
+    </div>
+
+{% endblock %}	

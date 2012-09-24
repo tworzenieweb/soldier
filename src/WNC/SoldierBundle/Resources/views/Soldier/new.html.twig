@@ -1,0 +1,65 @@
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+
+<h1>Soldier creation</h1>
+
+
+<form action="{{ path('soldier_create') }}" method="post" {{ form_enctype(form) }}>
+    
+    {{ form_errors(form) }}
+
+    {{ form_row(form.user.firstname) }}
+    {{ form_row(form.user.lastname) }}
+    {{ form_row(form.user.email) }}
+    {{ form_row(form.city) }}
+    {{ form_row(form.mothers_name) }}
+    {{ form_row(form.service_end_date) }}
+    {{ form_row(form.army_unit) }}
+    {{ form_row(form.gender) }}
+    {{ form_row(form.file) }}
+    {{ form_row(form.self_description) }}
+    {{ form_row(form.video) }}
+    {{ form_row(form.wants_to_contact) }}
+    {{ form_row(form.comments) }}
+    {{ form_row(form.owner) }}
+
+    {{ form_row(form._token) }}
+    {{ form_row(form.user.plainPassword) }}
+
+    <div class="six columns">
+        <button type="submit" class="button">Add</button>
+        <a href="{{ path('soldier') }}" class="button">Back to the list</a>
+    </div>
+
+</form>
+
+{% endblock %}	
+
+{% block stylesheets %}
+	{{ parent() }}
+  
+  {{ form_stylesheet(form) }}
+
+{% endblock %}	
+
+{% block javascripts %}
+    {{ parent() }}
+
+        {% javascripts 
+            'bundles/wncsoldier/javascripts/uploadify/jquery.swfobject.min.js'
+
+            output='js/soldier_all.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            <script>
+                (function($) {
+
+                    $('#wnc_soldierbundle_soldiertype_owner').chosen();
+                    
+                })(jQuery);
+            </script>
+        {% endjavascripts %}
+
+    {{ form_javascript(form) }}
+{% endblock %}
