@@ -29,8 +29,8 @@ class InteractiveLoginListener
         $user = $event->getAuthenticationToken()->getUser(); /** @var \Application\Sonata\UserBundle\Entity\User */
         $request = $event->getRequest(); /** @var \Symfony\Component\HttpFoundation\Request $request  */
 
-        if ($user instanceof User) {
-            $request->request->set('_target_path', $this->router->generate('soldier'));
-        }
+//        if ($user instanceof User) {
+//            $request->request->set('_target_path', $this->router->generate('soldier'));
+//        }
     }
 }
