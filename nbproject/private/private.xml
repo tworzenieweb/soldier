@@ -2,8 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/var/www/s.web.dev/vendor/sonata-project/page-bundle/Sonata/PageBundle/Controller/PageController.php</file>
         <file>file:/var/www/s.web.dev/src/WNC/SoldierBundle/Form/SoldierType.php</file>
+        <file>file:/var/www/s.web.dev/src/WNC/SoldierBundle/Controller/SoldierController.php</file>
+        <file>file:/var/www/s.web.dev/vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Form/Type/EntityType.php</file>
+        <file>file:/var/www/s.web.dev/vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Form/Type/DoctrineType.php</file>
         <file>file:/var/www/s.web.dev/app/config/routing.yml</file>
+        <file>file:/var/www/s.web.dev/src/Application/Sonata/UserBundle/Controller/UserController.php</file>
+        <file>file:/var/www/s.web.dev/src/WNC/SoldierBundle/Controller/DefaultController.php</file>
+        <file>file:/var/www/s.web.dev/web/.htaccess</file>
     </open-files>
 </project-private>

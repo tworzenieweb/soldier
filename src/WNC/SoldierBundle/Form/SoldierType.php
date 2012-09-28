@@ -59,11 +59,11 @@ class SoldierType extends AbstractType
                 ->add('city', 'city_selector')
                 ->add('owner', 'entity', array(
                     'class' => 'ApplicationSonataUserBundle:User',
+
                     'query_builder' => function(EntityRepository $er)
                     {
                         return $er->createQueryBuilder('u')->orderBy('u.lastname', 'ASC');
-                    },
-                    'preferred_choices' => array($this->_user),
+                    }
                 ))
 
 
@@ -73,7 +73,7 @@ class SoldierType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'validation_groups' => array('Registration'),
+            'validation_groups' => array('Soldier'),
             'cascade_validation' => true,
         ));
     }

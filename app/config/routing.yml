@@ -42,6 +42,11 @@ WNCSoldierBundle:
     type:     annotation
     prefix:   /
     
+ApplicationSonataUserBundle:
+    resource: "@ApplicationSonataUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
 # app/config/routing.yml
 sonata_page_exceptions:
     resource: '@SonataPageBundle/Resources/config/routing/exceptions.xml'
