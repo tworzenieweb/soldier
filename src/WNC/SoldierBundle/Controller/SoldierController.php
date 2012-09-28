@@ -183,7 +183,9 @@ class SoldierController extends Controller
             throw $this->createNotFoundException('Unable to find Soldier entity.');
         }
 
-        $editForm = $this->createForm(new SoldierType(), $entity);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        
+        $editForm = $this->createForm(new SoldierType($user->getId()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
