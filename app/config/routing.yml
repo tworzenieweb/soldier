@@ -4,6 +4,9 @@
 #    prefix:   /_internal
 
 
+genemu_base64:
+    resource: "@GenemuFormBundle/Resources/config/routing/base64.xml"
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -56,9 +59,9 @@ sonata_page_cache:
     resource: '@SonataPageBundle/Resources/config/routing/cache.xml'
     prefix: /
 
-homepage:
-    pattern:  /
-    defaults: { _controller: SonataPageBundle:Page:catchAll }
+#homepage:
+#    pattern:  /
+#    defaults: { _controller: SonataPageBundle:Page:catchAll }
 
 catchAll:
     pattern:  /{path}

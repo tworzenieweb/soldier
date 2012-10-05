@@ -12,12 +12,18 @@ use WNC\SoldierBundle\Entity\Soldier;
 
 class SoldierType extends AbstractType
 {
+    private $_user;
+    
+    public function __construct($user)
+    {
+        $this->_user = $user;
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
         $builder
-                ->add('mothers_name',null, array('attr' => array('placeholder' => 'Mother\'s name')))
+                ->add('mothers_name')
                 ->add('service_end_date', 'date', array(
                     'widget' => 'single_text',
                     'format' => 'MM/dd/yyyy',
@@ -50,7 +56,7 @@ class SoldierType extends AbstractType
                     'required' => false
                 ))
                 ->add('user', new NameFormType('Application\Sonata\UserBundle\Entity\User'))
-                ->add('city', 'city_selector', array('attr' => array('placeholder' => 'City name')))
+                ->add('city', 'city_selector')
                 ->add('owner', 'entity', array(
                     'class' => 'ApplicationSonataUserBundle:User',
 

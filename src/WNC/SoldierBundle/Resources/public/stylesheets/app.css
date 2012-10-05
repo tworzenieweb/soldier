@@ -41,6 +41,13 @@
 /*        margin-left: 25px;*/
         
     }
+    .wnc_soldierbundle_participanttype_gender label, .wnc_soldierbundle_participanttype_gender .radio  {
+        
+        display: inline-block;
+        margin-right: 25px;
+/*        margin-left: 25px;*/
+        
+    }
     
     .wnc_soldierbundle_soldiertype_wants_to_contact label {
             display: inline-block;

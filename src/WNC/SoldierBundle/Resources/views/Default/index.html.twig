@@ -2,5 +2,91 @@
 
 
 {% block content %}
-hhh
+
+<div class="six columns">
+
+<dl class="tabs">
+  <dd class="active"><a href="#simple1">Soldier</a></dd>
+  <dd><a href="#simple2">Participant</a></dd>
+</dl>
+
+<ul class="tabs-content">
+  <li class="active" id="simple1Tab">
+    <form action="{{ path('signup', {'type': 'soldier'}) }}" method="post" {{ form_enctype(form_soldier) }}>
+    <div class="row">
+        <div class="six columns">
+            {{ form_errors(form_soldier.user.firstname) }}
+            {{ form_widget(form_soldier.user.firstname) }}
+        </div>
+        <div class="six columns">
+            {{ form_errors(form_soldier.mothers_name) }}
+            {{ form_widget(form_soldier.mothers_name) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            {{ form_errors(form_soldier.city) }}
+            {{ form_widget(form_soldier.city) }}
+        </div>
+        <div class="six columns">
+            {{ form_errors(form_soldier.user.email) }}
+            {{ form_widget(form_soldier.user.email) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <button type="submit" class="button">Sign Up</button>
+        </div>
+    </div>
+
+    {{ form_widget(form_soldier._token) }}
+
+    </form>
+
+</li>
+  <li id="simple2Tab">
+    <form action="{{ path('signup', {'type': 'participant'}) }}" method="post" {{ form_enctype(form_participant) }}>
+        <div class="row">
+            <div class="six columns">
+                {{ form_errors(form_participant.user.lastname) }}
+                {{ form_widget(form_participant.user.lastname) }}
+            </div>
+            <div class="six columns">
+                {{ form_errors(form_participant.user.firstname) }}
+                {{ form_widget(form_participant.user.firstname) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                {{ form_errors(form_participant.city) }}
+                {{ form_widget(form_participant.city) }}
+            </div>
+            <div class="six columns">
+                {{ form_errors(form_participant.user.email) }}
+                {{ form_widget(form_participant.user.email) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <button type="submit" class="button">Sign Up</button>
+            </div>
+        </div>
+
+    {{ form_widget(form_participant._token) }}
+
+    </form>
+
+</li>
+</ul>
+
+</div>
+
+
+<div class="six columns">
+<h5>Who's joined</h5>
+
+{% render "WNCSoldierBundle:Default:participants" %}
+
+</div>
+
 {% endblock %}

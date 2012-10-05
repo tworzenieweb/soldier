@@ -1,0 +1,57 @@
+<h1>Participant list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Gender</th>
+            <th>Volunteer</th>
+            <th>Occupation</th>
+            <th>Picture</th>
+            <th>Organization</th>
+            <th>Phone_number</th>
+            <th>Video</th>
+            <th>Comments</th>
+            <th>Activity_start_date</th>
+            <th>Activity_end_date</th>
+            <th>Wants_to_contact</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('participant_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.gender }}</td>
+            <td>{{ entity.volunteer }}</td>
+            <td>{{ entity.occupation }}</td>
+            <td>{{ entity.picture }}</td>
+            <td>{{ entity.organization }}</td>
+            <td>{{ entity.phonenumber }}</td>
+            <td>{{ entity.video }}</td>
+            <td>{{ entity.comments }}</td>
+            <td>{% if entity.activitystartdate %}{{ entity.activitystartdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.activityenddate %}{{ entity.activityenddate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.wantstocontact }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('participant_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('participant_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('participant_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

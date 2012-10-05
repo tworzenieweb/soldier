@@ -31,8 +31,14 @@ class CityToIdTransformer implements DataTransformerInterface
      */
     public function transform($city)
     {
+        
+        
         if (null === $city) {
             return "";
+        }
+        
+        if(is_string($city)) {
+            return $city;
         }
 
         return $city->getName();

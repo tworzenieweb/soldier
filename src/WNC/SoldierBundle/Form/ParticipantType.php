@@ -8,22 +8,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Application\Sonata\UserBundle\Form\Type\NameFormType;
 use WNC\SoldierBundle\Form\Type\CityType;
-use WNC\SoldierBundle\Entity\Soldier;
+use WNC\SoldierBundle\Entity\Participant;
 
-class SoldierType extends AbstractType
+class ParticipantType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
         $builder
-                ->add('mothers_name',null, array('attr' => array('placeholder' => 'Mother\'s name')))
-                ->add('service_end_date', 'date', array(
-                    'widget' => 'single_text',
-                    'format' => 'MM/dd/yyyy',
-                    'attr' => array('class' => 'date six columns')
-                ))
-                ->add('army_unit')
                 ->add('city', 'city_selector')
                 ->add('gender', 'choice', array(
                     'choices' => array(0 => 'Male', 1 => 'Female'),
@@ -33,32 +26,47 @@ class SoldierType extends AbstractType
                 ))
                 ->add('file', null, array(
                     'required' => false,
-                    'data_class' => 'Symfony\Component\HttpFoundation\File\File'
+                    'data_class' => 'Symfony\Component\HttpFoundation\File\File',
+                    'label' => 'Picture'
                 ))
-                ->add('self_description', 'textarea', array(
-                    'required' => false
+                ->add('birth_date', 'date', array(
+                    'widget' => 'single_text',
+                    'format' => 'MM/dd/yyyy',
+                    'attr' => array('class' => 'date six columns')
                 ))
+                ->add('gender', 'choice', array(
+                    'choices' => array(0 => 'Male', 1 => 'Female'),
+                    'expanded' => true,
+                    'label' => 'Male / Female',
+                    'data' => 0
+                ))
+                ->add('activity_start_date', 'date', array(
+                    'widget' => 'single_text',
+                    'format' => 'MM/dd/yyyy',
+                    'attr' => array('class' => 'date six columns')
+                ))
+                ->add('activity_end_date', 'date', array(
+                    'widget' => 'single_text',
+                    'format' => 'MM/dd/yyyy',
+                    'attr' => array('class' => 'date six columns')
+                ))
+                ->add('organization')
+                ->add('occupation')
+                ->add('phone_number')
                 ->add('video', null, array(
                     'attr' => array(
                         'placeholder' => 'some link here',
                         'required' => false
                         )))
                 ->add('wants_to_contact', null, array(
-                    'label' => Soldier::getLabel('wants_to_contact')
+                    'label' => Participant::getLabel('wants_to_contact')
                 ))
+                ->add('volunteer')
                 ->add('comments', 'textarea', array(
                     'required' => false
                 ))
                 ->add('user', new NameFormType('Application\Sonata\UserBundle\Entity\User'))
                 ->add('city', 'city_selector', array('attr' => array('placeholder' => 'City name')))
-                ->add('owner', 'entity', array(
-                    'class' => 'ApplicationSonataUserBundle:User',
-
-                    'query_builder' => function(EntityRepository $er)
-                    {
-                        return $er->createQueryBuilder('u')->orderBy('u.lastname', 'ASC');
-                    }
-                ))
 
 
         ;
@@ -74,7 +82,7 @@ class SoldierType extends AbstractType
 
     public function getName()
     {
-        return 'wnc_soldierbundle_soldiertype';
+        return 'wnc_soldierbundle_participanttype';
     }
 
 }

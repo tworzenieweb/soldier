@@ -2,7 +2,6 @@ WNC\SoldierBundle\Entity\Soldier:
     properties:
         file:
             - Image: {groups: [Soldier]}
-            - NotBlank: ~
             
             
 Application\Sonata\UserBundle\Entity\User:
