@@ -63,8 +63,8 @@ sonata_page_cache:
 #    pattern:  /
 #    defaults: { _controller: SonataPageBundle:Page:catchAll }
 
-catchAll:
-    pattern:  /{path}
-    defaults: { _controller: SonataPageBundle:Page:catchAll }
-    requirements:
-        path: .*
+#catchAll:
+#    pattern:  /{path}
+#    defaults: { _controller: SonataPageBundle:Page:catchAll }
+#    requirements:
+#        path: .*

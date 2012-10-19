@@ -6,13 +6,35 @@ use FOS\UserBundle\Model\UserInterface;
 
 class RegistrationFormHandler extends BaseHandler
 {
-    protected function onSuccess(UserInterface $user, $confirmation)
+    
+    public function process($confirmation = false)
     {
-        // Note: if you plan on modifying the user then do it before calling the 
-        // parent method as the parent method will flush the changes
-        $user->setUsername($user->getEmail());
-        $user->setPlainPassword(substr(uniqid(), 0,8));
-        parent::onSuccess($user, $confirmation);
+        // when we get from homepage initial validation should not be triggered
+        $fromHomepage = $this->request->getUri() != $this->request->headers->get('referer');
         
+        
+      
+        $user = $this->createUser();
+        $this->form->setData($user);
+
+        $type = $this->request->get('type');
+        
+        if ('POST' === $this->request->getMethod()) {
+            
+          
+            $this->form->bindRequest($this->request);
+
+            
+            if (!$fromHomepage && $this->form->isValid()) {
+              
+                $user->addRole($type);
+              
+                $this->onSuccess($user, $confirmation);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 }

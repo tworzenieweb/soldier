@@ -1,0 +1,29 @@
+<div class="row space-15">
+    <div class="three columns">
+        <strong>NAME</strong>
+    </div>
+    <div class="four columns">
+        <strong>CITY/SCHOOL</strong>
+    </div>
+    <div class="five columns text-right">
+        <strong>RIGHTEOUS DEEDS</strong>
+    </div>
+</div>
+{% for participant in participants %}
+
+   <div class="row">
+    <div class="three columns">
+        {{ participant.user.firstname }}
+    </div>
+    <div class="five columns">
+        {{ participant.city.name }}
+    </div>
+    <div class="four columns text-right">
+        {{ participant.activity.name }}
+    </div>
+</div>     
+{% else %}
+Currently no participants in database, please be patient.
+{% endfor %}
+
+</div>

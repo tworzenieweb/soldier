@@ -34,11 +34,16 @@ class ParticipantType extends AbstractType
                     'format' => 'MM/dd/yyyy',
                     'attr' => array('class' => 'date six columns')
                 ))
+                ->add('activity', 'entity', array(
+                    'class' => 'WNCSoldierBundle:Activity',
+                    'property' => 'name',
+                    'empty_value' => 'Choose activity',
+                    'attr' => array('class' => 'six columns')
+                ))
                 ->add('gender', 'choice', array(
-                    'choices' => array(0 => 'Male', 1 => 'Female'),
+                    'choices' => array('male' => 'Male', 'female' => 'Female'),
                     'expanded' => true,
                     'label' => 'Male / Female',
-                    'data' => 0
                 ))
                 ->add('activity_start_date', 'date', array(
                     'widget' => 'single_text',
@@ -61,7 +66,10 @@ class ParticipantType extends AbstractType
                 ->add('wants_to_contact', null, array(
                     'label' => Participant::getLabel('wants_to_contact')
                 ))
-                ->add('volunteer')
+                ->add('volunteer', 'choice', array(
+                    'choices' => array(0 => 'No', 1 => 'Yes'),
+                    'expanded' => true,
+                ))
                 ->add('comments', 'textarea', array(
                     'required' => false
                 ))

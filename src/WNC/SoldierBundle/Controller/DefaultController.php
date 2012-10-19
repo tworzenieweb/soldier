@@ -31,6 +31,19 @@ class DefaultController extends Controller
         
     }
     
+    
+    
+
+    
+    /**
+     * @route("/donate", name="donate") 
+     * @template
+     */
+    public function donateAction(Request $request)
+    {
+      
+    }
+    
     /**
      * @route("/signup/{type}", name="signup") 
      */
@@ -81,16 +94,16 @@ class DefaultController extends Controller
     public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $soldier = new Soldier();
+        
         $participant = new Participant();
-        $form_soldier   = $this->createForm(new SoldierType($user), $soldier);
-        $form_participant   = $this->createForm(new ParticipantType(), $participant);
-
+        $soldier = new Soldier();
         
-        
+        $form2   = $this->createForm(new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType($participant));
+        $form   = $this->createForm(new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType($soldier));
+      
         return array(
-            'form_soldier'   => $form_soldier->createView(),
-            'form_participant'   => $form_participant->createView(),
+            'form'   => $form->createView(),
+            'form2'   => $form2->createView(),
         );
     }
     
@@ -108,6 +121,7 @@ class DefaultController extends Controller
         
         $query->setMaxResults(10);
         
+        
         return array(
             'participants' => $query->getResult()
         );
@@ -115,7 +129,7 @@ class DefaultController extends Controller
     
         
     /**
-     * @route("/contact", name="contact") 
+     * @route("/contact-us", name="contact") 
      * @template
      */
     public function contactAction(Request $request)
@@ -135,7 +149,7 @@ class DefaultController extends Controller
                     ->setSubject($values['topic'])
                     ->setFrom(array($values['email'] => $values['name']))
                     ->setReplyTo(array($values['email'] => $values['name']))
-                    ->setTo('tworzenieweb@gmail.com')
+                    ->setTo($this->container->getParameter('contact_email');)
                     ->setContentType("text/html")
                     ->setBody($this->renderView('WNCSoldierBundle:Default:mail.html.twig', $values));
                 

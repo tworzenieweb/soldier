@@ -11,6 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="participant")
  * @ORM\Entity(repositoryClass="WNC\SoldierBundle\Entity\ParticipantRepository")
+ * @Vich\Uploadable
  */
 class Participant
 {
@@ -70,7 +71,7 @@ class Participant
     /**
      * @var string $video
      *
-     * @ORM\Column(name="video", type="string", length=255)
+     * @ORM\Column(name="video", type="string", length=255, nullable=true)
      */
     private $video;
     
@@ -112,7 +113,7 @@ class Participant
     
    /**
     *
-    * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", cascade={"persist", "remove"})
+    * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", cascade={"persist", "remove"}, inversedBy="participant")
     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
     */
     private $user;
@@ -128,14 +129,34 @@ class Participant
      */
     private $city;
     
+    /**
+     *
+     * @var integer $city_id
+     */
+    private $city_id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Activity", inversedBy="soldiers", cascade={"persist"})
+     * @ORM\JoinColumn(name="activity_id", referencedColumnName="id", nullable=false)
+     */
+    private $activity;
+    
     
     /**
      * @var UploadedFile $file
      * @Vich\UploadableField(mapping="product_image", fileNameProperty="picture")
      */
-    public $file;
+    protected $file;
     
 
+    public function __construct() {
+        $this->_plainPassword = substr(uniqid(), 0, 8);
+        
+        $this->setUser(new \Application\Sonata\UserBundle\Entity\User());
+        
+        $this->getUser()->setPlainPassword($this->_plainPassword);
+    }
+    
     /**
      * Get id
      *
@@ -500,40 +521,39 @@ class Participant
         return 'uploads/pictures';
     }
     
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload()
-    {
-        
-        if($this->picture && file_exists($this->getAbsolutePath())) {
-            unlink($this->getAbsolutePath());
-        }
-        
-        if (null !== $this->file) {
-            // do whatever you want to generate a unique name
-            $this->picture = uniqid().'.'.$this->file->guessExtension();
-        }
 
+    /**
+     * Set activity
+     *
+     * @param WNC\SoldierBundle\Entity\Activity $activity
+     * @return Participant
+     */
+    public function setActivity(\WNC\SoldierBundle\Entity\Activity $activity)
+    {
+        $this->activity = $activity;
+    
+        return $this;
     }
 
     /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
+     * Get activity
+     *
+     * @return WNC\SoldierBundle\Entity\Activity 
      */
-    public function upload()
+    public function getActivity()
     {
-        if (null === $this->file) {
-            return;
-        }
-
-        
-        // if there is an error when moving the file, an exception will
-        // be automatically thrown by move(). This will properly prevent
-        // the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->picture);
-
+        return $this->activity;
+    }
+    
+    public function getCityId() {
+      return $this->city_id;
+    }
+    public function setCityId($cityId) {
+      
+      $this->city_id = $cityId;
+      
+      return $this;
+      
     }
     
 }

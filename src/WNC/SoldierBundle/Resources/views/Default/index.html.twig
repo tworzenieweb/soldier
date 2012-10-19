@@ -12,25 +12,25 @@
 
 <ul class="tabs-content">
   <li class="active" id="simple1Tab">
-    <form action="{{ path('signup', {'type': 'soldier'}) }}" method="post" {{ form_enctype(form_soldier) }}>
+    <form action="{{ path('fos_user_registration_register', {'type': 'soldier'}) }}" method="post" {{ form_enctype(form) }}>
     <div class="row">
         <div class="six columns">
-            {{ form_errors(form_soldier.user.firstname) }}
-            {{ form_widget(form_soldier.user.firstname) }}
+            {{ form_errors(form.firstname) }}
+            {{ form_widget(form.firstname) }}
         </div>
         <div class="six columns">
-            {{ form_errors(form_soldier.mothers_name) }}
-            {{ form_widget(form_soldier.mothers_name) }}
+            {{ form_errors(form.soldier.mothers_name) }}
+            {{ form_widget(form.soldier.mothers_name) }}
         </div>
     </div>
     <div class="row">
         <div class="six columns">
-            {{ form_errors(form_soldier.city) }}
-            {{ form_widget(form_soldier.city) }}
+            {{ form_errors(form.soldier.city) }}
+            {{ form_widget(form.soldier.city) }}
         </div>
         <div class="six columns">
-            {{ form_errors(form_soldier.user.email) }}
-            {{ form_widget(form_soldier.user.email) }}
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email) }}
         </div>
     </div>
     <div class="row">
@@ -38,32 +38,32 @@
             <button type="submit" class="button">Sign Up</button>
         </div>
     </div>
-
-    {{ form_widget(form_soldier._token) }}
+    {{ form_row(form.plainPassword) }}
+    {{ form_widget(form._token) }}
 
     </form>
 
 </li>
   <li id="simple2Tab">
-    <form action="{{ path('signup', {'type': 'participant'}) }}" method="post" {{ form_enctype(form_participant) }}>
+    <form action="{{ path('fos_user_registration_register', {'type': 'participant'}) }}" method="post" {{ form_enctype(form2) }}>
         <div class="row">
             <div class="six columns">
-                {{ form_errors(form_participant.user.lastname) }}
-                {{ form_widget(form_participant.user.lastname) }}
+                {{ form_errors(form2.lastname) }}
+                {{ form_widget(form2.lastname) }}
             </div>
             <div class="six columns">
-                {{ form_errors(form_participant.user.firstname) }}
-                {{ form_widget(form_participant.user.firstname) }}
+                {{ form_errors(form2.firstname) }}
+                {{ form_widget(form2.firstname) }}
             </div>
         </div>
         <div class="row">
             <div class="six columns">
-                {{ form_errors(form_participant.city) }}
-                {{ form_widget(form_participant.city) }}
+                {{ form_errors(form2.participant.city) }}
+                {{ form_widget(form2.participant.city) }}
             </div>
             <div class="six columns">
-                {{ form_errors(form_participant.user.email) }}
-                {{ form_widget(form_participant.user.email) }}
+                {{ form_errors(form2.email) }}
+                {{ form_widget(form2.email) }}
             </div>
         </div>
         <div class="row">
@@ -72,7 +72,8 @@
             </div>
         </div>
 
-    {{ form_widget(form_participant._token) }}
+    {{ form_row(form2.plainPassword) }}
+    {{ form_widget(form2._token) }}
 
     </form>
 

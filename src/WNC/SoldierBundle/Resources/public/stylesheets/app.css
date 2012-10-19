@@ -49,6 +49,14 @@
         
     }
     
+    .wnc_soldierbundle_participanttype_volunteer label, .wnc_soldierbundle_participanttype_volunteer .radio  {
+        
+        display: inline-block;
+        margin-right: 25px;
+/*        margin-left: 25px;*/
+        
+    }
+    
     .wnc_soldierbundle_soldiertype_wants_to_contact label {
             display: inline-block;
             margin-right: 25px;
@@ -133,4 +141,8 @@
       width: 100%;
       margin:0;
       z-index: 10;
+  }
+  
+  .nav-bar > li > a:first-child {
+    font-size: 13px;
   }

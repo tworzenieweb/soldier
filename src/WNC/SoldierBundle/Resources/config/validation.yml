@@ -2,6 +2,13 @@ WNC\SoldierBundle\Entity\Soldier:
     properties:
         file:
             - Image: {groups: [Soldier]}
+            - NotBlank: {groups: [Soldier]}
+
+WNC\SoldierBundle\Entity\Participant:
+    properties:
+        file:
+            - Image: {groups: [Soldier]}
+            - NotBlank: {groups: [Soldier]}
             
             
 Application\Sonata\UserBundle\Entity\User:

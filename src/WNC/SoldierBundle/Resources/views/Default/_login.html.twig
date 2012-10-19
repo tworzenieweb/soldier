@@ -1,3 +1,4 @@
+{% if not app.security.isGranted(['ROLE_USER']) %}
 <form action="{{ path("fos_user_security_check") }}" method="post" class="custom">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
@@ -22,3 +23,11 @@
         <button type="submit" id="_submit" name="_submit" class="button small">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
     </div>
 </form>
+{% else %}
+<div class="twelve columns">
+
+   <p class="text-right">You're logged as <span class="radius label">{{ app.user.firstname }} {{ app.user.lastname }}</span> <a href="{{ path('fos_user_security_logout') }}">Logout</a></p>
+
+</div>
+
+{% endif %}

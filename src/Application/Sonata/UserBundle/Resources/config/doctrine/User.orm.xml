@@ -9,6 +9,19 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+        
+        
+
+        
+        <one-to-one field="soldier" target-entity="WNC\SoldierBundle\Entity\Soldier" mapped-by="user">
+            <cascade><cascade-remove /><cascade-persist /></cascade>
+           
+        </one-to-one>
+        
+        <one-to-one field="participant" target-entity="WNC\SoldierBundle\Entity\Participant" mapped-by="user">
+            <cascade><cascade-remove /><cascade-persist /></cascade>
+           
+        </one-to-one>
 
     </entity>
 

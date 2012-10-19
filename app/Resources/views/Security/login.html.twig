@@ -1,11 +1,9 @@
-{% extends "WNCSoldierBundle::base.html.twig" %}
-{% block content %}
-<h3>Login form</h3>
+% extends "::base.html.twig" %}
+
+{% block fos_user_content %}
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
-
-<div class="six columns">
 
 <form action="{{ path("fos_user_security_check") }}" method="post">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -21,7 +19,4 @@
 
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
 </form>
-
-</div>
-
-{% endblock content %}
+{% endblock fos_user_content %}

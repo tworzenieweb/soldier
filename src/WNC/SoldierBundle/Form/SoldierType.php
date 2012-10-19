@@ -26,12 +26,11 @@ class SoldierType extends AbstractType
                 ->add('army_unit')
                 ->add('city', 'city_selector')
                 ->add('gender', 'choice', array(
-                    'choices' => array(0 => 'Male', 1 => 'Female'),
+                    'choices' => array('male' => 'Male', 'female' => 'Female'),
                     'expanded' => true,
                     'label' => 'Male / Female',
-                    'data' => 0
                 ))
-                ->add('file', null, array(
+                ->add('file', 'file', array(
                     'required' => false,
                     'data_class' => 'Symfony\Component\HttpFoundation\File\File'
                 ))
@@ -43,22 +42,14 @@ class SoldierType extends AbstractType
                         'placeholder' => 'some link here',
                         'required' => false
                         )))
-                ->add('wants_to_contact', null, array(
+                ->add('wants_to_contact', 'checkbox', array(
                     'label' => Soldier::getLabel('wants_to_contact')
                 ))
                 ->add('comments', 'textarea', array(
                     'required' => false
                 ))
-                ->add('user', new NameFormType('Application\Sonata\UserBundle\Entity\User'))
+//                ->add('user', new NameFormType('Application\Sonata\UserBundle\Entity\User'))
                 ->add('city', 'city_selector', array('attr' => array('placeholder' => 'City name')))
-                ->add('owner', 'entity', array(
-                    'class' => 'ApplicationSonataUserBundle:User',
-
-                    'query_builder' => function(EntityRepository $er)
-                    {
-                        return $er->createQueryBuilder('u')->orderBy('u.lastname', 'ASC');
-                    }
-                ))
 
 
         ;
@@ -69,6 +60,7 @@ class SoldierType extends AbstractType
         $resolver->setDefaults(array(
             'validation_groups' => array('Soldier'),
             'cascade_validation' => true,
+            'data_class' => "WNC\SoldierBundle\Entity\Soldier"
         ));
     }
 

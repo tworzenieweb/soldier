@@ -86,7 +86,7 @@ class Soldier
     
    /**
     *
-    * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", cascade={"persist", "remove"})
+    * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="soldier", cascade={"persist", "remove"})
     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
     */
     private $user;
@@ -99,15 +99,15 @@ class Soldier
     
    /**
     *
-    * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", cascade={"persist", "remove"})
-    * @ORM\JoinColumn(name="owner_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+    * @ORM\ManyToOne(targetEntity="WNC\SoldierBundle\Entity\Participant", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="participant_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
     */
-    private $owner;
+    private $participant;
 
     /**
     * @var  integer $owner_id
     */
-    private $owner_id;
+    private $participant_id;
     
     
     /**
@@ -121,14 +121,20 @@ class Soldier
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id", nullable=false)
      */
     private $city;
+    
+    /**
+     *
+     * @var integer $city_id
+     */
+    private $city_id;
 
     
     /**
      * @var UploadedFile $file
      * @Vich\UploadableField(mapping="product_image", fileNameProperty="picture")
      */
-    public $file;
-
+    protected $file;
+    
     /**
      * Get id
      *
@@ -394,20 +400,6 @@ class Soldier
         return $this->city;
     }
     
-    /**
-     * @ORM\PrePersist 
-     */
-    public function setPasswordValue() {
-            
-        if($this->getUser()->getPlainPassword())
-            return;
-        
-        $this->_plainPassword = substr(uniqid(), 0, 8);
-        
-        $this->getUser()->setPlainPassword($this->_plainPassword);
-    }
-    
-    
     public function getAbsolutePath()
     {
         return null === $this->picture ? null : $this->getUploadRootDir().'/'.$this->picture;
@@ -430,52 +422,7 @@ class Soldier
         return 'uploads/pictures';
     }
     
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload()
-    {
-        
-        if($this->picture && file_exists($this->getAbsolutePath())) {
-            unlink($this->getAbsolutePath());
-        }
-        
-        if (null !== $this->file) {
-            // do whatever you want to generate a unique name
-            $this->picture = uniqid().'.'.$this->file->guessExtension();
-        }
 
-    }
-
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
-    public function upload()
-    {
-        if (null === $this->file) {
-            return;
-        }
-
-        
-        // if there is an error when moving the file, an exception will
-        // be automatically thrown by move(). This will properly prevent
-        // the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->picture);
-
-    }
-
-    /**
-     * @ORM\PostRemove()
-     */
-    public function removeUpload()
-    {
-        if ($file = $this->getAbsolutePath()) {
-            unlink($file);
-        }
-    }
-    
     public function getGenderValue()
     {
         
@@ -504,25 +451,48 @@ class Soldier
     
 
     /**
-     * Set owner
+     * Set participant
      *
-     * @param Application\Sonata\UserBundle\Entity\User $owner
+     * @param WNC\SoldierBundle\Entity\Participant $participant
      * @return Soldier
      */
-    public function setOwner(\Application\Sonata\UserBundle\Entity\User $owner)
+    public function setParticipant(\WNC\SoldierBundle\Entity\Participant $participant = null)
     {
-        $this->owner = $owner;
+        $this->participant = $participant;
     
         return $this;
     }
 
     /**
-     * Get owner
+     * Get participant
      *
-     * @return Application\Sonata\UserBundle\Entity\User 
+     * @return WNC\SoldierBundle\Entity\Participant 
      */
-    public function getOwner()
+    public function getParticipant()
     {
-        return $this->owner;
+        return $this->participant;
     }
+    
+    public function getCityId() {
+      return $this->city_id;
+    }
+    public function setCityId($cityId) {
+      
+      $this->city_id = $cityId;
+      
+      return $this;
+      
+    }
+    
+    public function getUserId() {
+      return $this->user_id;
+    }
+    public function setUserId($userId) {
+      
+      $this->user_id = $userId;
+      
+      return $this;
+      
+    }
+    
 }

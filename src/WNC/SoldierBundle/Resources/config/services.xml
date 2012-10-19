@@ -18,7 +18,11 @@
     </services>
     -->
     
+ 
     <services>
+        <service id="participant.listener" class="WNC\SoldierBundle\EventListener\ParticipantAssociation">
+            <tag name="doctrine.event_listener" event="postPersist" />
+        </service>
         <service id="wnc_soldier.type.jqueryDate" class="WNC\SoldierBundle\Form\Extension\Type\JqueryDateType">
             <tag name="form.type" alias="jqueryDate" />
         </service>
@@ -33,10 +37,10 @@
             <argument type="service" id="fos_user.mailer" />
             <argument type="service" id="fos_user.util.token_generator" />
         </service>
-        <service id="wnc_soldier.security.interactive_login_listener" class="WNC\SoldierBundle\EventListener\InteractiveLoginListener">
+<!--        <service id="wnc_soldier.security.interactive_login_listener" class="WNC\SoldierBundle\EventListener\InteractiveLoginListener">
             <argument type="service" id="router" />
             <tag name="kernel.event_listener" event="security.interactive_login" method="onSecurityInteractiveLogin" priority="255" />
-        </service>
+        </service>-->
     </services>
     
     

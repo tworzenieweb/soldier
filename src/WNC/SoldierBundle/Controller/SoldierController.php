@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use WNC\SoldierBundle\Entity\Soldier;
 use WNC\SoldierBundle\Form\SoldierType;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Soldier controller.
  *
@@ -79,7 +79,6 @@ class SoldierController extends Controller
      * Finds and displays a Soldier entity.
      *
      * @Route("/{id}/show", name="soldier_show")
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      * @Template()
      */
     public function showAction($id)
@@ -119,7 +118,6 @@ class SoldierController extends Controller
      * Displays a form to create a new Soldier entity.
      *
      * @Route("/new", name="soldier_new")
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      * @Template()
      */
     public function newAction()
@@ -140,7 +138,6 @@ class SoldierController extends Controller
      * @Route("/create", name="soldier_create")
      * @Method("POST")
      * @Template("WNCSoldierBundle:Soldier:new.html.twig")
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function createAction(Request $request)
     {
@@ -151,14 +148,6 @@ class SoldierController extends Controller
         $form = $this->createForm(new SoldierType($user->getId()), $entity);
         $form->bind($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('soldier_show', array('id' => $entity->getId())));
-        }
 
         return array(
             'entity' => $entity,
@@ -170,7 +159,6 @@ class SoldierController extends Controller
      * Displays a form to edit an existing Soldier entity.
      *
      * @Route("/{id}/edit", name="soldier_edit")
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      * @Template()
      */
     public function editAction($id)
@@ -201,7 +189,6 @@ class SoldierController extends Controller
      * @Route("/{id}/update", name="soldier_update")
      * @Method("POST")
      * @Template("WNCSoldierBundle:Soldier:edit.html.twig")
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function updateAction(Request $request, $id)
     {
@@ -237,7 +224,6 @@ class SoldierController extends Controller
      *
      * @Route("/{id}/delete", name="soldier_delete")
      * @Method("POST")
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function deleteAction(Request $request, $id)
     {

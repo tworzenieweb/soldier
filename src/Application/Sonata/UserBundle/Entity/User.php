@@ -23,10 +23,24 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 class User extends BaseUser
 {
 
+  
     /**
      * @var integer $id
      */
     protected $id;
+    
+    /**
+     * @var \WNC\SoldierBundle\Entity\Soldier
+     */
+    protected $soldier;
+    
+    /**
+     *
+     * @var \WNC\SoldierBundle\Entity\Participant
+     */
+    protected $participant;
+
+    protected $openPassword;
 
     /**
      * Get id
@@ -39,8 +53,57 @@ class User extends BaseUser
     }
     
         // override methods for username and tie them with email field
-
+    
+    
+    public function __toString()
+    {
+        return sprintf('%s %s (%s)', $this->getFirstname(), $this->getLastname(), $this->getUsername());
+    }
+    
     /**
+     * 
+     * @return \WNC\SoldierBundle\Entity\Soldier
+     */
+    public function getSoldier()
+    {
+      return $this->soldier;
+    }
+    
+    public function setSoldier(\WNC\SoldierBundle\Entity\Soldier $soldier)
+    {
+      $this->soldier = $soldier;
+      $soldier->setUser($this);
+    }
+    
+    /**
+     * 
+     * @return \WNC\SoldierBundle\Entity\Participant
+     */
+    public function getParticipant()
+    {
+      return $this->participant;
+    }
+    
+    public function setParticipant(\WNC\SoldierBundle\Entity\Participant $participant)
+    {
+      $this->participant = $participant;
+      $participant->setUser($this);
+    }
+    
+    public function setPlainPassword($password) {
+      
+      $this->openPassword = $password;
+      parent::setPlainPassword($password);
+    }
+    public function getOpenPassword() {
+      return $this->openPassword;
+    }
+
+    public function setOpenPassword($openPassword) {
+      $this->openPassword = $openPassword;
+    }
+    
+        /**
      * Sets the email.
      *
      * @param string $email
@@ -64,12 +127,6 @@ class User extends BaseUser
         $this->setUsernameCanonical($emailCanonical);
 
         return parent::setEmailCanonical($emailCanonical);
-    }
-    
-    
-    public function __toString()
-    {
-        return sprintf('%s %s (%s)', $this->getFirstname(), $this->getLastname(), $this->getUsername());
     }
     
 }

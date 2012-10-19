@@ -22,66 +22,66 @@ use FOS\UserBundle\Model\UserManagerInterface;
 class UserAdmin extends Admin
 {
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function configureListFields(ListMapper $listMapper)
-    {
-        $listMapper
-            ->addIdentifier('username')
-            ->addIdentifier('firstname')
-            ->addIdentifier('lastname')
-            ->add('email')
-            ->add('createdAt')
-        ;
-
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function configureDatagridFilters(DatagridMapper $filterMapper)
-    {
-        $filterMapper
-            ->add('id')
-            ->add('username')
-            ->add('email')
-        ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->with('General')
-                ->add('email')
-            ->end()
-            ->with('Profile')
-                ->add('firstname')
-                ->add('lastname')
-            ->end()
-        ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function configureFormFields(FormMapper $formMapper)
-    {
-        $formMapper
-            ->with('General')
-                ->add('email')
-            ->end()
-            ->with('Profile')
-                ->add('firstname', null, array('required' => false))
-                ->add('lastname', null, array('required' => false))
-            ->end()
-        ;
-
-        
-        
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    protected function configureListFields(ListMapper $listMapper)
+//    {
+//        $listMapper
+//            ->addIdentifier('username')
+//            ->addIdentifier('firstname')
+//            ->addIdentifier('lastname')
+//            ->add('email')
+//            ->add('createdAt')
+//        ;
+//
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    protected function configureDatagridFilters(DatagridMapper $filterMapper)
+//    {
+//        $filterMapper
+//            ->add('id')
+//            ->add('username')
+//            ->add('email')
+//        ;
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    protected function configureShowFields(ShowMapper $showMapper)
+//    {
+//        $showMapper
+//            ->with('General')
+//                ->add('email')
+//            ->end()
+//            ->with('Profile')
+//                ->add('firstname')
+//                ->add('lastname')
+//            ->end()
+//        ;
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    protected function configureFormFields(FormMapper $formMapper)
+//    {
+//        $formMapper
+//            ->with('General')
+//                ->add('email')
+//            ->end()
+//            ->with('Profile')
+//                ->add('firstname', null, array('required' => false))
+//                ->add('lastname', null, array('required' => false))
+//            ->end()
+//        ;
+//
+//        
+//        
+//    }
 
 }
