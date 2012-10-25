@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: services.xml }
 
 framework:
     #esi:             ~
@@ -29,7 +30,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [WNCSoldierBundle]
+    bundles:        [WNCSoldierBundle, FOSUserBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -52,18 +53,23 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
         mapping_types:
             enum: string
+            
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        entity_managers:
+             default:
+                 auto_mapping: true
+                 mappings: ~
+                 dql:
+                     string_functions:
+                         match: WNC\SoldierBundle\Entity\MatchFunction
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
-    spool:     { type: memory }
+    transport: gmail
+    username:  tworzenieweb@gmail.com
+    password:  Jemvojpoacho
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
@@ -72,15 +78,26 @@ fos_user:
     group:
         group_class: Application\Sonata\UserBundle\Entity\Group
     registration:
+        confirmation:
+            enabled:    true
+            from_email:
+              address:        registration@isham.com
+              sender_name:    Isham Registration
         form:
             type: application_sonata_user_registration
+            name: application_sonata_user_registration
+            handler: wnc_soldier.form.handler.registration
 
         
 
 sonata_user:
     security_acl: true
 
+
+
 sonata_admin:
+        templates:
+          layout: SonataAdminBundle::admin_layout.html.twig
         security:
             handler: sonata.admin.security.handler.role
 
@@ -142,6 +159,7 @@ vich_uploader:
         product_image:
             uri_prefix: /uploads/pictures
             upload_destination: %kernel.root_dir%/../web/uploads/pictures
+            inject_on_load: false
             
 #            
 #genemu_form:
@@ -160,3 +178,18 @@ sonata_seo:
                 keywords:             foo bar
                 description:          L'Shem Shmira
                 robots:               index, follow
+                
+                
+symfony_cmf_routing_extra:
+        chain:
+            routers_by_id:
+                # enable the DynamicRouter with high priority to allow overwriting configured routes with content
+                #symfony_cmf_routing_extra.dynamic_router: 200
+                # enable the symfony default router with a lower priority
+                sonata.page.router: 150
+                router.default: 100
+                
+                
+stfalcon_tinymce:
+        include_jquery: true
+        tinymce_jquery: true
