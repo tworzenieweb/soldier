@@ -149,7 +149,7 @@ class DefaultController extends Controller
                     ->setSubject($values['topic'])
                     ->setFrom(array($values['email'] => $values['name']))
                     ->setReplyTo(array($values['email'] => $values['name']))
-                    ->setTo($this->container->getParameter('contact_email');)
+                    ->setTo($this->container->getParameter('contact_email'))
                     ->setContentType("text/html")
                     ->setBody($this->renderView('WNCSoldierBundle:Default:mail.html.twig', $values));
                 
