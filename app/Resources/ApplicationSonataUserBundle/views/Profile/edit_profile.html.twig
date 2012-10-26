@@ -1,19 +1,28 @@
-<form action="{{ path('fos_user_registration_register', {'type': type }) }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+<h4>Edit Your account</h4>
+<br />
+
+{% block fos_user_content %}
+<div class="sonata-user-edit-profile">
+
+    <form action="{{ path('sonata_user_profile_edit') }}" method="POST">
+       
+      
     {{ form_errors(form) }}
     
     {{ form_row(form.firstname) }}
     {{ form_row(form.lastname) }}
     {{ form_row(form.email) }}
     
-    {% if type == 'soldier' %}
+    {% if app.user.type == 'soldier' %}
 
     {{ form_row(form.soldier.city) }}
     {{ form_row(form.soldier.mothers_name) }}
     {{ form_row(form.soldier.service_end_date) }}
     {{ form_row(form.soldier.army_unit) }}
     {{ form_row(form.soldier.gender) }}
-    {{ form_row(form.soldier.file) }}
     {{ form_row(form.soldier.self_description) }}
     {{ form_row(form.soldier.video) }}
     {{ form_row(form.soldier.wants_to_contact) }}
@@ -23,7 +32,6 @@
   
     {{ form_row(form.participant.gender) }}
     {{ form_row(form.participant.city) }}
-    {{ form_row(form.participant.file) }}
     {{ form_row(form.participant.comments) }}
     {{ form_row(form.participant.phone_number) }}
     {{ form_row(form.participant.occupation) }}
@@ -39,8 +47,13 @@
     
     {{ form_row(form._token) }}
     {{ form_row(form.plainPassword) }}
-  
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
-</form>
+      
+
+        <input type="submit" name="submit" value="Update" />
+    </form>
+
+</div>
+{% endblock fos_user_content %}
+
+{% endblock %}
+

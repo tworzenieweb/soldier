@@ -24,10 +24,9 @@ class ParticipantType extends AbstractType
                     'label' => 'Male / Female',
                     'data' => 0
                 ))
-                ->add('file', null, array(
+               ->add('file', 'file', array(
                     'required' => false,
-                    'data_class' => 'Symfony\Component\HttpFoundation\File\File',
-                    'label' => 'Picture'
+                    'data_class' => 'Symfony\Component\HttpFoundation\File\File'
                 ))
                 ->add('birth_date', 'date', array(
                     'widget' => 'single_text',
@@ -73,7 +72,6 @@ class ParticipantType extends AbstractType
                 ->add('comments', 'textarea', array(
                     'required' => false
                 ))
-                ->add('user', new NameFormType('Application\Sonata\UserBundle\Entity\User'))
                 ->add('city', 'city_selector', array('attr' => array('placeholder' => 'City name')))
 
 
@@ -85,6 +83,7 @@ class ParticipantType extends AbstractType
         $resolver->setDefaults(array(
             'validation_groups' => array('Soldier'),
             'cascade_validation' => true,
+            'data_class' => "WNC\SoldierBundle\Entity\Participant"
         ));
     }
 

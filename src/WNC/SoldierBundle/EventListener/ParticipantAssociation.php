@@ -21,11 +21,12 @@ class ParticipantAssociation
 
             try {
               /* @var $soldier \WNC\SoldierBundle\Entity\Soldier */
-              $soldier = $rep->findMatchingSoldier($entity);
-
-              $soldier->setParticipant($entity);
+              $soldier = $soldierRepository->findMatchingSoldier($entity);;
               
-              $entityManager->persist($soldier);
+              if($soldier) {
+                $soldier->setParticipant($entity);
+                $entityManager->persist($soldier);
+              }
               
             }
             catch(\Doctrine\ORM\NoResultException $e)

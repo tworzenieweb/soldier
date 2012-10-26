@@ -79,7 +79,7 @@ class Soldier
     /**
      * @var string $comments
      *
-     * @ORM\Column(name="comments", type="string", length=1000)
+     * @ORM\Column(name="comments", type="string", length=1000, nullable=true)
      */
     private $comments;
 
@@ -493,6 +493,16 @@ class Soldier
       
       return $this;
       
+    }
+    
+    public function getFile()
+    {
+      return $this->file;
+    }
+    
+    public function setFile($file)
+    {
+      $this->file = $file;
     }
     
 }

@@ -14,13 +14,6 @@ class RegistrationController extends BaseController
       
         $type = $request->get('type');
        
-        if($type == 'participant') {
-          $this->container->set('fos_user.model.user.class', new \WNC\SoldierBundle\Entity\Participant());
-          
-        }
-        else {
-          $this->container->set('fos_user.model.user.class', new \WNC\SoldierBundle\Entity\Soldier());
-        }
         
         
         $fromHomepage = $request->getUri() != $request->headers->get('referer');
@@ -28,7 +21,9 @@ class RegistrationController extends BaseController
         $formHandler = $this->container->get('fos_user.registration.form.handler');
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
         
+        
         $process = $formHandler->process($confirmationEnabled);
+        
         if ($process) {
             $user = $form->getData();
             
@@ -43,10 +38,9 @@ class RegistrationController extends BaseController
         }
         else if($fromHomepage) {
           
-            $entity = $this->container->get('fos_user.model.user.class');
           
             $form = $this->container->get('form.factory')->createNamed($form->getName(), 
-                    new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType($entity), 
+                    new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType($this->container), 
                     $form->getData());
         }
 

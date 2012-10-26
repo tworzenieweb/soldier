@@ -129,4 +129,11 @@ class User extends BaseUser
         return parent::setEmailCanonical($emailCanonical);
     }
     
+    public function getType()
+    {
+      
+      return $this->getParticipant() ? 'participant' : 'soldier';
+      
+    }
+    
 }

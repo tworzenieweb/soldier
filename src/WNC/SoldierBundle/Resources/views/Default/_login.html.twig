@@ -26,7 +26,7 @@
 {% else %}
 <div class="twelve columns">
 
-   <p class="text-right">You're logged as <span class="radius label">{{ app.user.firstname }} {{ app.user.lastname }}</span> <a href="{{ path('fos_user_security_logout') }}">Logout</a></p>
+   <p class="text-right">You're logged as <a href="{{ path('sonata_user_profile_edit') }}"><span class="radius label">{{ app.user.firstname }} {{ app.user.lastname }}</span></a> <a href="{{ path('fos_user_security_logout') }}">Logout</a></p>
 
 </div>
 

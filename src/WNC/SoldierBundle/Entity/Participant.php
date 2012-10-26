@@ -136,7 +136,7 @@ class Participant
     private $city_id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Activity", inversedBy="soldiers", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Activity", inversedBy="participants", cascade={"persist"})
      * @ORM\JoinColumn(name="activity_id", referencedColumnName="id", nullable=false)
      */
     private $activity;
@@ -554,6 +554,16 @@ class Participant
       
       return $this;
       
+    }
+    
+    public function getFile()
+    {
+      return $this->file;
+    }
+    
+    public function setFile($file)
+    {
+      $this->file = $file;
     }
     
 }

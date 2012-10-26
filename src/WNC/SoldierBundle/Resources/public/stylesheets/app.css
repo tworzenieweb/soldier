@@ -34,14 +34,14 @@
     }
     
     
-    .wnc_soldierbundle_soldiertype_gender label, .wnc_soldierbundle_soldiertype_gender .radio  {
+    .application_sonata_user_registration_soldier_gender label, .application_sonata_user_registration_soldier_gender .radio  {
         
         display: inline-block;
         margin-right: 25px;
 /*        margin-left: 25px;*/
         
     }
-    .wnc_soldierbundle_participanttype_gender label, .wnc_soldierbundle_participanttype_gender .radio  {
+    .application_sonata_user_registration_participant_gender label, .application_sonata_user_registration_participant_gender .radio  {
         
         display: inline-block;
         margin-right: 25px;
@@ -49,7 +49,7 @@
         
     }
     
-    .wnc_soldierbundle_participanttype_volunteer label, .wnc_soldierbundle_participanttype_volunteer .radio  {
+    .application_sonata_user_registration_participant_volunteer label, .application_sonata_user_registration_participant_volunteer .radio  {
         
         display: inline-block;
         margin-right: 25px;

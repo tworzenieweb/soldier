@@ -14,33 +14,32 @@ namespace Application\Sonata\UserBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\AbstractType as BaseForm;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-class RegistrationFormType extends BaseForm {
+use  Symfony\Component\Security\Core\SecurityContext;
+
+class EditFormType extends BaseForm {
 
   
-  protected $container;
-  protected $type;
+  
+  private $context;
 
-  public function __construct(ContainerInterface $container = null)
+  public function __construct(SecurityContext $context)
   {
-      $this->container = $container;
+      $this->context = $context;
   }
-  
-  public function setType($type) 
+
+  public function getUser()
   {
-    $this->type = $type;
+      return $this->context->getToken()->getUser();
   }
 
   public function buildForm(FormBuilderInterface $builder, array $options) {
 
     
-    $type = $this->type ? $this->type : $this->container->get('request')->get('type');
-    
 
-    if ($type == 'participant') {
+    if ($this->getUser()->getType() == 'participant') {
       $label = 'participant';
       $form = '\WNC\SoldierBundle\Form\ParticipantType';
-    } else if($type == 'soldier') {
+    } else if($this->getUser()->getType() == 'soldier') {
       $label = 'soldier';
       $form = '\WNC\SoldierBundle\Form\SoldierType';
     }
@@ -69,7 +68,7 @@ class RegistrationFormType extends BaseForm {
   }
 
   public function getName() {
-    return 'application_sonata_user_registration';
+    return 'application_sonata_user_edit';
   }
 
   public function setDefaultOptions(OptionsResolverInterface $resolver) {

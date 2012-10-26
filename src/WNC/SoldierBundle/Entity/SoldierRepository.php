@@ -21,9 +21,15 @@ class SoldierRepository extends EntityRepository
         $q->select('s')
                 ->addSelect(sprintf('MATCH(s.city = %d) AS orderColumn', $participant->getCityId()))
                 ->from('WNC\SoldierBundle\Entity\Soldier', 's')
-                ->orderBy('orderColumn', 'DESC');
+                ->orderBy('orderColumn', 'DESC')
+                ->setMaxResults(1);
         
-        return $q->getQuery()->getSingleResult();
+        $rs = $q->getQuery()->getOneOrNullResult();
+        
+        if(count($rs)) {
+          return current($rs);
+        }
+        
     }
   
 }

@@ -98,8 +98,14 @@ class DefaultController extends Controller
         $participant = new Participant();
         $soldier = new Soldier();
         
-        $form2   = $this->createForm(new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType($participant));
-        $form   = $this->createForm(new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType($soldier));
+        $f = new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType();
+        $f2 = new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType();
+        
+        $f->setType('participant');
+        $f2->setType('soldier');
+        
+        $form2   = $this->createForm($f);
+        $form   = $this->createForm($f2);
       
         return array(
             'form'   => $form->createView(),

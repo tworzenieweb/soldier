@@ -1,5 +1,12 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends 'WNCSoldierBundle::base.html.twig' %}
+
+{% block content %}	
+<h4>Registration success</h4>
 
 {% block fos_user_content %}
+
     <p>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p>
+
 {% endblock fos_user_content %}
+
+{% endblock %}
