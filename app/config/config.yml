@@ -87,11 +87,18 @@ fos_user:
             type: application_sonata_user_registration
             name: application_sonata_user_registration
             handler: wnc_soldier.form.handler.registration
+            
+    service:              
+        mailer:               application_sonata_user.mailer
+
 
         
 
 sonata_user:
     security_acl: true
+    profile:
+      form:
+        type: application_sonata_user_edit
 
 
 
@@ -110,7 +117,8 @@ sonata_block:
             contexts:   [admin]
 
         sonata.block.service.text:
-        sonata.block.service.action:
+        sonata.page.block.container:
+        sonata.page.block.children_pages:
         sonata.block.service.rss:
           
 sonata_page:
