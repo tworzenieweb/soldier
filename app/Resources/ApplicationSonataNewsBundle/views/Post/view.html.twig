@@ -1,0 +1,40 @@
+{#
+
+/*
+ * This file is part of the Sonata package.
+ *
+ * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+#}
+
+<div class="sonata-blog-post-container">
+    <div class="sonata-blog-post-date-container">
+        {{ post.publicationDateStart | format_date }}
+    </div>
+
+    <h4 class="sonata-blog-post-title">
+        <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a>
+        <span class="sonata-blog-post-author">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</span>
+    </h4>
+
+    <div class="sonata-blog-post-content">
+        {{ post.content|raw }}
+    </div>
+
+    {% render 'SonataNewsBundle:Post:comments' with {'postId': post.id} %}
+
+    {% if post.iscommentable %}
+        {% render 'SonataNewsBundle:Post:addCommentForm' with {
+            'postId': post.id,
+            'form': form
+        } %}
+    {% else %}
+        <div>
+            {{ 'message_comments_are_closed'|trans({}, 'SonataNewsBundle') }}
+        </div>
+    {% endif %}
+</div>

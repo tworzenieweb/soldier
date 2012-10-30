@@ -147,7 +147,67 @@ sonata_page:
     catch_exceptions:
         not_found: [404]    # render 404 page with "not_found" key (name generated: _page_internal_error_{key})
         fatal:     [500]    # so you can use the same page for different http errors or specify specific page for each error
-        
+  
+
+sonata_media:
+    db_driver:       doctrine_orm # | doctrine_mongodb
+    default_context: default
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+
+            formats:
+                small: { width: 100, quality: 100}
+                big:   { width: 820 , quality: 100}
+
+        news:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                abstract: { width: 100, quality: 100}
+                wide:    { width: 820 , quality: 100}
+
+    filesystem:
+        # define where the uploaded file will be stored
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     true
+    cdn:
+        # define the public base url for the uploaded media
+        server:
+            path:      /uploads/media
+    providers:
+        file:
+            resizer:    false
+
+    pixlr:
+        enabled:  true
+        referrer: L'Shem Shmira
+
+    resizer:
+        simple:
+#            mode:  outbound
+            mode:  inset
+
+sonata_news:
+    title:        L'Shem Shmira
+    link:         http://lshemshmira.com
+    description:  Soldier
+    salt:         'secureToken'
+    permalink_generator: sonata.news.permalink.date # sonata.news.permalink.category
+
+
+    comment:
+        notification:
+            emails:   [lukasz.adamczewski@polcode.pl]
+            from:     no-reply@lshemshmira.com
+            template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'      
         
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
@@ -201,3 +261,18 @@ symfony_cmf_routing_extra:
 stfalcon_tinymce:
         include_jquery: true
         tinymce_jquery: true
+        
+        
+sonata_intl:
+    timezone:
+        # default timezone used as fallback
+        default: Europe/London
+        
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig

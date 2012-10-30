@@ -1,73 +1,27 @@
-<h1>Participant</h1>
+{% extends 'WNCSoldierBundle::base.html.twig' %}
 
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Gender</th>
-            <td>{{ entity.gender }}</td>
-        </tr>
-        <tr>
-            <th>Volunteer</th>
-            <td>{{ entity.volunteer }}</td>
-        </tr>
-        <tr>
-            <th>Occupation</th>
-            <td>{{ entity.occupation }}</td>
-        </tr>
-        <tr>
-            <th>Picture</th>
-            <td>{{ entity.picture }}</td>
-        </tr>
-        <tr>
-            <th>Organization</th>
-            <td>{{ entity.organization }}</td>
-        </tr>
-        <tr>
-            <th>Phone_number</th>
-            <td>{{ entity.phonenumber }}</td>
-        </tr>
-        <tr>
-            <th>Video</th>
-            <td>{{ entity.video }}</td>
-        </tr>
-        <tr>
-            <th>Comments</th>
-            <td>{{ entity.comments }}</td>
-        </tr>
-        <tr>
-            <th>Activity_start_date</th>
-            <td>{{ entity.activitystartdate|date('Y-m-d H:i:s') }}</td>
-        </tr>
-        <tr>
-            <th>Activity_end_date</th>
-            <td>{{ entity.activityenddate|date('Y-m-d H:i:s') }}</td>
-        </tr>
-        <tr>
-            <th>Wants_to_contact</th>
-            <td>{{ entity.wantstocontact }}</td>
-        </tr>
-    </tbody>
-</table>
+{% block content %}	
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('participant') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('participant_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('participant_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+
+
+<h4>Participant {{ entity.user.firstname }} {{ entity.user.lastname }}</h4>
+<br />
+{% for label, value in map %}
+
+    <div class="offset-by-one eleven columns space-30">
+        
+        <div class="four columns"><strong>{{ label }}</strong></div>
+        <div class="eight columns">{{ value|raw }}</div>
+
+    </div>
+
+{% endfor %}
+
+
+    <div class="six columns">
+    <a href="{{ path('participant') }}" class="button">Back to the list</a>
+    </div>
+
+    
+
+{% endblock %}	

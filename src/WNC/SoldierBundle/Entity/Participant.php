@@ -235,6 +235,20 @@ class Participant
     {
         return $this->gender;
     }
+    
+    public function getGenderValue()
+    {
+        
+        return $this->gender ? 'female' : 'male';
+        
+    }
+    
+     public function getPictureTag()
+    {
+        
+        return sprintf('<img src="/%s" alt="%s %s" />', $this->getWebPath(), $this->getUser()->getFirstname(), $this->getUser()->getLastname());
+        
+    }
 
     /**
      * Set volunteer

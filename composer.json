@@ -29,7 +29,12 @@
         "stfalcon/tinymce-bundle": "dev-master",
         "sonata-project/page-bundle": "dev-master",
         "genemu/form-bundle": "2.1.x-dev",
-        "sensio/generator-bundle": "2.1.x-dev"
+        "sensio/generator-bundle": "2.1.x-dev",
+        "sonata-project/news-bundle": "dev-master",
+        "sonata-project/media-bundle": "dev-master",
+        "sonata-project/formatter-bundle": "dev-master",
+        "knplabs/knp-markdown-bundle": "1.1.1",
+        "sonata-project/intl-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

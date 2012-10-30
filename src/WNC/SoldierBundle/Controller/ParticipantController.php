@@ -47,7 +47,7 @@ class ParticipantController extends Controller
         $entity = $em->getRepository('WNCSoldierBundle:Participant')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Participant entity.');
+            throw $this->createNotFoundException('Unable to find Soldier entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -55,6 +55,19 @@ class ParticipantController extends Controller
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'map' => array(
+                'First Name' => $entity->getUser()->getFirstname(),
+                'Last Name' => $entity->getUser()->getLastname(),
+                'Email Address' => $entity->getUser()->getEmail(),
+                'Birth date' => $entity->getBirthDate()->format('Y-m-d'),
+                'City' => $entity->getCity()->getName(),
+                'Occupation' => $entity->getOccupation(),
+                'Phone number' => $entity->getPhoneNumber(),
+                'Male/Female' => $entity->getGenderValue(),
+                'Picture' => $entity->getPictureTag(),
+                'Comments' => $entity->getComments(),
+               
+            )
         );
     }
 

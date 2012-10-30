@@ -3,6 +3,7 @@
 namespace WNC\SoldierBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections;
 
 /**
  * WNC\SoldierBundle\Entity\Activity
@@ -28,6 +29,15 @@ class Activity
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Participant", mappedBy="activity")
+     */
+    private $participants;
+    
+    public function __construct() {
+      $this->participants = ArrayCollection();
+    }
+    
 
     /**
      * Get id
