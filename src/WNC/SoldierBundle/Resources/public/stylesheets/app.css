@@ -13,6 +13,167 @@
    Shared Styles
 ----------------------------------------- */
 
+body {
+  background: #dde3d2 url(../images/bg.png) top left repeat-x;
+}
+
+.jumbotron {
+  background: url(../images/header.jpg) no-repeat;
+  height: 215px;
+  border-bottom: 10px solid #000;
+  margin-bottom: 12px;
+}
+
+.login {
+  width: 100%;
+  background: #6a787e;
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  padding: 5px 12px;
+  color: #fff;
+  font-family: serif;
+  
+}
+
+.slider {
+    
+    background: url(../images/slider.png) top left no-repeat;
+    height: 414px;
+
+}
+
+.slider h2 {
+    color: #FFFFFF;
+    font-family: 'Nixie One',cursive;
+    font-size: 30px;
+    font-weight: normal;
+    margin-top:0;
+}
+
+
+.slider .text {
+  color: #fff;
+  line-height: 150%;
+
+  
+  margin-bottom: 15px;
+  
+}
+
+.slider .text p {
+    border-bottom: 1px dashed #c0c0a6;
+    padding-bottom: 5px;
+}
+
+.content {
+  background: #fff;
+  padding-bottom: 30px;
+}
+
+input.rounded {
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
+  border: none;
+}
+
+input.rounded:-webkit-autofill {
+  background: #fff;
+}
+
+.logo {
+  width: 470px;
+  height: 96px;
+  display: block;
+  background: url(../images/logo.png) no-repeat;
+}
+
+.menu-block {
+  background-color: #6a787e;
+  margin-right: 3px;
+  height: 102px;
+  position: relative;
+}
+
+.menu-block:hover {
+  background-color: #5e6162;
+}
+
+.menu-block.about {
+  background-image: url(../images/about_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+    
+}
+.menu-block.mission {
+  background-image: url(../images/mission_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+    
+}
+
+.menu-block.faq {
+  background-image: url(../images/faq_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+    
+}
+
+.menu-block.press {
+  background-image: url(../images/press_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+    
+}
+
+.menu-block.contact {
+  background-image: url(../images/contact_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+}
+
+.menu-block.donate {
+  background-image: url(../images/donate_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+    
+}
+
+.menu-block.signup {
+  background-image: url(../images/signup_v.png);
+  background-position-x: left;
+  background-repeat: no-repeat;
+    
+}
+
+.menu-block a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.menu-block a span {
+  display: none;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: #fff;
+  text-align: right;
+}
+
+.menu-block a big {
+  display:block;
+  font-weight: normal;
+  font-family: serif;
+  font-size: 19px;
+}
+
+.menu-block.active a span {
+  
+  display: block;
+  
+}
+
+
 	p.intro { font-size: 18px; line-height: 1.3; color: #555; }
 	h1 small, h2 small, h3 small, h4 small, h5 small { color: #777; font-size: 60%; font-weight: normal; }
     .login-form {
@@ -96,9 +257,15 @@
 ----------------------------------------- */
 
 
-	footer { padding-bottom: 20px; }
-	footer .row { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; }
+	footer { padding-bottom: 20px;
+           margin-top: 18px;
+  
+  }
 
+  footer .bg {
+    background: #6a787e url(../images/hebrev_bg.jpg) top left no-repeat;
+    height: 212px;
+  }
 
 /* -----------------------------------------
    Homepage
@@ -146,3 +313,211 @@
   .nav-bar > li > a:first-child {
     font-size: 13px;
   }
+  
+  
+  
+.connect_widget {
+  background-color: #333;
+}
+
+.fbDarkWidget .fbConnectWidgetHeaderTitle {
+background-color: #494B50;
+border: 1px solid #444;
+}
+
+.fb_iframe_widget  {
+  background-color: #494B50 !important;
+  margin: 5px;
+}
+
+.content h2, .nixie {
+
+font-family: 'Nixie One', cursive;
+font-weight: normal;
+border-bottom: 1px dashed #ededed;
+
+}
+
+.participants p {
+  font-family: 'Nixie One', cursive;
+  font-size: 20pt;
+  padding: 10px;
+  background: #fff;
+  filter: alpha(opacity:0.7);
+  KHTMLOpacity: 0.7;
+  MozOpacity: 0.7;
+  -khtml-opacity:.70;
+  -ms-filter:"alpha(opacity=70)";
+  -moz-opacity:.70;
+  filter:alpha(opacity=70);
+  opacity:.70;
+  padding-top: 4px;
+
+}
+
+footer h4 {
+  font-family: 'Nixie One', cursive;
+  font-size: 12pt;
+}
+.icon {
+  background: url(../images/sprite.png) no-repeat top left;
+  width: 32px; height: 32px;
+  display: block;
+}
+
+.row .icon span {
+  display:none;
+}
+
+.icons .row {
+  margin-bottom: 5px;
+}
+
+.icons, .participants {
+  margin-top: 30px;
+}
+
+.icon-delicious{ background-position: 0 0;  } 
+.icon-facebook{ background-position: 0 -82px; } 
+.icon-flickr{ background-position: 0 -164px;} 
+.icon-google{ background-position: 0 -246px; } 
+.icon-linkedin{ background-position: 0 -328px;} 
+.icon-rss{ background-position: 0 -410px; } 
+.icon-twitter{ background-position: 0 -492px; } 
+.icon-youtube{ background-position: 0 -574px; } 
+
+
+
+/*blog*/
+
+.sonata-blog-post-title a {
+  color: #000;
+}
+
+.sonata-blog-post-title {
+  color: #000;
+  margin-bottom: 2px;
+}
+
+.sonata-blog-post-date-container {
+  margin-bottom: 15px;
+  color: #44a9bd;
+  font-weight: bold;
+}
+
+.continue {
+  color: #6a787e;
+  text-decoration: underline;
+}
+
+.sonata-blog-post-abtract {
+  color: #707070;
+}
+
+
+
+ul.tabs {
+    list-style:none;
+    margin:0 !important;
+    padding:0;
+    border-bottom:1px solid #666;
+    height:30px;
+}
+
+/* single tab */
+ul.tabs li {
+    float:left;
+    text-indent:0;
+    padding:0;
+    margin:0 !important;
+    list-style-image:none !important;
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a {
+    background: url(../images/blue.png) no-repeat -420px 0;
+    font-size:11px;
+    display:block;
+    height: 30px;
+    line-height:30px;
+    width: 134px;
+    text-align:center;
+    text-decoration:none;
+    color:#333;
+    padding:0px;
+    margin:0px;
+    position:relative;
+    top:1px;
+}
+
+ul.tabs a:active {
+    outline:none;
+}
+
+/* when mouse enters the tab move the background image */
+ul.tabs a:hover {
+    background-position: -420px -31px;
+    color:#fff;
+}
+
+/* active tab uses a class name "current". its highlight is also done by moving the background image. */
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+    background-position: -420px -62px;
+    cursor:default !important;
+    color:#000 !important;
+}
+
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+
+/* width 1 */
+ul.tabs a.s { background-position: -553px 0; width:81px; }
+ul.tabs a.s:hover { background-position: -553px -31px; }
+ul.tabs a.s.current  { background-position: -553px -62px; }
+
+/* width 2 */
+ul.tabs a.l { background-position: -248px -0px; width:174px; }
+ul.tabs a.l:hover { background-position: -248px -31px; }
+ul.tabs a.l.current { background-position: -248px -62px; }
+
+
+/* width 3 */
+ul.tabs a.xl { background-position: 0 -0px; width:248px; }
+ul.tabs a.xl:hover { background-position: 0 -31px; }
+ul.tabs a.xl.current { background-position: 0 -62px; }
+
+
+/* tab pane styling */
+.tabs-content > div {
+    display:none;
+    padding:15px 10px;
+    border:1px solid #999;
+    border-top:0;
+    height:306px;
+    font-size:14px;
+    background-color:#fff;
+}
+
+.spoiler > div {
+  height: 110px;
+  padding: 10px !important;
+}
+
+.spoiler .blue {
+  background: #6a787e;
+  color: #fff;
+
+}
+
+.spoiler .blue h3 {
+  font-size: 21px;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.spoiler .gray {
+  background: #d3d7d9;
+    padding: 40px !important;
+}

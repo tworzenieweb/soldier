@@ -1,99 +1,135 @@
-body.cms-edit-mode div.cms-container {
-    min-height: 50px;
+/* container for slides */
+.images {
+    
+    position:relative;
+    height:270px;
 
-    background: #999; /* for non-css3 browsers */
-
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#eeeeee'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee)); /* for webkit browsers */
-    background: -moz-linear-gradient(top,  #ddd,  #eee); /* for firefox 3.6+ */
-
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 1px 3px #8493A6;
-    margin: 1px;
+    width:100%;
+    cursor:pointer;
 }
 
-body.cms-edit-mode div.cms-block-element {
-    min-height: 25px;
-    margin: 2px;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 1px 3px #8493A6;
+#slider {
+  width: 960px;
 }
 
-body.cms-edit-mode {
-    background-color: white !important;
-    background-image: none !important;
-    color: black !important;
-    padding-top: 40px;
-}
-
-body.cms-edit-mode div.cms-block-element {
-    min-height: 20px;
-    background-color: #BE9B4D;
-}
-
-body.cms-edit-mode div.cms-container-root {
-    padding-top: 15px;
-    background-color: #C53214;
-    padding-bottom: 15px
-}
-
-body.cms-edit-mode div.cms-block-hand-over {
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BE9B4D', endColorstr='#eeeeee'); /* for IE */
-    background: -webkit-gradient(linear, left top, left bottom, from(#BE9B4D), to(#eee)); /* for webkit browsers */
-    background: -moz-linear-gradient(top,  #BE9B4D,  #eee); /* for firefox 3.6+ */
-    cursor: pointer;
-}
-
-body.cms-edit-mode div.cms-container-start {
-    background: #cccccc;
-}
-
-body.cms-edit-mode div.cms-container.cms-block-internal {
-    background: #FF4C00;
-}
-
-body.cms-edit-mode div.cms-container {
-    background: #A12000;
-}
-
-body.cms-edit-mode div.cms-container:hover {
-    background-color: #cccccc;
-}
-
-div.sonata-page-top-bar {
-
-}
-
-div.sonata-page-top-bar label {
-    color: #BFBFBF;
-}
-
-body.cms-edit-mode div.cms-block-start {
-    background: white;
-}
-
-body.cms-edit-mode div.cms-block-placeholder {
-    background: yellow;
-}
-
-body.cms-edit-mode div.cms-fake-block {
-    height: 1px;
-    min-height: 1px;
-    background: #cccccc;
-}
-
-body div.cms-fake-block {
+/* single slide */
+.images > div {
     display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    margin:7px;
+    padding:15px 30px 15px 15px;
+    height:256px;
+    font-size:12px;
 }
 
-textarea.title {
-    font-size: 1.5em;
-    font-family: "Lucida Grande";
-    height: 100px;
-    width: 500px
+div.youtube {
+  float: left;
+  width: 50%;
+  
 }
 
-body.cms-edit-mode div.cms-container {
-    min-height: 50px;
-    min-width: 150px;
+div.text {
+  width: 45%;
+  float: left;
+  margin-left: 5%;
+}
+
+
+/* tabs (those little circles below slides) */
+.slider-tabs {
+  margin-top: 12px;
+  margin-left: 40px;
+}
+
+/* single tab */
+.slider-tabs a {
+    width:164px;
+    height:118px;
+    float:left;
+    margin-right:10px;
+    border: 1px solid #fff;
+    display:block;
+    overflow: hidden;
+    position: relative
+}
+
+.slider-tabs a span {
+  
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  background: #000;
+  filter: alpha(opacity:0.7);
+  KHTMLOpacity: 0.7;
+  MozOpacity: 0.7;
+  -khtml-opacity:.70;
+  -ms-filter:"alpha(opacity=70)";
+  -moz-opacity:.70;
+  filter:alpha(opacity=70);
+  opacity:.70;
+  height: 20px;
+  color: #fff;
+  left: 0;
+  z-index: 999;
+  
+}
+
+/* mouseover state */
+.slidetabs a:hover {
+    background-position:0 -8px;
+}
+
+/* active state (current page state) */
+.slider-tabs a.current span {
+    font-weight: bold;
+}
+
+
+/* prev and next buttons */
+.forward, .backward {
+    float:left;
+    margin-top:140px;
+    background:#fff url(/media/img/scrollable/arrow/hori_large.png) no-repeat;
+    display:block;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+    font-size:1px;
+    text-indent:-9999em;
+}
+
+/* next */
+.forward { background-position: 0 -30px; clear:right; }
+.forward:hover { background-position:-30px -30px; }
+.forward:active	{ background-position:-60px -30px; }
+
+
+/* prev */
+.backward:hover	{ background-position:-30px 0; }
+.backward:active { background-position:-60px 0; }
+
+/* disabled navigational button. is not needed when tabs are
+   configured with rotate: true */
+.disabled {
+    visibility:hidden !important;
+}
+
+.participants-list {
+  background: #c7d3d8;
+  margin-top: 20px;
+  -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
+  
+}
+
+.participants-list .row {
+  font-size: 10px !important; 
+  border-bottom: 1px solid #bcc6ca;
+  margin-bottom: 6px;
+}
+
+.participants-list h5 {
+  font-family: 'Nixie One',cursive;
+  font-weight: normal;
 }

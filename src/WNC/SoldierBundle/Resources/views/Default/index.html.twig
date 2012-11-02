@@ -1,93 +1,188 @@
-{% extends 'WNCSoldierBundle::base.html.twig' %}
+{% extends 'WNCSoldierBundle::layout.html.twig' %}
 
+      
+{% block container %}
+<div class="row collapse" id="slider">
 
-{% block content %}
+    <div class="twelve columns slider">
+    
+<!-- container for the slides -->
+<div class="images">
 
-<div class="six columns">
-
-<dl class="tabs">
-  <dd class="active"><a href="#simple1">Soldier</a></dd>
-  <dd><a href="#simple2">Participant</a></dd>
-</dl>
-
-<ul class="tabs-content">
-  <li class="active" id="simple1Tab">
-    <form action="{{ path('fos_user_registration_register', {'type': 'soldier'}) }}" method="post" {{ form_enctype(form) }}>
-    <div class="row">
-        <div class="six columns">
-            {{ form_errors(form.firstname) }}
-            {{ form_widget(form.firstname) }}
-        </div>
-        <div class="six columns">
-            {{ form_errors(form.soldier.mothers_name) }}
-            {{ form_widget(form.soldier.mothers_name) }}
-        </div>
+  <!-- first slide -->
+  <div>
+    <div class="youtube">
+    
+       <iframe width="100%" height="220" src="http://www.youtube.com/embed/bn9H8hbAAWQ?wmode=transparent" frameboarder="0" allowfullscreen></iframe>
+    
     </div>
-    <div class="row">
-        <div class="six columns">
-            {{ form_errors(form.soldier.city) }}
-            {{ form_widget(form.soldier.city) }}
-        </div>
-        <div class="six columns">
-            {{ form_errors(form.email) }}
-            {{ form_widget(form.email) }}
-        </div>
+    <div class="text">
+      <h2>Lorem Ipsum Dolor Emet 1</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Maecenas volutpat tempus enim, nec iaculis neque pulvinar quis. 
+          Phasellus vitae eleifend purus. Ut augue orci, cursus id tempus sit amet, cursus in libero. 
+          Nam at nulla dui. Mauris a eros nisi, ut sollicitudin ligula. 
+          </p>
     </div>
-    <div class="row">
-        <div class="six columns">
-            <button type="submit" class="button">Sign Up</button>
-        </div>
+
+  </div>
+  <!-- first slide -->
+  <div>
+    <div class="youtube">
+    
+       <iframe width="100%" height="220" src="http://www.youtube.com/embed/4PE-5hW4lp0?wmode=transparent" frameboarder="0" allowfullscreen></iframe>
+    
     </div>
-    {{ form_row(form.plainPassword) }}
-    {{ form_widget(form._token) }}
+    <div class="text">
+      <h2>Lorem Ipsum Dolor Emet 2</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Maecenas volutpat tempus enim, nec iaculis neque pulvinar quis. 
+          Phasellus vitae eleifend purus. Ut augue orci, cursus id tempus sit amet, cursus in libero. 
+          Nam at nulla dui. Mauris a eros nisi, ut sollicitudin ligula. 
+          </p>
+    </div>
 
-    </form>
+  </div>
+  <!-- first slide -->
+  <div>
+    <div class="youtube">
+    
+       <iframe width="100%" height="220" src="http://www.youtube.com/embed/bn9H8hbAAWQ?wmode=transparent" frameboarder="0" allowfullscreen></iframe>
+    
+    </div>
+    <div class="text">
+      <h2>Lorem Ipsum Dolor Emet 3</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Maecenas volutpat tempus enim, nec iaculis neque pulvinar quis. 
+          Phasellus vitae eleifend purus. Ut augue orci, cursus id tempus sit amet, cursus in libero. 
+          Nam at nulla dui. Mauris a eros nisi, ut sollicitudin ligula. 
+          </p>
+    </div>
 
-</li>
-  <li id="simple2Tab">
-    <form action="{{ path('fos_user_registration_register', {'type': 'participant'}) }}" method="post" {{ form_enctype(form2) }}>
-        <div class="row">
-            <div class="six columns">
-                {{ form_errors(form2.lastname) }}
-                {{ form_widget(form2.lastname) }}
-            </div>
-            <div class="six columns">
-                {{ form_errors(form2.firstname) }}
-                {{ form_widget(form2.firstname) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="six columns">
-                {{ form_errors(form2.participant.city) }}
-                {{ form_widget(form2.participant.city) }}
-            </div>
-            <div class="six columns">
-                {{ form_errors(form2.email) }}
-                {{ form_widget(form2.email) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="six columns">
-                <button type="submit" class="button">Sign Up</button>
-            </div>
-        </div>
+  </div>
+  
+  <div>
+    <div class="youtube">
+    
+       <iframe width="100%" height="220" src="http://www.youtube.com/embed/4PE-5hW4lp0?wmode=transparent" frameboarder="0" allowfullscreen></iframe>
+    
+    </div>
+    <div class="text">
+      <h2>Lorem Ipsum Dolor Emet 4</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Maecenas volutpat tempus enim, nec iaculis neque pulvinar quis. 
+          Phasellus vitae eleifend purus. Ut augue orci, cursus id tempus sit amet, cursus in libero. 
+          Nam at nulla dui. Mauris a eros nisi, ut sollicitudin ligula. 
+          </p>
+    </div>
 
-    {{ form_row(form2.plainPassword) }}
-    {{ form_widget(form2._token) }}
+  </div>
+  
+  <div>
+    <div class="youtube">
+    
+       <iframe width="100%" height="220" src="http://www.youtube.com/embed/bn9H8hbAAWQ?wmode=transparent" frameboarder="0" allowfullscreen></iframe>
+    
+    </div>
+    <div class="text">
+      <h2>Lorem Ipsum Dolor Emet 5</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Maecenas volutpat tempus enim, nec iaculis neque pulvinar quis. 
+          Phasellus vitae eleifend purus. Ut augue orci, cursus id tempus sit amet, cursus in libero. 
+          Nam at nulla dui. Mauris a eros nisi, ut sollicitudin ligula. 
+          </p>
+    </div>
 
-    </form>
+  </div>
 
-</li>
-</ul>
+  
+</div>
+   
+      <div class="twelve columns">
+      <div class="slider-tabs">
+        <a href="#"><img src="http://img.youtube.com/vi/bn9H8hbAAWQ/1.jpg" width="100%" height="110" /><span>some desc</span></a>
+        <a href="#"><img src="http://img.youtube.com/vi/4PE-5hW4lp0/1.jpg" width="100%" height="110" /><span>some desc 2</span></a>
+        <a href="#"><img src="http://img.youtube.com/vi/bn9H8hbAAWQ/1.jpg" width="100%" height="110" /><span>some desc 3</span></a>
+        <a href="#"><img src="http://img.youtube.com/vi/4PE-5hW4lp0/1.jpg" width="100%" height="110" /><span>some desc 4</span></a>
+        <a href="#"><img src="http://img.youtube.com/vi/bn9H8hbAAWQ/1.jpg" width="100%" height="110" /><span>some desc 5</span></a>
+        
+      </div>
+
+    </div>
+      
+  </div>
+
+  
 
 </div>
 
 
-<div class="six columns">
-<h5>Who's joined</h5>
+<div class="row content">
+	<div class="twelve columns">	
 
-{% render "WNCSoldierBundle:Default:participants" %}
+        <div class="six columns">
+
+            <h2>Projekt Shmira Blog</h2>
+<div class="sonata-blog-post-list row">
+    {% for post in pager.getResults() %}
+        <div class="sonata-blog-post-container twelve columns">
+            <h5 class="sonata-blog-post-title">
+                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a> <span class="sonata-blog-post-comments-count secondary label">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span>
+            </h5>
+            <div class="sonata-blog-post-date-container">
+                {{ post.publicationDateStart | format_date }}
+            </div>
+
+            <div class="sonata-blog-post-abtract space-15">
+                {{ post.abstract }}
+                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}" class="continue">Read on</a>
+            </div>
+        </div>
+    {% else %}
+        {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
+    {% endfor %}
+</div>
+        </div>
+
+
+        <div class="six columns participants-list text-center">
+        <h5><img src="{{ asset('bundles/wncsoldier/images/participant_icon.png') }}" />&nbsp; WHO HAS JOINED?&nbsp; <img src="{{ asset('bundles/wncsoldier/images/participant_icon.png') }}" /></h5>
+
+        {% render "WNCSoldierBundle:Default:participants" %}
+
+        </div>
+
+    </div>
 
 </div>
 
+
+
+
+
+
+{% endblock %}
+
+  
+  {% block javascripts %}
+
+{{ parent() }}
+
+<script language="JavaScript">
+  (function($) {
+      var slider = $(".slider-tabs").jtTabs(".images > div", {
+
+      // enable "cross-fading" effect
+      effect: 'fade',
+      fadeOutSpeed: "slow",
+
+      // start from the beginning after the last tab
+      rotate: true
+
+      // use the slideshow plugin. It accepts its own configuration
+      }).slideshow({autoplay:true});
+      
+      
+  })(jQuery);
+</script>
 {% endblock %}

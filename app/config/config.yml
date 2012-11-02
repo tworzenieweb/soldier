@@ -30,7 +30,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [WNCSoldierBundle, FOSUserBundle]
+    bundles:        [WNCSoldierBundle, FOSUserBundle, SymfonyCmfCreateBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -103,51 +103,24 @@ sonata_user:
 
 
 sonata_admin:
-        templates:
-          layout: SonataAdminBundle::admin_layout.html.twig
-        security:
-            handler: sonata.admin.security.handler.role
-
-        title:      L'Shem Shmira
-
+    templates:
+        # default global templates
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: right, type: sonata.admin.block.admin_list }
+            - { position: left, type: sonata_admin_doctrine_phpcr.tree_block }
 sonata_block:
     default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
-
-        sonata.block.service.text:
-        sonata.page.block.container:
-        sonata.page.block.children_pages:
-        sonata.block.service.rss:
+        sonata_admin_doctrine_phpcr.tree_block:
+            settings:
+                id: '/cms'
+            contexts:   [admin]
           
-sonata_page:
-    multisite: host
-    ignore_route_patterns:
-        - ^(.*)admin(.*)   # ignore admin route, ie route containing 'admin'
-        - ^_(.*)          # ignore symfony routes
-
-    ignore_routes:
-        - sonata_page_esi_cache
-        - sonata_page_js_sync_cache
-        - sonata_page_js_async_cache
-        - sonata_page_apc_cache
-
-    ignore_uri_patterns:
-        - ^/admin(.*)   # ignore admin route, ie route containing 'admin'
-
-    page_defaults:
-        homepage: {decorate: false} # disable decoration for homepage, key - is a page route
-
-    default_template: default # template key from templates section, used as default for pages
-    templates:
-        default: {path: 'WNCSoldierBundle::base.html.twig', name: default }
-
-    # manage the http errors
-    catch_exceptions:
-        not_found: [404]    # render 404 page with "not_found" key (name generated: _page_internal_error_{key})
-        fatal:     [500]    # so you can use the same page for different http errors or specify specific page for each error
-  
 
 sonata_media:
     db_driver:       doctrine_orm # | doctrine_mongodb
@@ -249,14 +222,12 @@ sonata_seo:
                 
                 
 symfony_cmf_routing_extra:
-        chain:
-            routers_by_id:
-                # enable the DynamicRouter with high priority to allow overwriting configured routes with content
-                #symfony_cmf_routing_extra.dynamic_router: 200
-                # enable the symfony default router with a lower priority
-                sonata.page.router: 150
-                router.default: 100
-                
+    chain:
+        routers_by_id:
+            symfony_cmf_routing_extra.dynamic_router: 20
+            router.default: 100
+    dynamic:
+        enabled: true
                 
 stfalcon_tinymce:
         include_jquery: true
@@ -276,3 +247,94 @@ sonata_formatter:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
+                
+                
+                
+doctrine_phpcr:
+    session:
+        backend:
+            # Jackalope Jackrabbit
+            type: jackrabbit
+            url: http://localhost:8080/server/
+            # Jackalope Doctrine DBAL (make sure to also configure the DoctrineBundle accordingly)
+            type: doctrinedbal
+            connection: doctrine.dbal.default_connection
+            # Midgard
+            
+        workspace: default
+        username: admin
+        password: admin
+        
+        
+symfony_cmf_simple_cms:
+    routing:
+        templates_by_class:
+            Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:  SymfonyCmfSimpleCmsBundle:Page:index.html.twig
+            
+symfony_cmf_create:
+    phpcr_odm: true
+    map:
+        '<http://rdfs.org/sioc/ns#Post>': 'Symfony\Cmf\Bundle\MultilangContentBundle\Document\MultilangStaticContent'
+    image:
+        model_class: Symfony\Cmf\Bundle\CreateBundle\Document\Image
+        controller_class: Symfony\Cmf\Bundle\CreateBundle\Controller\PHPCRImageController
+        
+        
+sonata_doctrine_phpcr_admin:
+    document_tree:
+        Doctrine\PHPCR\Odm\Document\Generic:
+            valid_children:
+                - all
+        Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page: ~
+        Symfony\Cmf\Bundle\RoutingExtraBundle\Document\Route:
+            valid_children:
+                - Symfony\Cmf\Bundle\RoutingExtraBundle\Document\Route
+                - Symfony\Cmf\Bundle\RoutingExtraBundle\Document\RedirectRoute
+        Symfony\Cmf\Bundle\RoutingExtraBundle\Document\RedirectRoute:
+            valid_children: []
+        Symfony\Cmf\Bundle\MenuBundle\Document\MenuItem:
+            valid_children:
+                - Symfony\Cmf\Bundle\MenuBundle\Document\MenuItem
+                - Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuItem
+        Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuItem:
+            valid_children:
+                - Symfony\Cmf\Bundle\MenuBundle\Document\MenuItem
+                - Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuItem
+
+fos_js_routing:
+    routes_to_expose:
+        - admin_sandbox_main_editablestaticcontent_create
+        - admin_sandbox_main_editablestaticcontent_delete
+        - admin_sandbox_main_editablestaticcontent_edit
+        - admin_bundle_menu_menuitem_create
+        - admin_bundle_menu_menuitem_delete
+        - admin_bundle_menu_menuitem_edit
+        - admin_bundle_menu_multilangmenuitem_create
+        - admin_bundle_menu_multilangmenuitem_delete
+        - admin_bundle_menu_multilangmenuitem_edit
+        - admin_bundle_content_multilangstaticcontent_create
+        - admin_bundle_content_multilangstaticcontent_delete
+        - admin_bundle_content_multilangstaticcontent_edit
+        - admin_bundle_routingextra_route_create
+        - admin_bundle_routingextra_route_delete
+        - admin_bundle_routingextra_route_edit
+        - admin_bundle_simplecms_page_create
+        - admin_bundle_simplecms_page_delete
+        - admin_bundle_simplecms_page_edit
+        - symfony_cmf_tree_browser.phpcr_children
+        - symfony_cmf_tree_browser.phpcr_move
+        - sonata.admin.doctrine_phpcr.phpcrodm_children
+        - sonata.admin.doctrine_phpcr.phpcrodm_move
+        - fos_user_registration_register
+        
+        
+symfony_cmf_block:
+    document_manager_name:  default
+    
+    
+fos_rest:
+    view:
+        formats:
+            json: true
+            
+            

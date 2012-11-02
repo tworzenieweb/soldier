@@ -104,34 +104,17 @@
 <!-- Header Content -->
 <header>
 	<div class="container">
-	
-        <div class="row">
-            <div class="twelve columns">
+    <div class="jumbotron row">
+      <div class="twelve columns">
+        <div class="six columns">
+          <a href="{{ path('homepage') }}" class="logo"><span class="hide">L'Shem Shmira Guard duty for the rest of us</span></a>
+        </div>
+        <div class="six columns login-form">{% render "WNCSoldierBundle:Default:login" %}</div>
 
-                <div class="jumbotron homepage">
-                    <a href="{{ path('homepage') }}"><img src="http://placehold.it/940x300" class="bg" /></a>
-                    <div class="six columns login-form">{% render "WNCSoldierBundle:Default:login" %}</div>
-                </div>
-
-            </div>
-        </div>	
-
-		<div class="row">
-			<div class="twelve columns">
-				<nav>
-          <ul class="nav-bar">   
-            <li><a href="{{ path('page_slug', {'path': '/about-us'}) }}">About Us</a></li>
-            <li><a href="{{ path('page_slug', {'path': '/mission'}) }}">Mission</a></li>
-            <li><a href="{{ path('fos_user_registration_register', {'type': 'soldier'}) }}">Soldiers Sign-Up</a></li>
-            <li><a href="{{ path('fos_user_registration_register', {'type': 'participant'}) }}">Participants Sign-Up</a></li>
-            <li><a href="{{ path('page_slug', {'path': '/faq'}) }}">FAQ</a></li>
-            <li><a href="{{ path('page_slug', {'path': '/press-testimonials'}) }}">Press Testimonials</a></li>
-            <li><a href="{{ path('contact') }}">Contact Us</a></li>
-            <li><a href="{{ path('donate') }}">Donate</a></li>
-          </ul>
-				</nav>
-			</div>
-		</div>
+      </div>
+      {% render "WNCSoldierBundle:Default:menu" %}
+     </div>
+    </div>
 	
 	</div>
 </header>

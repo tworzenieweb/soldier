@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html {{ sonata_seo_html_attributes() }}>
+<head>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width" />
+  {{ sonata_seo_title() }}
+  {{ sonata_seo_metadatas() }}
+  
+{% block stylesheets %}
+	<!-- Included CSS Files -->
+    <link rel="stylesheet"  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" media="screen" >
+    <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+    {% stylesheets 
+        'bundles/wncsoldier/stylesheets/foundation.min.css'
+        'bundles/wncsoldier/stylesheets/page.css'
+        'bundles/wncsoldier/stylesheets/app.css'
+        'bundles/wncsoldier/stylesheets/colorbox/colorbox.css'
+        'bundles/wncsoldier/stylesheets/ui-lightness/jquery.css'
+        'bundles/wncsoldier/javascripts/uploadify/uploadify.css'
+        'bundles/wncsoldier/javascripts/chosen/chosen.css'
+        output='css/total.css' filter='cssrewrite'
+        %}
+        <link rel="stylesheet"  href="{{ asset_url }}" media="screen" >
+        
+        {% block includes %}
+        {#
+            {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}
+                {% include "SymfonyCmfCreateBundle::includecssfiles.html.twig" %}
+            {% endif %}
+
+#}
+        {% endblock %}
+
+        {% block top_scripts %}
+        {% endblock %}
+    {% endstylesheets %}
+
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="public/css/ie.css">
+	<![endif]-->
+{% endblock stylesheets %}
+	
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+
+</head>
+<body class="sonata-bc">
+
+
+{% block page_container %}
+<!-- Header Content -->
+<header>
+	<div class="container">
+    <div class="jumbotron row">
+      <div class="twelve columns">
+        <div class="six columns">
+          <a href="{{ path('homepage') }}" class="logo"><span class="hide">L'Shem Shmira Guard duty for the rest of us</span></a>
+        </div>
+        <div class="six columns login-form">{% render "WNCSoldierBundle:Default:login" %}</div>
+
+      </div>
+      {% render "WNCSoldierBundle:Default:menu" %}
+     </div>
+    </div>
+	
+	</div>
+</header>
+	<div class="container">
+		 {% block container %}
+		<div class="row content">
+			<div class="twelve columns">		
+
+            {% block content %}
+            {% endblock content %}
+			</div>
+		</div>
+		{% endblock %}
+		
+		
+	</div><!-- container -->
+<!-- Footer Content -->
+
+<footer>
+  <div class="container">
+    <div class="row collapse">
+      <div class="twelve columns bg">
+        <div class="three columns icons">
+          <div class="eleven columns centered text-left">
+            
+            <div class="row">
+              <div class="eight columns centered">
+                <h4>Connect with us!</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="eight columns centered">
+
+                <div class="three columns">
+                  <a href="#" class="icon icon-flickr"><span>Connect Twitter</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="icon icon-facebook"><span>Connect Linkedin</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="icon icon-delicious"><span>Connect Google</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="icon icon-rss"><span>Connect Youtube</span></a>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="eight columns centered">
+                <div class="three columns">
+                  <a href="#" class="icon icon-twitter"><span>Connect Twitter</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="icon icon-linkedin"><span>Connect Linkedin</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="icon icon-google"><span>Connect Google</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="icon icon-youtube"><span>Connect Youtube</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="three columns participants">
+            <h4>Worldwide Participants</h4>
+            <div class="twelve columns">
+              <p class="text-center">
+                1,945,345
+              </p>
+            </div>
+        </div>
+        <div class="six columns">
+          <div class="fb-like-box right" data-href="http://www.facebook.com/platform" data-width="426" data-height="206" data-colorscheme="dark" data-show-faces="true" data-stream="false" data-header="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  {% block javascripts %}
+          <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+          <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+          <script type="text/javascript" src="{{ asset('bundles/wncsoldier/javascripts/jquery.colorbox.js') }}"></script>
+          <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+          
+          
+          <script type="text/javascript">
+  
+        jQuery.fn.jtTabs = jQuery.fn.tabs;
+        </script>
+          <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+          <script src="{{ asset('bundles/sonatajquery/jquery-ui-i18n.js') }}" type="text/javascript"></script>
+          
+            {% javascripts 
+                'bundles/wncsoldier/javascripts/app.js'
+                'bundles/wncsoldier/javascripts/chosen/chosen.jquery.min.js'
+                
+                output='js/all.js'
+                %}
+              <script src="{{ asset_url }}"></script>
+
+
+
+            {% endjavascripts %}
+         
+              
+
+{#
+                    {% block bottom_scripts %}
+            {% render "symfony_cmf_create.jsloader.controller:includeJSFilesAction" %}
+        {% endblock %}
+#}
+
+                  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=200123070080537";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  {% endblock %}
+
+    
+{% endblock %}
+<!-- <script src="http://cdn.wibiya.com/Toolbars/dir_1258/Toolbar_1258564/Loader_1258564.js" type="text/javascript"></script><noscript><a href="http://www.wibiya.com/">Web Toolbar by Wibiya</a></noscript>  -->
+</body>
+</html>

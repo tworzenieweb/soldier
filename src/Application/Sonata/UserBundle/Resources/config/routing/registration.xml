@@ -8,6 +8,11 @@
         <default key="_controller">FOSUserBundle:Registration:register</default>
         <requirement key="type">soldier|participant</requirement>
     </route>
+    <route id="fos_user_registration_ajax" >
+        <default key="_controller">FOSUserBundle:Registration:ajax</default>
+    </route>
+    
+    
     
     <route id="fos_user_registration_check_email" pattern="/check-email">
         <default key="_controller">FOSUserBundle:Registration:checkEmail</default>

@@ -1,10 +1,24 @@
-{% extends 'WNCSoldierBundle::base.html.twig' %}
+{% extends 'WNCSoldierBundle::layout.html.twig' %}
 
 
 {% block content %}
 
-<h4>Donate</h4>
+<h2>Donate</h2>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur, nibh sed aliquet molestie, magna mi auctor sapien, eget ornare mi sapien et odio. Nunc sodales eleifend ipsum eu tempor. Suspendisse tempor viverra ligula quis gravida. Aliquam erat volutpat. Etiam rhoncus lectus quis felis scelerisque mollis. Pellentesque porttitor consequat eleifend. Donec varius fringilla felis, ac dictum nibh tempor vel. Aenean aliquet accumsan neque. Nunc varius leo tortor, eu congue enim. Nullam magna ante, semper et lacinia id, sagittis at risus. Ut bibendum volutpat accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean iaculis tortor at tortor dapibus vehicula. Vestibulum ultricies, mi vitae suscipit viverra, erat odio malesuada metus, eu tincidunt neque lacus sit amet dolor. Duis pretium nunc eget metus egestas blandit. Phasellus justo ligula, vulputate nec sagittis a, pretium et velit.
+</p>
+<p>
+<img src="{{ asset('bundles/wncsoldier/images/donate.png') }}" style="margin-right: 20px;" align="left"/>Cras pretium sapien feugiat tellus rutrum a tincidunt lectus molestie. Sed lacinia, erat sed dictum auctor, dolor metus elementum nibh, eu scelerisque felis massa sit amet ligula. Vestibulum luctus est in augue mattis consequat. Suspendisse condimentum euismod eleifend. Quisque facilisis purus ac lorem lacinia bibendum ac in sapien. Nunc adipiscing feugiat neque, non vehicula ligula lobortis at. In elementum luctus neque et ornare. Suspendisse potenti. Aliquam eu dui dolor. Aliquam rhoncus vulputate dapibus.
+
+
+</p>
 
 <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">
+
+<style>
+ .content p {
+   line-height: 150%;
+   }
+</style>
 
 {% endblock content %}

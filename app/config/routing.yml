@@ -50,18 +50,18 @@ ApplicationSonataUserBundle:
     type:     annotation
     prefix:   /
     
-# app/config/routing.yml
-sonata_page_exceptions:
-    resource: '@SonataPageBundle/Resources/config/routing/exceptions.xml'
-    prefix: /
-
-sonata_page_cache:
-    resource: '@SonataPageBundle/Resources/config/routing/cache.xml'
-    prefix: /
+## app/config/routing.yml
+#sonata_page_exceptions:
+#    resource: '@SonataPageBundle/Resources/config/routing/exceptions.xml'
+#    prefix: /
+#
+#sonata_page_cache:
+#    resource: '@SonataPageBundle/Resources/config/routing/cache.xml'
+#    prefix: /
 
 news:
     resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
-    prefix: /news
+    prefix: /press
 
 
 gallery:
@@ -76,8 +76,21 @@ media:
 #    pattern:  /
 #    defaults: { _controller: SonataPageBundle:Page:catchAll }
 
-#catchAll:
-#    pattern:  /{path}
-#    defaults: { _controller: SonataPageBundle:Page:catchAll }
-#    requirements:
-#        path: .*
+
+
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+phpcrbrowser:
+    resource: @SymfonyCmfTreeBrowserBundle/Resources/config/routing/phpcrbrowser.xml
+    prefix: /admin/browser
+
+phpcrodmbrowser:
+    resource: @SonataDoctrinePHPCRAdminBundle/Resources/config/routing/phpcrodmbrowser.xml
+    prefix: /admin/browser
+    
+create:
+    resource: "@SymfonyCmfCreateBundle/Resources/config/routing/rest.xml"
+create_iamge:
+    resource: "@SymfonyCmfCreateBundle/Resources/config/routing/image.xml"

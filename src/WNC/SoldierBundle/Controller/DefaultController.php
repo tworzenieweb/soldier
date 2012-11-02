@@ -18,7 +18,131 @@ use WNC\SoldierBundle\Form\ParticipantType;
 
 class DefaultController extends Controller
 {
-    
+    public function menuAction(Request $request)
+    {
+      $routeName = $request->get('_route');
+      
+      
+      $r = array(
+        'split' => 3,
+        'menu' => array(
+            'about' => array(
+                'label' => 'ABOUT',
+                'hebrev' => 'ונחנא ימ',
+                'route' => 'about',
+                'parameters' => array(
+                )
+                
+            ),
+            'mission' => array(
+                'label' => 'MISSION',
+                'hebrev' => 'רטמ',
+                'route' => 'mission',
+                'parameters' => array(
+                )
+                
+            ),
+            'faq' => array(
+                'label' => 'FAQ',
+                'hebrev' => 'תוצופנ תולאש',
+                'route' => 'faq',
+                'parameters' => array(
+                )
+                
+            ),
+            'press' => array(
+                'label' => 'PRESS',
+                'hebrev' => 'תרושקתהמ',
+                'route' => 'sonata_news_archive',
+                'parameters' => array()
+                
+            ),
+            'contact' => array(
+                'label' => 'CONTACT',
+                'hebrev' => 'רשק רוצ',
+                'route' => 'contact',
+                'parameters' => array(
+                   
+                )
+                
+            ),
+            'donate' => array(
+                'label' => 'DONATE',
+                'hebrev' => 'וישכע םורת',
+                'route' => 'donate',
+                'parameters' => array()
+                
+            ),
+            'signup' => array(
+                'label' => 'SIGNUP',
+                'hebrev' => 'המשרה',
+                'route' => 'fos_user_registration_ajax',
+                'parameters' => array(),
+                'class' => 'register_button'
+                
+            ),
+            
+        )
+      );
+      
+      $i =0;
+      $founded = false;
+      foreach($r['menu'] as $k => $row) {
+        $ro = $this->generateUrl($row['route'], $row['parameters']);
+        if(strstr($ro, $request->getPathInfo()) !== false && $request->getPathInfo() != '/') {
+
+          
+          $r['split'] = $i < 4 ? 3 : 4;
+          $r['menu'][$k]['width'] = 'six';
+          $r['menu'][$k]['current'] = true;
+          $founded = true;
+        }
+        else if($r['split']) {
+          $r['menu'][$k]['width'] = 'three';
+        }
+        
+        $i++;
+        
+      }
+      
+      if(!$founded) {
+        $r['menu']['about']['current'] = true;
+        $r['menu']['about']['width'] = 'six';
+        $r['split'] = 3;
+      }
+      
+      $i =0;
+      $j= 1;
+      $r['groups'] = array();
+      
+      foreach($r['menu'] as $k => $row) {
+        
+        if(isset($row['current'])) {
+          
+          
+          $r['groups'][0] = $k;
+        }
+        else {
+          if(!isset($r['groups'][$j])) {
+            $r['groups'][$j] = array();
+          }
+          $r['groups'][$j][] = $k;
+          
+          if(count($r['groups'][$j]) == 3)
+            $j++;
+          
+        }
+        
+        
+        
+        
+      }
+      
+      ksort($r['groups']);
+      
+      return $this->render('WNCSoldierBundle:Default:_menu.html.twig', $r);
+      
+    }
     
     public function loginAction()
     {
@@ -40,6 +164,32 @@ class DefaultController extends Controller
      * @template
      */
     public function donateAction(Request $request)
+    {
+      
+    }
+
+    /**
+     * @route("/mission", name="mission") 
+     * @template
+     */
+    public function missionAction(Request $request)
+    {
+      
+    }
+    
+    /**
+     * @route("/faq", name="faq") 
+     * @template
+     */
+    public function faqAction(Request $request)
+    {
+      
+    }
+    /**
+     * @route("/about", name="about") 
+     * @template
+     */
+    public function aboutAction(Request $request)
     {
       
     }
@@ -86,6 +236,14 @@ class DefaultController extends Controller
         
     }
     
+    /**
+     * @return \Sonata\NewsBundle\Model\PostManagerInterface
+     */
+    protected function getPostManager()
+    {
+        return $this->get('sonata.news.manager.post');
+    }
+    
     
     /**
      * @route("/", name="homepage") 
@@ -94,6 +252,14 @@ class DefaultController extends Controller
     public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
+        
+        
+        $pager = $this->getPostManager()->getPager(
+            array(),
+            $this->getRequest()->get('page', 1)
+        );
+
+        
         
         $participant = new Participant();
         $soldier = new Soldier();
@@ -110,6 +276,8 @@ class DefaultController extends Controller
         return array(
             'form'   => $form->createView(),
             'form2'   => $form2->createView(),
+            'pager' => $pager,
+            'blog'  => $this->get('sonata.news.blog'),
         );
     }
     

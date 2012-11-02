@@ -1,25 +1,22 @@
-<div class="row space-15">
-    <div class="three columns">
+<div class="row">
+    <div class="three columns text-left">
         <strong>NAME</strong>
     </div>
-    <div class="four columns">
+    <div class="four columns text-left">
         <strong>CITY/SCHOOL</strong>
     </div>
-    <div class="five columns text-right">
+    <div class="five columns text-left">
         <strong>RIGHTEOUS DEEDS</strong>
     </div>
 </div>
 {% for participant in participants %}
 
    <div class="row">
-    <div class="three columns">
-        <a href="{{ path('participant_show', {'id': participant.id}) }}">{{ participant.user.firstname }}</a>
+    <div class="three columns text-left"><a href="{{ path('participant_show', {'id': participant.id}) }}">{{ participant.user.firstname }}</a>
     </div>
-    <div class="five columns">
-        {{ participant.city.name }}
+    <div class="five columns text-left">{{ participant.city.name }}
     </div>
-    <div class="four columns text-right">
-        {{ participant.activity.name }}
+    <div class="four columns text-left">{{ participant.activity.name }}
     </div>
 </div>     
 {% else %}

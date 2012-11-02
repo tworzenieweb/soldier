@@ -1,0 +1,41 @@
+<div class="twelve columns" id="menu">
+  <div class="row collapse">
+    
+      {% for entry in groups %}
+        
+        <div class="four columns">
+    
+        {% if loop.index == 1 %}
+          
+
+            <div class="menu-block {{ entry }} active">
+              <a href="{{ path(menu[entry].route, menu[entry].parameters) }}" class="{% if menu[entry].class is defined %}{{ menu[entry].class }}{% endif %}">
+                <span>
+                  <strong>{{ menu[entry].hebrev }}</strong>
+                  <big>{{ menu[entry].label }}</big>
+                </span>
+              </a>
+            </div>
+          
+        {% else %}
+            
+            {% for index in entry  %}
+              <div class="four columns">
+                <div class="menu-block {{ index }}">
+                  <a href="{{ path(menu[index].route, menu[index].parameters) }}" class="{% if menu[index].class is defined %}{{ menu[index].class }}{% endif %}">
+                    <span>
+                      <strong>{{ menu[index].hebrev }}</strong>
+                      <big>{{ menu[index].label }}</big>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        
+      {% endfor %}
+
+
+    </div>
+  </div>
