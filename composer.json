@@ -35,36 +35,46 @@
         "sonata-project/formatter-bundle": "dev-master",
         "knplabs/knp-markdown-bundle": "1.1.1",
         "sonata-project/intl-bundle": "dev-master",
-        "symfony-cmf/symfony-cmf": "1.0.x-dev",
-        "jackalope/jackalope-jackrabbit": "1.0.*",
-        "jackalope/jackalope-doctrine-dbal": "dev-master",
-        "doctrine/phpcr-bundle": "1.0.*",
-        "doctrine/phpcr-odm": "1.0.*",
-        "symfony-cmf/simple-cms-bundle": "1.0.x-dev",
-        "friendsofsymfony/rest-bundle": "dev-master",
-        "symfony-cmf/create-bundle": "1.0.x-dev",
-        "sonata-project/doctrine-phpcr-admin-bundle": "1.0.*"
+        "evercodelab/evercode-faq-bundle": "dev-master",
+        
+        
+        "symfony-cmf/symfony-cmf": "1.0.*",
+        
+        "symfony-cmf/simple-cms-bundle": "1.0.*",
+        "symfony-cmf/search-bundle": "dev-master",
+        "symfony-cmf/create-bundle": "dev-master",
+        "jackalope/jackalope-doctrine-dbal": "1.0.*",
+        "doctrine/doctrine-bundle": "1.0.*",
+        "doctrine/data-fixtures": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "liip/functional-test-bundle": "dev-master",
+        "sonata-project/doctrine-phpcr-admin-bundle": "1.0.*",
+        "lunetics/locale-bundle": "dev-master",
+        "symfony-cmf/tree-browser-bundle":"1.0.*",
+        
+        "gedmo/doctrine-extensions":      "dev-master",
+        "liip/search-bundle": "dev-master"
     },
-    "scripts": {
+     "scripts": {
         "post-install-cmd": [
+            "Symfony\\Cmf\\Bundle\\CreateBundle\\Composer\\ScriptHandler::initSubmodules",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ],
         "post-update-cmd": [
+            "Symfony\\Cmf\\Bundle\\CreateBundle\\Composer\\ScriptHandler::initSubmodules",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ]
     },
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-web-dir": "web"
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "symlink"
     }
 }

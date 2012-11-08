@@ -71,4 +71,37 @@ class Activity
     {
         return $this->name;
     }
+
+    /**
+     * Add participants
+     *
+     * @param WNC\SoldierBundle\Entity\Participant $participants
+     * @return Activity
+     */
+    public function addParticipant(\WNC\SoldierBundle\Entity\Participant $participants)
+    {
+        $this->participants[] = $participants;
+    
+        return $this;
+    }
+
+    /**
+     * Remove participants
+     *
+     * @param WNC\SoldierBundle\Entity\Participant $participants
+     */
+    public function removeParticipant(\WNC\SoldierBundle\Entity\Participant $participants)
+    {
+        $this->participants->removeElement($participants);
+    }
+
+    /**
+     * Get participants
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
 }

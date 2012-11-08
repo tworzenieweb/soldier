@@ -1,19 +1,18 @@
 WNC\SoldierBundle\Entity\Soldier:
-    properties:
-        file:
-            - Image: {groups: [Soldier]}
-            - NotBlank: {groups: [Soldier]}
+    constraints:
+        - Callback:
+            methods:   [isServiceEndDateValid]
+
 
 WNC\SoldierBundle\Entity\Participant:
-    properties:
-        file:
-            - Image: {groups: [Soldier]}
-            - NotBlank: {groups: [Soldier]}
+    constraints:
+        - Callback:
+            methods:   [isActivityDatesValid]
             
             
 Application\Sonata\UserBundle\Entity\User:
     properties:
       firstname:
-        - NotBlank: ~
+        - NotBlank: { groups: [Soldier, Participant] }
       lastname:
-        - NotBlank: ~
+        - NotBlank: { groups: [Participant]}

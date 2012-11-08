@@ -31,6 +31,12 @@ class RegistrationController extends BaseController
         ));
 
     }
+    
+    public function otherAction()
+    {
+        return $this->container->get('templating')->renderResponse('ApplicationSonataUserBundle:User:other.html.'.$this->getEngine(), array(
+        ));
+    }
   
     public function registerAction()
     {

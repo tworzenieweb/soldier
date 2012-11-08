@@ -20,9 +20,6 @@
     
  
     <services>
-        <service id="participant.listener" class="WNC\SoldierBundle\EventListener\ParticipantAssociation">
-            <tag name="doctrine.event_listener" event="postPersist" />
-        </service>
         <service id="wnc_soldier.type.jqueryDate" class="WNC\SoldierBundle\Form\Extension\Type\JqueryDateType">
             <tag name="form.type" alias="jqueryDate" />
         </service>

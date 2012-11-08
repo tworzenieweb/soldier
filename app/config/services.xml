@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
        <service id="sonata.admin.soldier" class="WNC\SoldierBundle\Admin\SoldierAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="user" label="Blog"/>
+          <tag name="sonata.admin" manager_type="orm" label="Soldiers"/>
           <argument />
           <argument>WNC\SoldierBundle\Entity\Soldier</argument>
           <argument>SonataAdminBundle:CRUD</argument>

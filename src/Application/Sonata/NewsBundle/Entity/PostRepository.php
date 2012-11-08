@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the <name> project.
  *
@@ -22,7 +23,29 @@ use Sonata\NewsBundle\Entity\BasePostRepository;
  *
  * @author <yourname> <youremail>
  */
-class PostRepository extends BasePostRepository
-{
+class PostRepository extends BasePostRepository {
+
+  /**
+   * return last post queryBUikder
+   *
+   * @param int $limit
+   *
+   * @return \Doctrine\Common\Collections\ArrayCollection|array
+   */
+  public function getLatest($limit = 1) {
+
+        $dql = "SELECT p,m FROM Application\Sonata\NewsBundle\Entity\Post p 
+          INNER JOIN p.image m
+          INNER JOIN p.author a
+          WHERE p.enabled = ?1 ORDER BY p.createdAt DESC";
+        
+        $query = $this->getEntityManager()->createQuery($dql);
+
+        return $query->setParameter(1, true)
+                      ->setMaxResults($limit)
+                      ->getResult();
+
+    ;
+  }
 
 }

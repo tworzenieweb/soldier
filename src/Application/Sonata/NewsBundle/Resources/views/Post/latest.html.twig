@@ -1,0 +1,41 @@
+<div class="sonata-blog-post-list row">
+    {% for post in posts %}
+    <div class="sonata-blog-post-container twelve columns">
+
+      <div class="row collapse">
+        <div class="two columns">
+          {% thumbnail post.image, 'abstract'  %}
+          </div>
+
+          <div class="ten columns">
+
+            <h5 class="sonata-blog-post-title">
+              <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a>
+            </h5>
+            <div class="sonata-blog-post-date-container">
+                {{ post.publicationDateStart | format_date('d MMMM Y') }}
+              </div>
+            </div>  
+          </div>
+
+          <div class="sonata-blog-post-abtract space-15">
+                {{ post.abstract }}
+            </div>
+
+            <div class="row collapse">
+              <div class="six columns">
+                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}" class="button-gray">Read more</a>
+              </div>
+              <div class="six columns text-right">
+                <a href="{{ url('sonata_news_news') }}" class="gray">SEE MORE POSTS ></a>
+              </div>
+            </div>
+
+
+
+
+          </div>
+    {% else %}
+        {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
+    {% endfor %}
+        </div>

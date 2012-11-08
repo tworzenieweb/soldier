@@ -17,10 +17,10 @@ class SoldierType extends AbstractType
     {
 
         $builder
-                ->add('mothers_name',null, array('attr' => array('placeholder' => 'Mother\'s name')))
+                ->add('mothers_name',null, array('attr' => array('placeholder' => 'Mother\'s name', 'required' => true)))
                 ->add('service_end_date', 'date', array(
                     'widget' => 'single_text',
-                    'format' => 'MM/dd/yyyy',
+                    'format' => 'MM-dd-yyyy',
                     'attr' => array('class' => 'date six columns')
                 ))
                 ->add('army_unit')
@@ -30,20 +30,24 @@ class SoldierType extends AbstractType
                     'expanded' => true,
                     'label' => 'Male / Female',
                 ))
-                ->add('file', 'file', array(
+                ->add('picture', 'sonata_media_type', array(
                     'required' => false,
-                    'data_class' => 'Symfony\Component\HttpFoundation\File\File'
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'user',
+                    'label' => 'Picture'
                 ))
                 ->add('self_description', 'textarea', array(
                     'required' => false
                 ))
-                ->add('video', null, array(
-                    'attr' => array(
-                        'placeholder' => 'some link here',
-                        'required' => false
-                        )))
+                ->add('video', 'sonata_media_type', array(
+                    'required' => false,
+                    'provider' => 'sonata.media.provider.youtube',
+                    'context'  => 'user',
+                    'label' => 'Video (youtube link)'
+                ))
                 ->add('wants_to_contact', 'checkbox', array(
-                    'label' => Soldier::getLabel('wants_to_contact')
+                    'label' => Soldier::getLabel('wants_to_contact'),
+                    'required' => false
                 ))
                 ->add('comments', 'textarea', array(
                     'required' => false

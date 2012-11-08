@@ -28,5 +28,9 @@
         <default key="_controller">FOSUserBundle:Registration:confirmed</default>
         <requirement key="_method">GET</requirement>
     </route>
+    
+        <route id="fos_user_registration_other" pattern="/other">
+        <default key="_controller">FOSUserBundle:Registration:other</default>
+    </route>
 
 </routes>

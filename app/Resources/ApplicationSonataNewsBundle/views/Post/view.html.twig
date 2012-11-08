@@ -1,8 +1,17 @@
 {% extends 'WNCSoldierBundle::layout.html.twig' %}
 
 
-
 {% block content %}	
+
+{% if app.session.hasFlash('success') %} 
+
+    <div class="alert-box success">
+    {{ app.session.flash('success') | trans({}, 'SonataUserBundle') }} 
+  <a href="" class="close">&times;</a>
+</div>
+
+{% endif %} 
+
 
 <h2>{{ post.title }}</h2>
 
@@ -14,9 +23,16 @@
     <div class="sonata-blog-post-content">
         {{ post.content|raw }}
     </div>
+    
+    <div class="twelve columns">
+    
+    {% media post.image, 'wide' %}
+    
+    </div>
 
     {% render 'SonataNewsBundle:Post:comments' with {'postId': post.id} %}
 
+    <div class="six columns">
     {% if post.iscommentable %}
         {% render 'SonataNewsBundle:Post:addCommentForm' with {
             'postId': post.id,
@@ -27,6 +43,7 @@
             {{ 'message_comments_are_closed'|trans({}, 'SonataNewsBundle') }}
         </div>
     {% endif %}
+    </div>
 </div>
 
 

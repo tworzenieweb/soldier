@@ -24,13 +24,15 @@ class ParticipantType extends AbstractType
                     'label' => 'Male / Female',
                     'data' => 0
                 ))
-               ->add('file', 'file', array(
+                ->add('picture', 'sonata_media_type', array(
                     'required' => false,
-                    'data_class' => 'Symfony\Component\HttpFoundation\File\File'
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'user',
+                    'label' => 'Picture'
                 ))
                 ->add('birth_date', 'date', array(
                     'widget' => 'single_text',
-                    'format' => 'MM/dd/yyyy',
+                    'format' => 'MM-dd-yyyy',
                     'attr' => array('class' => 'date six columns')
                 ))
                 ->add('activity', 'entity', array(
@@ -46,22 +48,23 @@ class ParticipantType extends AbstractType
                 ))
                 ->add('activity_start_date', 'date', array(
                     'widget' => 'single_text',
-                    'format' => 'MM/dd/yyyy',
+                    'format' => 'MM-dd-yyyy',
                     'attr' => array('class' => 'date six columns')
                 ))
                 ->add('activity_end_date', 'date', array(
                     'widget' => 'single_text',
-                    'format' => 'MM/dd/yyyy',
+                    'format' => 'MM-dd-yyyy',
                     'attr' => array('class' => 'date six columns')
                 ))
                 ->add('organization')
                 ->add('occupation')
                 ->add('phone_number')
-                ->add('video', null, array(
-                    'attr' => array(
-                        'placeholder' => 'some link here',
-                        'required' => false
-                        )))
+                ->add('video', 'sonata_media_type', array(
+                    'required' => false,
+                    'provider' => 'sonata.media.provider.youtube',
+                    'context'  => 'user',
+                    'label' => 'Video (youtube link)'
+                ))
                 ->add('wants_to_contact', null, array(
                     'label' => Participant::getLabel('wants_to_contact')
                 ))
@@ -70,6 +73,9 @@ class ParticipantType extends AbstractType
                     'expanded' => true,
                 ))
                 ->add('comments', 'textarea', array(
+                    'required' => false
+                ))
+                 ->add('self_description', 'textarea', array(
                     'required' => false
                 ))
                 ->add('city', 'city_selector', array('attr' => array('placeholder' => 'City name')))
@@ -81,7 +87,7 @@ class ParticipantType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'validation_groups' => array('Soldier'),
+            'validation_groups' => array('Participant'),
             'cascade_validation' => true,
             'data_class' => "WNC\SoldierBundle\Entity\Participant"
         ));

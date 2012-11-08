@@ -1,0 +1,50 @@
+<div class="row collapse" id="slider">
+
+  <div class="twelve columns slider">
+
+    <!-- container for the slides -->
+    <div class="images">
+
+      
+      {% for post in posts %}
+      
+        <div>
+          <div class="youtube">
+            
+            {% media post.image, 'wide' %}
+
+          </div>
+          <div class="text">
+            <h2><a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a></h2>
+            <p>{{ post.abstract|truncate(150) }}</p>
+          </div>
+
+        </div>
+      
+      {% endfor %}
+
+
+    </div>
+
+    <div class="prev"><a href="#" class="backward"><span>Prev</span></a></div>
+    <div class="next"><a href="#" class="forward"><span>Next</span></a></div>
+    <div class="eleven columns slider-tabs-container">
+      
+      <div class="slider-tabs row">
+        
+        {% for post in posts %}
+          
+        <a href="#"><img src="{% path post.image, 'slider' %}" /><span class="bg"></span><span class="author">{{ post.authorName }}</span></a>
+         
+        {% endfor %}
+        
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>

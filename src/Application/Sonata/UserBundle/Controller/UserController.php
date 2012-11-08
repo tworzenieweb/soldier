@@ -16,42 +16,48 @@ use Application\Sonata\UserBundle\Entity\User;
  */
 class UserController extends Controller
 {
-    /**
-     * Lists all User entities.
-     *
-     * @Route("/", name="user")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ApplicationSonataUserBundle:User')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
+    
+  /**
+   * 
+   * @template
+   */
+  public function menuAction() {
+    
+    $request = $this->getRequest();
+    
+    $data = array(
+        
+        array(
+            'label' => 'Preview',
+            'route' => 'sonata_user_profile_show'
+        ),
+        array(
+            'label' => 'Edit profile',
+            'route' => 'sonata_user_profile_edit'
+        ),
+        array(
+            'label' => 'Change password',
+            'route' => 'fos_user_change_password'
+        ),
+        array(
+            'label' => 'My Posts',
+            'route' => 'sonata_news_my'
+        ),
+        
+    );
+    
+    foreach($data as $i => $menu) {
+      
+      $ro = $this->generateUrl($menu['route'], array(), true);
+      
+      
+      if($ro == $request->getUri()) {
+        $data[$i]['active'] = true;
+      }
     }
-
-    /**
-     * Finds and displays a User entity.
-     *
-     * @Route("/{id}/show", name="user_show")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ApplicationSonataUserBundle:User')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find User entity.');
-        }
-
-        return array(
-            'entity'      => $entity,
-        );
-    }
+    
+    return array('menus' => $data);
+    
+  }
 
 }

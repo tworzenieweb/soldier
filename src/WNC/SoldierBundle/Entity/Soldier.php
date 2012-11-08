@@ -4,14 +4,13 @@ namespace WNC\SoldierBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\ExecutionContext;
 
 /**
  * WNC\SoldierBundle\Entity\Soldier
  *
  * @ORM\Table(name="soldier")
  * @ORM\Entity(repositoryClass="WNC\SoldierBundle\Entity\SoldierRepository")
- * @Vich\Uploadable
  */
 class Soldier
 {
@@ -39,7 +38,7 @@ class Soldier
     /**
      * @var string $army_unit
      *
-     * @ORM\Column(name="army_unit", type="string", length=100)
+     * @ORM\Column(name="army_unit", type="string", length=100, nullable=true)
      */
     private $army_unit;
 
@@ -49,30 +48,27 @@ class Soldier
      */
     private $gender;
 
-    /**
-     * @var string $picture
-     * @ORM\Column(name="picture", type="string", length=255)
-     */
-    private $picture;
-
+    
     /**
      * @var string $self_description
      *
-     * @ORM\Column(name="self_description", type="string", length=1000)
+     * @ORM\Column(name="self_description", type="string", length=1000, nullable=true)
      */
     private $self_description;
 
     /**
-     * @var string $video
-     *
-     * @ORM\Column(name="video", type="string", length=255)
-     */
+    *
+    * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="video_id", referencedColumnName="id", nullable=true)
+    */
     private $video;
+    
+    private $video_id;
 
     /**
      * @var boolean $wants_to_contact
      *
-     * @ORM\Column(name="wants_to_contact", type="boolean")
+     * @ORM\Column(name="wants_to_contact", type="boolean", nullable=true)
      */
     private $wants_to_contact;
 
@@ -85,10 +81,9 @@ class Soldier
 
     
    /**
-    *
-    * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="soldier", cascade={"persist", "remove"})
-    * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
-    */
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="soldier", fetch="EXTRA_LAZY")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
     private $user;
 
     /**
@@ -99,7 +94,7 @@ class Soldier
     
    /**
     *
-    * @ORM\ManyToOne(targetEntity="WNC\SoldierBundle\Entity\Participant", cascade={"persist", "remove"})
+    * @ORM\ManyToOne(targetEntity="WNC\SoldierBundle\Entity\Participant", cascade={"persist", "remove"}, inversedBy="soldiers")
     * @ORM\JoinColumn(name="participant_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
     */
     private $participant;
@@ -128,12 +123,16 @@ class Soldier
      */
     private $city_id;
 
+        
     
     /**
-     * @var UploadedFile $file
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="picture")
-     */
-    protected $file;
+    *
+    * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", nullable=true)
+    */
+    private $picture;
+    
+    private $picture_id;
     
     /**
      * Get id
@@ -260,28 +259,6 @@ class Soldier
         return $this->self_description;
     }
 
-    /**
-     * Set video
-     *
-     * @param string $video
-     * @return Soldier
-     */
-    public function setVideo($video)
-    {
-        $this->video = $video;
-    
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return string 
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
 
     /**
      * Set wants_to_contact
@@ -400,28 +377,7 @@ class Soldier
         return $this->city;
     }
     
-    public function getAbsolutePath()
-    {
-        return null === $this->picture ? null : $this->getUploadRootDir().'/'.$this->picture;
-    }
 
-    public function getWebPath()
-    {
-        return null === $this->picture ? null : $this->getUploadDir().'/'.$this->picture;
-    }
-
-    protected function getUploadRootDir()
-    {
-        // the absolute directory path where uploaded documents should be saved
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    protected function getUploadDir()
-    {
-        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-        return 'uploads/pictures';
-    }
-    
 
     public function getGenderValue()
     {
@@ -429,13 +385,7 @@ class Soldier
         return $this->gender ? 'female' : 'male';
         
     }
-    
-    public function getPictureTag()
-    {
-        
-        return sprintf('<img src="/%s" alt="%s %s" />', $this->getWebPath(), $this->getUser()->getFirstname(), $this->getUser()->getLastname());
-        
-    }
+
     
     public static function getLabel($key)
     {
@@ -504,5 +454,52 @@ class Soldier
     {
       $this->file = $file;
     }
+    
+    public function isServiceEndDateValid(ExecutionContext $context)
+    {
+      
+        if($this->getVideo() && !$this->getVideo()->getName()) {
+        
+          $context->addViolationAtSubPath('video_id', 'Wrong youtube link', array(), null);       
+        
+        }   
+      
+        $date = $this->getServiceEndDate();
+        
+        $now = new \DateTime();
+        
+        if($date <= $now) {
+          
+          $context->addViolationAtSubPath('service_end_date', sprintf('Service end date need to be greater than %s', $now->format('d/m/Y')), array(), null);
+          
+        }
+
+        
+    }
+    
+
+    /**
+     * Set video
+     *
+     * @param Application\Sonata\MediaBundle\Entity\Media $video
+     * @return Soldier
+     */
+    public function setVideo(\Application\Sonata\MediaBundle\Entity\Media $video)
+    {
+        $this->video = $video;
+    
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+    
     
 }

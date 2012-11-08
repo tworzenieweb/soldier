@@ -2,45 +2,131 @@
     
     {{ form_errors(form) }}
     
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.email) }}
-    
-    {% if type == 'soldier' %}
+    <div class="six columns">{{ form_row(form.firstname) }}</div>
+    <div class="six columns">{{ form_row(form.email) }}</div>
+  
 
-    {{ form_row(form.soldier.city) }}
+    {% if type == 'soldier' %}
+    
+    <div class="six columns">
     {{ form_row(form.soldier.mothers_name) }}
     {{ form_row(form.soldier.service_end_date) }}
+        
     {{ form_row(form.soldier.army_unit) }}
-    {{ form_row(form.soldier.gender) }}
-    {{ form_row(form.soldier.file) }}
+        
+    {{ form_row(form.soldier.city) }}
+        
+    <div class="row space-15">
+    {{ form_errors(form.soldier.gender) }}
+    {{ form_widget(form.soldier.gender) }}
+        </div>
+        
     {{ form_row(form.soldier.self_description) }}
-    {{ form_row(form.soldier.video) }}
-    {{ form_row(form.soldier.wants_to_contact) }}
+        
+    </div>
+    <div class="six columns">
+      
+    <div class="row space-15">
+        <div class="twelve columns">
+            {{ form_label(form.soldier.picture) }}
+        </div>
+        <div class="eight columns">
+            {{ form_widget(form.soldier.picture.binaryContent) }}
+        </div>
+        <div class="twelve columns">
+            {{ form_errors(form.soldier.picture.binaryContent) }}
+        </div>
+    </div>  
+      
+    
+        
+    <div class="row space-15">
+        <div class="twelve columns">
+            {{ form_label(form.soldier.video) }}
+        </div>
+        <div class="eight columns">
+            {{ form_widget(form.soldier.video.binaryContent) }}
+        </div>
+        <div class="twelve columns">
+            {{ form_errors(form.soldier.video.binaryContent) }}
+        </div>
+    </div>  
+        
     {{ form_row(form.soldier.comments) }}
+        
+    {{ form_row(form.soldier.wants_to_contact) }}
+        
+    <button type="submit" class="button">FINISH</button>
+        
+    </div>
+    
+    
 
     {% else %}
-  
-    {{ form_row(form.participant.gender) }}
-    {{ form_row(form.participant.city) }}
-    {{ form_row(form.participant.file) }}
-    {{ form_row(form.participant.comments) }}
-    {{ form_row(form.participant.phone_number) }}
-    {{ form_row(form.participant.occupation) }}
-    {{ form_row(form.participant.organization) }}
-    {{ form_row(form.participant.birth_date) }}
-    {{ form_row(form.participant.activity) }}
-    {{ form_row(form.participant.activity_start_date) }}
-    {{ form_row(form.participant.activity_end_date) }}
-    {{ form_row(form.participant.wants_to_contact) }}
-    {{ form_row(form.participant.volunteer) }}
+    
+    <div class="six columns">
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.participant.birth_date) }}
+        {{ form_row(form.participant.occupation) }}
+            
+        {{ form_row(form.participant.occupation) }}
+        {{ form_row(form.participant.organization) }}
+
+        {{ form_row(form.participant.activity) }}
+        {{ form_row(form.participant.activity_start_date) }}
+        {{ form_row(form.participant.activity_end_date) }}
+        
+        <div class="row space-15">
+            {{ form_errors(form.participant.gender) }}
+            {{ form_widget(form.participant.gender) }}
+        </div>
+    </div>
+    
+    <div class="six columns">
+        {{ form_row(form.participant.city) }}
+        
+        {{ form_row(form.participant.phone_number) }}
+        
+            <div class="row space-15">
+        <div class="twelve columns">
+            {{ form_label(form.participant.picture) }}
+        </div>
+        <div class="eight columns">
+            {{ form_widget(form.participant.picture.binaryContent) }}
+        </div>
+        <div class="twelve columns">
+            {{ form_errors(form.participant.picture.binaryContent) }}
+        </div>
+    </div>  
+      
+    
+        
+    <div class="row space-15">
+        <div class="twelve columns">
+            {{ form_label(form.participant.video) }}
+        </div>
+        <div class="eight columns">
+            {{ form_widget(form.participant.video.binaryContent) }}
+        </div>
+        <div class="twelve columns">
+            {{ form_errors(form.participant.video.binaryContent) }}
+        </div>
+    </div>  
+        
+        
+        {{ form_row(form.participant.comments) }}
+        {{ form_row(form.participant.self_description) }}
+        {{ form_row(form.participant.wants_to_contact) }}
+        {{ form_row(form.participant.volunteer) }}
+        
+        <button type="submit" class="button">FINISH</button>
+    </div>
+
   
     {% endif %}
     
     {{ form_row(form._token) }}
     {{ form_row(form.plainPassword) }}
   
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
+
 </form>

@@ -1,96 +1,120 @@
-<div class="twelve columns">
+<div class="twelve columns text-center">
 <h2 class="nixie">Sign Up</h2>
 </div>
 
-<div class="row">
-  <div class="six columns">
-<ul class="tabs">
-  <li><a href="#">Soldier</a></li>
-  <li><a href="#">Participant</a></li>
-</ul>
+<div class="twelve columns registration">
+    <ul class="tabs">
+      <li><a href="#">Soldier</a></li>
+      <li><a href="#">Participant</a></li>
+    </ul>
 
-<div class="tabs-content">
-  <div>
-    <form action="{{ path('fos_user_registration_register', {'type': 'soldier'}) }}" method="post" {{ form_enctype(form) }}>
-    <div class="row">
-        <div class="twelve columns">
-          {{ form_label(form.firstname) }}
-            {{ form_errors(form.firstname) }}
-            {{ form_widget(form.firstname) }}
-        </div>
-        <div class="twelve columns">
-          {{ form_label(form.soldier.mothers_name) }}
-            {{ form_errors(form.soldier.mothers_name) }}
-            {{ form_widget(form.soldier.mothers_name) }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="twelve columns">
-          {{ form_label(form.soldier.city) }}
-            {{ form_errors(form.soldier.city) }}
-            {{ form_widget(form.soldier.city) }}
-        </div>
-        <div class="twelve columns">
-          {{ form_label(form.email) }}
-            {{ form_errors(form.email) }}
-            {{ form_widget(form.email) }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="twelve columns text-right">
-            <button type="submit" class="button">Sign Up</button>
-        </div>
-    </div>
-    {{ form_row(form.plainPassword) }}
-    {{ form_widget(form._token) }}
-
-    </form>
-
-</div>
-<div>
-    <form action="{{ path('fos_user_registration_register', {'type': 'participant'}) }}" method="post" {{ form_enctype(form2) }}>
-        <div class="row">
+    <div class="tabs-content space-15">
+      <div>
+        <form action="{{ path('fos_user_registration_register', {'type': 'soldier'}) }}" method="post" {{ form_enctype(form) }}>
             <div class="twelve columns">
-                {{ form_label(form2.lastname) }}
-                {{ form_errors(form2.lastname) }}
-                {{ form_widget(form2.lastname) }}
+              {{ form_label(form.firstname) }}
+                {{ form_errors(form.firstname) }}
+                {{ form_widget(form.firstname) }}
             </div>
             <div class="twelve columns">
-                {{ form_label(form2.firstname) }}
-                {{ form_errors(form2.firstname) }}
-                {{ form_widget(form2.firstname) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="twelve columns">
-                {{ form_label(form2.participant.city) }}
-                {{ form_errors(form2.participant.city) }}
-                {{ form_widget(form2.participant.city) }}
+              {{ form_label(form.soldier.mothers_name) }}
+                {{ form_errors(form.soldier.mothers_name) }}
+                {{ form_widget(form.soldier.mothers_name) }}
             </div>
             <div class="twelve columns">
-              {{ form_label(form2.email) }}
-                {{ form_errors(form2.email) }}
-                {{ form_widget(form2.email) }}
+              {{ form_label(form.soldier.city) }}
+                {{ form_errors(form.soldier.city) }}
+                {{ form_widget(form.soldier.city) }}
             </div>
-        </div>
-        <div class="row">
+            <div class="twelve columns">
+              {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
             <div class="twelve columns text-right">
-                <button type="submit" class="button">Sign Up</button>
+                <button type="submit" class="button">STEP 2</button>
             </div>
+        {{ form_widget(form._token) }}
+
+        </form>
+
         </div>
+        <div>
+            <form action="{{ path('fos_user_registration_register', {'type': 'participant'}) }}" method="post" {{ form_enctype(form2) }} class="participant-form">
+                    <div class="twelve columns">
+                        {{ form_label(form2.lastname) }}
+                        {{ form_errors(form2.lastname) }}
+                        {{ form_widget(form2.lastname) }}
+                    </div>
+                    <div class="twelve columns">
+                        {{ form_label(form2.firstname) }}
+                        {{ form_errors(form2.firstname) }}
+                        {{ form_widget(form2.firstname) }}
+                    </div>
+                    <div class="twelve columns">
+                        {{ form_label(form2.participant.city) }}
+                        {{ form_errors(form2.participant.city) }}
+                        {{ form_widget(form2.participant.city) }}
+                    </div>
+                    <div class="twelve columns">
+                      {{ form_label(form2.email) }}
+                        {{ form_errors(form2.email) }}
+                        {{ form_widget(form2.email) }}
+                    </div>
+                    <div class="twelve columns">
+                            <a href="{{ path('fos_user_registration_other') }}" class="other">Other options to join &raquo;</a>
+                    </div>
+                    <div class="twelve columns text-right">
+                            <button type="submit" class="button">STEP 2</button>
+                    </div>
+ 
 
-    {{ form_row(form2.plainPassword) }}
-    {{ form_widget(form2._token) }}
+            {{ form_widget(form2._token) }}
 
-    </form>
+
+            </form>
+
+        </div>
+    </div>
+
+    
 
 </div>
-</div>
-
 <script>
   $(function() {
     $(".tabs").jtTabs("div.tabs-content > div");
+    
+    var form = $('.participant-form');
+    var original = '';
+    var other = '';
+    
+    form.on('click', 'a.back', function(e) {
+                e.preventDefault();
+                form.html(original);
+    });
+    
+    form.on('click', 'a.other', function(e) {
+        e.preventDefault();
+        
+        if(!original)
+            original = form.html();
+            
+        if(!other) {
+            form.load($(this).attr('href'), function() {
+            
+                other = form.html();
+            
+            });
+        }
+        else {
+            form.html(other);
+        }
+       
+        
+    
+    });
+    
   });
   </script>
-  </div>
-  </div>
+  
+  

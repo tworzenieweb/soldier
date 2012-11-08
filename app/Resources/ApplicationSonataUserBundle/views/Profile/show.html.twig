@@ -1,20 +1,162 @@
-{#
+{% extends 'WNCSoldierBundle::layout.html.twig' %}
 
-This file is part of the Sonata package.
+{% block content %}	
+<h2>Account settings</h2>
 
-(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+{% if app.session.hasFlash('fos_user_success') %} 
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+    <div class="alert-box success">
+    {{ app.session.flash('fos_user_success') | trans({}, 'SonataUserBundle') }} 
+  <a href="" class="close">&times;</a>
+</div>
 
-#}
+{% endif %} 
 
+
+
+
+<div class="panel">
+{% render "ApplicationSonataUserBundle:User:menu" %}
+</div>
+
+{% block profile_content %}
 <div class="sonata-user-show">
 
-    <b>{{ app.user.fullname }}</b>
 
-    <ul>
-        <li><a href="{{ path('sonata_user_profile_edit') }}">{{ "link_edit_profile" | trans({}, 'SonataUserBundle')}}</a></li>
-        <li><a href="{{ path('sonata_user_profile_edit_authentication') }}">{{ "link_edit_authentication" | trans({}, 'SonataUserBundle')}}</a></li>
-    </ul>
+    <div class="two columns">
+    {% if app.user.type == 'participant' %}
+        {% media user.participant.picture, 'small' %}
+        {% else %}
+        {% media user.soldier.picture, 'small' %}
+        {% endif %}
+    </div>
+
+    <div class="ten columns">
+    <h3 class="nixie">{{ user.firstname }} {% if app.user.type == 'participant' %}{{ user.lastname }}{% endif %}</h3>
+    <h6>{{ user.email }}</h6>
+    </div>
+  
+
+    {% if app.user.type == 'soldier' %}
+
+    <div class="five columns offset-by-two">
+        
+            <p><strong>Mothers name:</strong><br />
+            {{ user.soldier.mothersName}}
+            </p>
+        
+            <p><strong>Service end date:</strong><br />
+            {{ user.soldier.serviceEndDate | format_date('d MMMM Y')  }}
+            </p>
+    
+        <p><strong>Want's to contact:</strong><br />
+        {{ user.soldier.wantsToContact }}
+        </p>
+        
+    </div>
+    
+    <div class="five columns">
+        
+        <p><strong>Army Unit:</strong><br />
+            {{ user.soldier.armyUnit }}
+            </p>
+        
+        <p><strong>City:</strong><br />
+        {{ user.soldier.city.name }}
+
+        </p>
+        
+
+        
+
+    </div>
+    
+    <div class="ten columns offset-by-two">
+    <p><strong>Comments</strong><br />
+        {{ user.soldier.comments | default('No comments') }}
+        </p>
+
+        <p><strong>Self Description</strong><br />
+        {{ user.soldier.selfDescription | default('No description') }}
+        </p>
+        
+    </div>
+    
+    
+
+    {% else %}
+        
+    <div class="five columns offset-by-two">
+        
+            <p><strong>Birth Date:</strong><br />
+            {{ user.participant.birthDate | format_date('d MMMM Y') }}
+            </p>
+        
+            <p><strong>Occupation:</strong><br />
+            {{ user.participant.occupation }}
+            </p>
+        
+            <p><strong>Organization:</strong><br />
+            {{ user.participant.organization }}
+            </p>
+        
+            <p><strong>Activity:</strong><br />
+            {{ user.participant.activity.name }} (
+            {{ user.participant.activityStartDate | format_date('d MMMM Y') }} - 
+            {{ user.participant.activityEndDate | format_date('d MMMM Y') }})
+            </p>
+        
+        
+    </div>
+    
+    <div class="five columns">
+    
+        <p><strong>City:</strong><br />
+        {{ user.participant.city.name }}
+        </p>
+        
+        <p><strong>Phone number</strong><br />
+        {{ user.participant.phoneNumber }}
+        </p>
+
+        
+        <p><strong>Wants to contact</strong><br />
+        {{ user.participant.wantsToContactText }}
+        </p>
+        
+        <p><strong>Volunteer</strong><br />
+        {{ user.participant.volunteer }}
+        </p>
+        
+
+    </div>
+    
+    <div class="ten columns offset-by-two">
+    <p><strong>Comments</strong><br />
+        {{ user.participant.comments | default('No comments') }}
+        </p>
+
+        <p><strong>Self Description</strong><br />
+        {{ user.participant.selfDescription | default('No description') }}
+        </p>
+        
+    </div>
+    
 </div>
+
+
+{% endif %}
+
+<div class="ten columns offset-by-two">
+<div class="flex video">
+        {% if app.user.type == 'participant' %}
+        {% media user.participant.video, 'reference' %}
+        {% else %}
+        {% media user.soldier.video, 'reference' %}
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% endblock %}

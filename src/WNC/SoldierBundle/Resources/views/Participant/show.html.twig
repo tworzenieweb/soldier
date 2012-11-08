@@ -1,27 +1,86 @@
 {% extends 'WNCSoldierBundle::layout.html.twig' %}
 
 {% block content %}	
+<div class="row">
+<div class="two columns">
+    <div class="top-15">
+       {% media entity.picture, 'small' %}
+    </div>
+</div>
 
+    <div class="ten columns">
+    <h2 class="nixie">{{ entity.user.firstname }} {{ entity.user.lastname }}</h3>
+    <h6>{{ entity.user.email }}</h6>
+    </div>
+</div>
 
+<div class="row">
 
-<h4>Participant {{ entity.user.firstname }} {{ entity.user.lastname }}</h4>
-<br />
-{% for label, value in map %}
-
-    <div class="offset-by-one eleven columns space-30">
+    <div class="five columns offset-by-two">
         
-        <div class="four columns"><strong>{{ label }}</strong></div>
-        <div class="eight columns">{{ value|raw }}</div>
-
+            <p><strong>Birth Date:</strong><br />
+            {{ entity.birthDate | format_date('d MMMM Y') }}
+            </p>
+        
+            <p><strong>Occupation:</strong><br />
+            {{ entity.occupation }}
+            </p>
+        
+            <p><strong>Organization:</strong><br />
+            {{ entity.organization }}
+            </p>
+        
+            <p><strong>Activity:</strong><br />
+            {{ entity.activity.name }} (
+            {{ entity.activityStartDate | format_date('d MMMM Y') }} - 
+            {{ entity.activityEndDate | format_date('d MMMM Y') }})
+            </p>
+        
+        
     </div>
-
-{% endfor %}
-
-
-    <div class="six columns">
-    <a href="{{ path('participant') }}" class="button">Back to the list</a>
-    </div>
-
     
+    <div class="five columns">
+    
+        <p><strong>City:</strong><br />
+        {{ entity.city.name }}
+        </p>
+        
+        <p><strong>Phone number</strong><br />
+        {{ entity.phoneNumber }}
+        </p>
+
+        
+        <p><strong>Wants to contact</strong><br />
+        {{ entity.wantsToContactText }}
+        </p>
+        
+        <p><strong>Volunteer</strong><br />
+        {{ entity.volunteer }}
+        </p>
+        
+
+    </div>
+    
+    <div class="ten columns offset-by-two">
+    <p><strong>Comments</strong><br />
+        {{ entity.comments | default('No comments') }}
+        </p>
+
+        <p><strong>Self Description</strong><br />
+        {{ entity.selfDescription | default('No description') }}
+        </p>
+        
+    </div>
+</div>
+
+<div class="ten columns offset-by-two">
+<div class="flex video">
+        {% media entity.video, 'reference' %}
+    </div>
+</div>
+</div>
+
+
 
 {% endblock %}	
+

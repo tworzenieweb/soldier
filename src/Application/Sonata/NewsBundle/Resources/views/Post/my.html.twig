@@ -1,0 +1,52 @@
+{% extends 'ApplicationSonataUserBundle:Profile:show.html.twig' %}
+
+{% block profile_content %}	
+<h2>My Posts</h2>
+
+{% if app.session.hasFlash('success') %} 
+
+    <div class="alert-box success">
+    {{ app.session.flash('success') | trans({}, 'SonataUserBundle') }} 
+  <a href="" class="close">&times;</a>
+</div>
+
+{% endif %} 
+
+
+<div class="sonata-blog-post-list row space-30">
+    {% for post in posts %}
+    <div class="sonata-blog-post-container twelve columns space-20">
+
+      <div class="row collapse">
+        
+            <div class="twelve columns">
+              <h5 class="sonata-blog-post-title">
+                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a> <span class="sonata-blog-post-comments-count secondary label">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span>
+              </h5>
+              <div class="sonata-blog-post-date-container">
+          {{ post.publicationDateStart | format_date('d MMMM Y') }}
+                </div>
+
+                <div class="sonata-blog-post-abtract space-15 no-border">
+          {{ post.abstract }}
+                  </div>
+
+                <a class="radius button small" href="{{ path('sonata_news_edit', {'id' : post.id}) }}">Edit</a>
+                <a class="radius button small alert" href="{{ path('sonata_news_delete', {'id': post.id}) }}">Delete</a>
+
+                </div>
+              </div>
+
+            </div>
+    {% else %}
+        <div class="twelve columns">{{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}</div>
+    {% endfor %}
+</div>
+
+<div class="twelve columns">
+<p class="text-right">
+<a href="{{ path('sonata_news_new') }}" class="button">Add new</a>
+</p>
+</div>
+
+{% endblock %}

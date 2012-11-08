@@ -45,7 +45,7 @@ class DefaultController extends Controller
             'faq' => array(
                 'label' => 'FAQ',
                 'hebrev' => 'תוצופנ תולאש',
-                'route' => 'faq',
+                'route' => 'evercode_faq_faq_faq',
                 'parameters' => array(
                 )
                 
@@ -53,7 +53,7 @@ class DefaultController extends Controller
             'press' => array(
                 'label' => 'PRESS',
                 'hebrev' => 'תרושקתהמ',
-                'route' => 'sonata_news_archive',
+                'route' => 'sonata_news_news',
                 'parameters' => array()
                 
             ),
@@ -177,14 +177,7 @@ class DefaultController extends Controller
       
     }
     
-    /**
-     * @route("/faq", name="faq") 
-     * @template
-     */
-    public function faqAction(Request $request)
-    {
-      
-    }
+    
     /**
      * @route("/about", name="about") 
      * @template
@@ -236,13 +229,6 @@ class DefaultController extends Controller
         
     }
     
-    /**
-     * @return \Sonata\NewsBundle\Model\PostManagerInterface
-     */
-    protected function getPostManager()
-    {
-        return $this->get('sonata.news.manager.post');
-    }
     
     
     /**
@@ -251,34 +237,9 @@ class DefaultController extends Controller
      */
     public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
         
         
-        $pager = $this->getPostManager()->getPager(
-            array(),
-            $this->getRequest()->get('page', 1)
-        );
-
         
-        
-        $participant = new Participant();
-        $soldier = new Soldier();
-        
-        $f = new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType();
-        $f2 = new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType();
-        
-        $f->setType('participant');
-        $f2->setType('soldier');
-        
-        $form2   = $this->createForm($f);
-        $form   = $this->createForm($f2);
-      
-        return array(
-            'form'   => $form->createView(),
-            'form2'   => $form2->createView(),
-            'pager' => $pager,
-            'blog'  => $this->get('sonata.news.blog'),
-        );
     }
     
     /**
@@ -289,7 +250,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         
-        $dql = "SELECT s,u,c FROM WNCSoldierBundle:Participant s INNER JOIN s.user u INNER JOIN s.city c ORDER BY u.createdAt desc";
+        $dql = "SELECT p,c,a,u,s
+          FROM ApplicationSonataUserBundle:User u
+          INNER JOIN u.participant p
+          LEFT JOIN u.soldier s
+          INNER JOIN p.city c 
+          INNER JOIN p.activity a
+          ORDER BY u.createdAt DESC";
         
         $query = $em->createQuery($dql);
         

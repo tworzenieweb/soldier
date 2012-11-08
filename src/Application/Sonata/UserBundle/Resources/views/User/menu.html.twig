@@ -1,0 +1,6 @@
+<dl class="sub-nav">
+  {% for menu in menus %}
+
+    <dd class="{% if menu.active is defined %}active{% endif %}"><a href="{{ path(menu.route) }}">{{ menu.label }}</a></dd>
+  {% endfor %}
+</dl>

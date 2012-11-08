@@ -1,0 +1,14 @@
+.content a {
+      color: #008aa5;
+      border-bottom: 1px dotted #008aa5;
+      margin-bottom: 20px;
+      display: inline-block;
+      }
+      
+      
+.content .answer {
+
+    display: none;
+    margin-bottom: 20px;
+
+}

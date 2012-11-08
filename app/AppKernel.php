@@ -29,10 +29,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CacheBundle\SonataCacheBundle(),
-//            new Sonata\PageBundle\SonataPageBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
-            new Sonata\NotificationBundle\SonataNotificationBundle(),
-//            new Application\Sonata\PageBundle\ApplicationSonataPageBundle(),
             new WNC\SoldierBundle\WNCSoldierBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
@@ -48,25 +45,34 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             
+            new Evercode\Bundle\FaqBundle\EvercodeFaqBundle(),
+            
+            // enable cmf bundles
             new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
-            
-            
             new Symfony\Cmf\Bundle\CoreBundle\SymfonyCmfCoreBundle(),
             new Symfony\Cmf\Bundle\MenuBundle\SymfonyCmfMenuBundle(),
             new Symfony\Cmf\Bundle\ContentBundle\SymfonyCmfContentBundle(),
+            new Symfony\Cmf\Bundle\TreeBundle\SymfonyCmfTreeBundle(),
+            new Symfony\Cmf\Bundle\TreeBrowserBundle\SymfonyCmfTreeBrowserBundle(),
             new Symfony\Cmf\Bundle\BlockBundle\SymfonyCmfBlockBundle(),
-
-
             new Symfony\Cmf\Bundle\SimpleCmsBundle\SymfonyCmfSimpleCmsBundle(),
+            new Liip\SearchBundle\LiipSearchBundle(),
+            new Symfony\Cmf\Bundle\SearchBundle\SymfonyCmfSearchBundle(),
+
+            // language switcher
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
+
+            // create.js editing related
             new Symfony\Cmf\Bundle\CreateBundle\SymfonyCmfCreateBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
-            
-            // support for the admin
-            new Symfony\Cmf\Bundle\TreeBundle\SymfonyCmfTreeBundle(),
-            new Symfony\Cmf\Bundle\TreeBrowserBundle\SymfonyCmfTreeBrowserBundle(),
+
+
             new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            
+            new Sandbox\BlockBundle\SandboxBlockBundle(),
+            new Sandbox\MainBundle\SandboxMainBundle(),
 
         );
 

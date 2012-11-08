@@ -2,6 +2,9 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.xml }
+    - { resource: doctrine_extensions.yml }
+    - { resource: cmf.yml }
+    - { resource: doctrine_cr.yml }
 
 framework:
     #esi:             ~
@@ -16,7 +19,25 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
     trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~
+    session: ~
+
+
+services:
+ participation.listener:
+    class: WNC\SoldierBundle\EventListener\ParticipantAssociation
+    arguments: ['@service_container']
+    tags:
+        - { name: doctrine.event_listener, event: postPersist }
+ my.listener:
+    class: Application\Sonata\NewsBundle\EventListener\AuthorSubscriber
+    arguments: ['@service_container']
+    tags:
+        - { name: doctrine.event_listener, event: prePersist }
+
+ twig.extension.text:
+     class: Twig_Extensions_Extension_Text
+     tags:
+         - { name: twig.extension }
 
 # Twig Configuration
 twig:
@@ -30,7 +51,8 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [WNCSoldierBundle, FOSUserBundle, SymfonyCmfCreateBundle]
+    bundles:        [WNCSoldierBundle, FOSUserBundle ]
+    #SymfonyCmfCreateBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -102,26 +124,6 @@ sonata_user:
 
 
 
-sonata_admin:
-    templates:
-        # default global templates
-        ajax:    SonataAdminBundle::ajax_layout.html.twig
-    dashboard:
-        blocks:
-            # display a dashboard block
-            - { position: right, type: sonata.admin.block.admin_list }
-            - { position: left, type: sonata_admin_doctrine_phpcr.tree_block }
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-        sonata_admin_doctrine_phpcr.tree_block:
-            settings:
-                id: '/cms'
-            contexts:   [admin]
-          
-
 sonata_media:
     db_driver:       doctrine_orm # | doctrine_mongodb
     default_context: default
@@ -135,16 +137,33 @@ sonata_media:
                 - sonata.media.provider.vimeo
 
             formats:
-                small: { width: 100, quality: 100}
-                big:   { width: 820 , quality: 100}
+                small: { width: 100, height: 100, quality: 100}
+                big:   { width: 820, height: 600, quality: 100}
+                wide:    { width: 450, height: 238, quality: 100}
+        user:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+
+            formats:
+                small: { width: 100, height: 100, quality: 100}
+                big:   { width: 640, height: 480, quality: 100}
 
         news:
             providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
                 - sonata.media.provider.image
+                - sonata.media.provider.vimeo
 
             formats:
-                abstract: { width: 100, quality: 100}
-                wide:    { width: 820 , quality: 100}
+                abstract: { width: 100, height: 80, quality: 100}
+                small: { width: 140, height: 100, quality: 100}
+                wide:    { width: 450, height: 238, quality: 100}
+                slider: { width: 164, height: 118, quality: 100}
 
     filesystem:
         # define where the uploaded file will be stored
@@ -166,7 +185,7 @@ sonata_media:
     resizer:
         simple:
 #            mode:  outbound
-            mode:  inset
+            mode:  inbound
 
 sonata_news:
     title:        L'Shem Shmira
@@ -175,7 +194,9 @@ sonata_news:
     salt:         'secureToken'
     permalink_generator: sonata.news.permalink.date # sonata.news.permalink.category
 
-
+    admin:
+        post:
+          class: Application\Sonata\NewsBundle\Admin\PostAdmin
     comment:
         notification:
             emails:   [lukasz.adamczewski@polcode.pl]
@@ -219,15 +240,7 @@ sonata_seo:
                 keywords:             foo bar
                 description:          L'Shem Shmira
                 robots:               index, follow
-                
-                
-symfony_cmf_routing_extra:
-    chain:
-        routers_by_id:
-            symfony_cmf_routing_extra.dynamic_router: 20
-            router.default: 100
-    dynamic:
-        enabled: true
+
                 
 stfalcon_tinymce:
         include_jquery: true
@@ -247,94 +260,3 @@ sonata_formatter:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
-                
-                
-                
-doctrine_phpcr:
-    session:
-        backend:
-            # Jackalope Jackrabbit
-            type: jackrabbit
-            url: http://localhost:8080/server/
-            # Jackalope Doctrine DBAL (make sure to also configure the DoctrineBundle accordingly)
-            type: doctrinedbal
-            connection: doctrine.dbal.default_connection
-            # Midgard
-            
-        workspace: default
-        username: admin
-        password: admin
-        
-        
-symfony_cmf_simple_cms:
-    routing:
-        templates_by_class:
-            Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:  SymfonyCmfSimpleCmsBundle:Page:index.html.twig
-            
-symfony_cmf_create:
-    phpcr_odm: true
-    map:
-        '<http://rdfs.org/sioc/ns#Post>': 'Symfony\Cmf\Bundle\MultilangContentBundle\Document\MultilangStaticContent'
-    image:
-        model_class: Symfony\Cmf\Bundle\CreateBundle\Document\Image
-        controller_class: Symfony\Cmf\Bundle\CreateBundle\Controller\PHPCRImageController
-        
-        
-sonata_doctrine_phpcr_admin:
-    document_tree:
-        Doctrine\PHPCR\Odm\Document\Generic:
-            valid_children:
-                - all
-        Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page: ~
-        Symfony\Cmf\Bundle\RoutingExtraBundle\Document\Route:
-            valid_children:
-                - Symfony\Cmf\Bundle\RoutingExtraBundle\Document\Route
-                - Symfony\Cmf\Bundle\RoutingExtraBundle\Document\RedirectRoute
-        Symfony\Cmf\Bundle\RoutingExtraBundle\Document\RedirectRoute:
-            valid_children: []
-        Symfony\Cmf\Bundle\MenuBundle\Document\MenuItem:
-            valid_children:
-                - Symfony\Cmf\Bundle\MenuBundle\Document\MenuItem
-                - Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuItem
-        Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuItem:
-            valid_children:
-                - Symfony\Cmf\Bundle\MenuBundle\Document\MenuItem
-                - Symfony\Cmf\Bundle\MenuBundle\Document\MultilangMenuItem
-
-fos_js_routing:
-    routes_to_expose:
-        - admin_sandbox_main_editablestaticcontent_create
-        - admin_sandbox_main_editablestaticcontent_delete
-        - admin_sandbox_main_editablestaticcontent_edit
-        - admin_bundle_menu_menuitem_create
-        - admin_bundle_menu_menuitem_delete
-        - admin_bundle_menu_menuitem_edit
-        - admin_bundle_menu_multilangmenuitem_create
-        - admin_bundle_menu_multilangmenuitem_delete
-        - admin_bundle_menu_multilangmenuitem_edit
-        - admin_bundle_content_multilangstaticcontent_create
-        - admin_bundle_content_multilangstaticcontent_delete
-        - admin_bundle_content_multilangstaticcontent_edit
-        - admin_bundle_routingextra_route_create
-        - admin_bundle_routingextra_route_delete
-        - admin_bundle_routingextra_route_edit
-        - admin_bundle_simplecms_page_create
-        - admin_bundle_simplecms_page_delete
-        - admin_bundle_simplecms_page_edit
-        - symfony_cmf_tree_browser.phpcr_children
-        - symfony_cmf_tree_browser.phpcr_move
-        - sonata.admin.doctrine_phpcr.phpcrodm_children
-        - sonata.admin.doctrine_phpcr.phpcrodm_move
-        - fos_user_registration_register
-        
-        
-symfony_cmf_block:
-    document_manager_name:  default
-    
-    
-fos_rest:
-    view:
-        formats:
-            json: true
-            
-            

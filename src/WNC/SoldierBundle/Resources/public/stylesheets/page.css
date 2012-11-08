@@ -27,6 +27,7 @@
 div.youtube {
   float: left;
   width: 50%;
+  height: 238px;
   
 }
 
@@ -37,10 +38,52 @@ div.text {
 }
 
 
+.slider-tabs-container {
+
+overflow: hidden;
+margin: 14px 39px;
+
+}
+
 /* tabs (those little circles below slides) */
-.slider-tabs {
-  margin-top: 12px;
-  margin-left: 40px;
+.row .slider-tabs {
+    width: 999999px !important;
+    margin-left: 10px;
+}
+
+.slider {
+    
+    background: url(../images/slider.png) top left no-repeat;
+    height: 414px;
+    position: relative;
+
+}
+
+.slider h2 {
+    color: #fff;
+    font-family: 'Nixie One',cursive;
+    font-size: 26px;
+    font-weight: normal;
+    margin-top:0;
+}
+
+.slider h2 a {
+    color: #fff;
+
+}
+
+
+.slider .text {
+  color: #D0D0B2;
+  line-height: 150%;
+  font-size: 13px;
+  margin-bottom: 15px;
+  
+}
+
+.slider .text p {
+    border-bottom: 1px dashed #c0c0a6;
+    padding-bottom: 5px;
 }
 
 /* single tab */
@@ -52,33 +95,65 @@ div.text {
     border: 1px solid #fff;
     display:block;
     overflow: hidden;
-    position: relative
+    position: relative;
+    
+}
+.slider-tabs a span.author {
+   font-size: 13px;
+   color: #fff;
+   position: absolute;
+   bottom: 10px;
+   width: 95%;
+   display:block;
+   z-index: 20;
+   left: 5%;
+   
 }
 
-.slider-tabs a span {
-  
+.slider .prev, .slider .next {
+    position:absolute;
+    width: 30px;
+    height: 145px;
+}
+
+.slider .prev a, .slider .next a { 
+   width: 100%;
+   height: 100%;
+   display: block;
+
+}
+
+.slider .prev a span, .slider .next a span { display: none; }
+
+.slider .prev {
+    left: 0;
+}
+
+
+.slider .next {
+    right: 0;
+}
+
+.slider-tabs a span.bg {
+
+  display:block;
   position: absolute;
   bottom: 0;
   width:100%;
   background: #000;
-  filter: alpha(opacity:0.7);
-  KHTMLOpacity: 0.7;
-  MozOpacity: 0.7;
-  -khtml-opacity:.70;
-  -ms-filter:"alpha(opacity=70)";
-  -moz-opacity:.70;
-  filter:alpha(opacity=70);
-  opacity:.70;
-  height: 20px;
-  color: #fff;
-  left: 0;
-  z-index: 999;
-  
-}
+  filter: alpha(opacity:0.5);
+  KHTMLOpacity: 0.5;
+  MozOpacity: 0.5;
+  -khtml-opacity:.50;
+  -ms-filter:"alpha(opacity=50)";
+  -moz-opacity:.50;
+  filter:alpha(opacity=50);
+  opacity:.50;
+  height: 30px;
+  z-index: 10;
 
-/* mouseover state */
-.slidetabs a:hover {
-    background-position:0 -8px;
+  text-align:center;
+  
 }
 
 /* active state (current page state) */
@@ -87,28 +162,6 @@ div.text {
 }
 
 
-/* prev and next buttons */
-.forward, .backward {
-    float:left;
-    margin-top:140px;
-    background:#fff url(/media/img/scrollable/arrow/hori_large.png) no-repeat;
-    display:block;
-    width:30px;
-    height:30px;
-    cursor:pointer;
-    font-size:1px;
-    text-indent:-9999em;
-}
-
-/* next */
-.forward { background-position: 0 -30px; clear:right; }
-.forward:hover { background-position:-30px -30px; }
-.forward:active	{ background-position:-60px -30px; }
-
-
-/* prev */
-.backward:hover	{ background-position:-30px 0; }
-.backward:active { background-position:-60px 0; }
 
 /* disabled navigational button. is not needed when tabs are
    configured with rotate: true */
@@ -116,20 +169,36 @@ div.text {
     visibility:hidden !important;
 }
 
+.participants-list a {
+  color: #5e6162;
+}
+
 .participants-list {
   background: #c7d3d8;
   margin-top: 20px;
   -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;
+  color: #5e6162;
   
 }
 
+.participants-list .row div small {
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.participants-list .row div {
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .participants-list .row {
-  font-size: 10px !important; 
   border-bottom: 1px solid #bcc6ca;
   margin-bottom: 6px;
+  padding-bottom: 4px;
 }
 
 .participants-list h5 {
   font-family: 'Nixie One',cursive;
   font-weight: normal;
 }
+

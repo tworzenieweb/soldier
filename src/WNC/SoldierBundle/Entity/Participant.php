@@ -4,14 +4,13 @@ namespace WNC\SoldierBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\ExecutionContext;
 
 /**
  * WNC\SoldierBundle\Entity\Participant
  *
  * @ORM\Table(name="participant")
  * @ORM\Entity(repositoryClass="WNC\SoldierBundle\Entity\ParticipantRepository")
- * @Vich\Uploadable
  */
 class Participant
 {
@@ -51,10 +50,13 @@ class Participant
     
     
     /**
-     * @var string $picture
-     * @ORM\Column(name="picture", type="string", length=255)
-     */
+    *
+    * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", nullable=true)
+    */
     private $picture;
+    
+    private $picture_id;
 
     /**
      * @var string $picture
@@ -69,16 +71,18 @@ class Participant
     private $phone_number;
     
     /**
-     * @var string $video
-     *
-     * @ORM\Column(name="video", type="string", length=255, nullable=true)
-     */
+    *
+    * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="video_id", referencedColumnName="id", nullable=true)
+    */
     private $video;
+    
+    private $video_id;
     
      /**
      * @var string $comments
      *
-     * @ORM\Column(name="comments", type="string", length=1000)
+     * @ORM\Column(name="comments", type="string", length=1000, nullable=true)
      */
     private $comments;
 
@@ -112,14 +116,13 @@ class Participant
 
     
    /**
-    *
-    * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", cascade={"persist", "remove"}, inversedBy="participant")
-    * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
-    */
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="participant")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
     private $user;
 
     /**
-    * @var  integer $userid
+    * @var  integer $user_id
     */
     private $user_id;
     
@@ -143,19 +146,21 @@ class Participant
     
     
     /**
-     * @var UploadedFile $file
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="picture")
+     * @ORM\OneToMany(targetEntity="Soldier", mappedBy="participant")
+     * @ORM\JoinColumn(name="activity_id", referencedColumnName="id", nullable=false)
      */
-    protected $file;
+    private $soldiers;
+    
+    
     
 
-    public function __construct() {
-        $this->_plainPassword = substr(uniqid(), 0, 8);
-        
-        $this->setUser(new \Application\Sonata\UserBundle\Entity\User());
-        
-        $this->getUser()->setPlainPassword($this->_plainPassword);
-    }
+    /**
+     * @var string $self_description
+     *
+     * @ORM\Column(name="self_description", type="string", length=1000, nullable=true)
+     */
+    private $self_description;
+    
     
     /**
      * Get id
@@ -240,13 +245,6 @@ class Participant
     {
         
         return $this->gender ? 'female' : 'male';
-        
-    }
-    
-     public function getPictureTag()
-    {
-        
-        return sprintf('<img src="/%s" alt="%s %s" />', $this->getWebPath(), $this->getUser()->getFirstname(), $this->getUser()->getLastname());
         
     }
 
@@ -365,28 +363,6 @@ class Participant
         return $this->phone_number;
     }
 
-    /**
-     * Set video
-     *
-     * @param string $video
-     * @return Participant
-     */
-    public function setVideo($video)
-    {
-        $this->video = $video;
-    
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return string 
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
 
     /**
      * Set comments
@@ -432,6 +408,11 @@ class Participant
     public function getWantsToContact()
     {
         return $this->wants_to_contact;
+    }
+    
+    public function getWantsToContactText()
+    {
+        return $this->wants_to_contact ? 'yes' : 'no';
     }
 
     /**
@@ -512,29 +493,7 @@ class Participant
         return $this->birth_date;
     }
     
-    
-        public function getAbsolutePath()
-    {
-        return null === $this->picture ? null : $this->getUploadRootDir().'/'.$this->picture;
-    }
 
-    public function getWebPath()
-    {
-        return null === $this->picture ? null : $this->getUploadDir().'/'.$this->picture;
-    }
-
-    protected function getUploadRootDir()
-    {
-        // the absolute directory path where uploaded documents should be saved
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    protected function getUploadDir()
-    {
-        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-        return 'uploads/pictures';
-    }
-    
 
     /**
      * Set activity
@@ -570,14 +529,134 @@ class Participant
       
     }
     
-    public function getFile()
+    
+
+    /**
+     * Add soldiers
+     *
+     * @param WNC\SoldierBundle\Entity\Soldier $soldiers
+     * @return Participant
+     */
+    public function addSoldier(\WNC\SoldierBundle\Entity\Soldier $soldiers)
     {
-      return $this->file;
+        $this->soldiers[] = $soldiers;
+    
+        return $this;
+    }
+
+    /**
+     * Remove soldiers
+     *
+     * @param WNC\SoldierBundle\Entity\Soldier $soldiers
+     */
+    public function removeSoldier(\WNC\SoldierBundle\Entity\Soldier $soldiers)
+    {
+        $this->soldiers->removeElement($soldiers);
+    }
+
+    /**
+     * Get soldiers
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getSoldiers()
+    {
+        return $this->soldiers;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->soldiers = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
-    public function setFile($file)
+    /**
+     * Set self_description
+     *
+     * @param string $selfDescription
+     * @return Participant
+     */
+    public function setSelfDescription($selfDescription)
     {
-      $this->file = $file;
+        $this->self_description = $selfDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get self_description
+     *
+     * @return string 
+     */
+    public function getSelfDescription()
+    {
+        return $this->self_description;
     }
     
+    public function isActivityDatesValid(ExecutionContext $context)
+    {
+    
+        if($this->getVideo() && !$this->getVideo()->getName()) {
+        
+          $context->addViolationAtSubPath('video_id', 'Wrong youtube link', array(), null);       
+        
+        }        
+        
+    
+        $start = $this->getActivityStartDate();
+        $end = $this->getActivityEndDate();
+        $birth = $this->getBirthDate();
+
+        if(!$start || !$end || !$birth) {
+            $context->addViolation('Birth date, and activity boundaries need to be filled');
+            return;
+        }
+
+        $now = new \DateTime();
+        $now->setTime(0,0,0);
+        
+        $birthConstraint = new \DateTime();
+        $birthConstraint->setDate(date('Y') - 18, 1, 1);       
+        
+        #var_dump($birth, $birthConstraint); exit;
+        
+        if($birth > $birthConstraint)
+            $context->addViolationAtSubPath('birth_date', 'You need to be adult to participate', array(), null);               
+        
+        if($start < $now) {
+            $context->addViolationAtSubPath('activity_start_date', sprintf('Activity start date need to start from %s', $now->format('m/d/Y')), array(), null);       
+        }
+        
+        if($start >= $end) {
+            $context->addViolationAtSubPath('activity_end_date', sprintf('Activity end date need to be greater than %s', $start->format('m/d/Y')), array(), null);       
+        }
+        
+
+        
+    }
+    
+
+    /**
+     * Set video
+     *
+     * @param Application\Sonata\MediaBundle\Entity\Media $video
+     * @return Participant
+     */
+    public function setVideo(\Application\Sonata\MediaBundle\Entity\Media $video)
+    {
+        $this->video = $video;
+    
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
 }

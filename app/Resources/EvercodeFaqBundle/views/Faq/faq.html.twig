@@ -1,0 +1,48 @@
+{% extends 'WNCSoldierBundle::layout.html.twig' %}
+
+{% block content %}	
+<h2>FAQ</h2>
+
+
+{% block evercode_faq_content %}
+{% for question in query %}
+<div class="twelve columns">
+    <a class="question" href="#q_{{question.question|url_encode()}}">{{ question.question }}</a>
+    <div class="answer">
+    {% autoescape false %}
+
+        {{ question.answer }}
+
+    {% endautoescape %}
+    </div>
+</div>
+{% endfor %}
+{% endblock evercode_faq_content %}
+
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{{ parent() }}
+
+<link rel="stylesheet" href="{{ asset('bundles/wncsoldier/stylesheets/faq.css') }}" type="text/css" />
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script>
+(function($) {
+
+    $('.content').on('click', '.question', function(e) {
+        
+        $(this).next().slideToggle();
+    
+    });
+
+})(jQuery);
+</script>
+{% endblock %}

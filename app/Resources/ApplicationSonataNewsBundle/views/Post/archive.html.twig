@@ -1,29 +1,67 @@
 {% extends 'WNCSoldierBundle::layout.html.twig' %}
 
-
-
 {% block content %}	
-
 <h2>Press</h2>
 
-<div class="sonata-blog-post-list row">
+<div class="sonata-blog-post-list row space-30">
     {% for post in pager.getResults() %}
-        <div class="sonata-blog-post-container twelve columns">
-            <h5 class="sonata-blog-post-title">
-                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a> <span class="sonata-blog-post-comments-count secondary label">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span>
-            </h5>
-            <div class="sonata-blog-post-date-container">
-                {{ post.publicationDateStart | format_date }}
-            </div>
+    <div class="sonata-blog-post-container twelve columns space-20">
 
-            <div class="sonata-blog-post-abtract space-15">
-                {{ post.abstract }}
-                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}" class="continue">Read on</a>
+      <div class="row collapse">
+        {% if post.image %}
+          <div class="two columns">
+          {% thumbnail post.image, 'small'  %}
             </div>
-        </div>
+            <div class="ten columns">
+        {% else %}
+            <div class="twelve columns">
+        {% endif %}
+              <h5 class="sonata-blog-post-title">
+                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a> <span class="sonata-blog-post-comments-count secondary label">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span>
+              </h5>
+              <div class="sonata-blog-post-date-container">
+          {{ post.publicationDateStart | format_date('d MMMM Y') }}
+                </div>
+
+                <div class="sonata-blog-post-abtract space-15 no-border">
+          {{ post.abstract }}
+                    <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}" class="continue">Read on</a>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
     {% else %}
         {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
     {% endfor %}
 </div>
+
+    
+{% if pager.haveToPaginate() %}
+<div class="row">
+
+   <div class="eight columns centered">
+     
+     <ul class="pagination">
+       <li>Pages </li>
+
+
+
+                                   {# Set the number of pages to display in the pager #}
+                                   {% for page in pager.getLinks(10) %}
+                                       {% if page == pager.page %}
+       <li class="current"><a href="{{ path('sonata_news_news', {'page': page}) }}">{{ page }}</a></li>
+                                       {% else %}
+       <li><a href="{{ path('sonata_news_news', {'page': page}) }}">{{ page }}</a></li>
+                                       {% endif %}
+                                   {% endfor %}
+
+
+     </ul>
+   </div>
+
+</div>
+               {% endif %}
 
 {% endblock %}

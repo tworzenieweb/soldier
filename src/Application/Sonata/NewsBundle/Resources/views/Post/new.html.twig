@@ -1,0 +1,100 @@
+{% extends 'ApplicationSonataUserBundle:Profile:show.html.twig' %}
+
+{% block profile_content %}	
+<h2>{% if entity is not defined %}Add new{% else %}Edit{% endif %}  post</h2>
+
+<p>
+In content field you can use markup syntax for text formating <a href="http://en.wikipedia.org/wiki/Markdown">see here</a>
+</p>
+
+<form action="{{ path(route, route_parameters) }}" {{ form_enctype(form) }} method="POST" class="registration">
+
+
+
+{{ form_errors(form) }}
+
+{{ form_row(form.title) }}
+
+{{ form_row(form.abstract) }}
+
+{{ form_row(form.rawContent) }}
+
+
+{{ form_row(form.commentsDefaultStatus) }}
+
+
+<div class="hide">
+{{ form_row(form.contentFormatter) }}
+</div>
+
+{% if entity is not defined %}
+{{ form_row(form.mediaType) }}
+{% endif %}
+
+{{ form_row(form.enabled) }}
+
+{{ form_row(form._token) }}
+
+
+
+<div class="hide template row space-15 "><div class="twelve columns"><label for="sonata_post_post_photo" class="required">Media uploader / Video URL</label>
+</div>
+<div class="eight columns">
+
+</div>
+<div class="four columns">
+
+</div>
+</div>
+
+<div class="extra">
+</div>
+
+
+<button type="submit" class="button">Publish</button>
+</form>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+
+<script>
+
+    (function($) {
+    
+
+        
+        var template = $('.template').removeClass('hide').detach();
+    
+        $('#sonata_post_post_mediaType').on('change', function(e) {
+        
+            template.detach();
+        
+            e.preventDefault();
+            
+            if($(this).val() == 'sonata.media.provider.image') {
+            
+                $('.eight',template).html('<input name="sonata_post_post[image][binaryContent]" type="file" />');
+            
+            }
+            else {
+            
+                $('.eight',template).html('<input name="sonata_post_post[image][binaryContent]" type="text" placeholder="put here " + $(this).text() + " link" value="{% if data.image.binaryContent is defined %}{{ data.image.binaryContent }}{% endif %}" />');
+            
+            }
+            
+            $('.registration .extra').append(template);
+            
+        
+        });
+        
+        if($('#sonata_post_post_mediaType').val()) {
+            $('#sonata_post_post_mediaType').trigger('change');
+        }
+        
+    })(jQuery);
+</script>
+
+{% endblock %}

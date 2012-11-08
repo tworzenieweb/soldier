@@ -54,20 +54,7 @@ class ParticipantController extends Controller
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-            'map' => array(
-                'First Name' => $entity->getUser()->getFirstname(),
-                'Last Name' => $entity->getUser()->getLastname(),
-                'Email Address' => $entity->getUser()->getEmail(),
-                'Birth date' => $entity->getBirthDate()->format('Y-m-d'),
-                'City' => $entity->getCity()->getName(),
-                'Occupation' => $entity->getOccupation(),
-                'Phone number' => $entity->getPhoneNumber(),
-                'Male/Female' => $entity->getGenderValue(),
-                'Picture' => $entity->getPictureTag(),
-                'Comments' => $entity->getComments(),
-               
-            )
+            
         );
     }
 

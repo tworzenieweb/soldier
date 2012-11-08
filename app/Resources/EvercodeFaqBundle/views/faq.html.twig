@@ -1,0 +1,31 @@
+{% extends 'WNCSoldierBundle::layout.html.twig' %}
+
+{% block content %}	
+<h2>FAQ</h2>
+
+
+{% block evercode_faq_content %}
+{% for question in query %}
+<div>
+    <h5><a class="question" href="">{{ question.question }}</a></h5>
+    {% autoescape false %}
+        <p class="hide">{{ question.answer }}</p>
+    {% endautoescape %}
+</div>
+{% endfor %}
+{% endblock evercode_faq_content %}
+
+
+<script>
+(function($) {
+
+    $('.content').on('.question', 'click', function(e) {
+        
+        $(this).parent().next().slideToggle();
+    
+    });
+
+})(jQuery);
+</script>
+
+{% endblock %}

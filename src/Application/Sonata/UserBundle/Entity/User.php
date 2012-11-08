@@ -136,4 +136,12 @@ class User extends BaseUser
       
     }
     
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setPlainPassword(substr(uniqid(), 0,8));
+    }
+    
+    
+    
 }

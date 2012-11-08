@@ -3,6 +3,14 @@
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
+home_redirect:
+    pattern: /
+    defaults:
+        _controller: lunetics_locale.switcher_controller:switchAction
+        route: cmf_routing_dynamic_route_cms_routes_en
+        statusCode: 301
+        useReferrer: false
+
 
 genemu_base64:
     resource: "@GenemuFormBundle/Resources/config/routing/base64.xml"
@@ -45,6 +53,11 @@ WNCSoldierBundle:
     type:     annotation
     prefix:   /
     
+EvercodeFaqBundle:
+    resource: "@EvercodeFaqBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
 ApplicationSonataUserBundle:
     resource: "@ApplicationSonataUserBundle/Controller/"
     type:     annotation
@@ -72,15 +85,15 @@ media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
 
-#homepage:
-#    pattern:  /
-#    defaults: { _controller: SonataPageBundle:Page:catchAll }
+pixlr:
+    resource: '@SonataMediaBundle/Resources/config/routing/pixlr.xml'
+    prefix: /
 
 
 
 
 fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    resource: @FOSJsRoutingBundle/Resources/config/routing/routing.xml
 
 phpcrbrowser:
     resource: @SymfonyCmfTreeBrowserBundle/Resources/config/routing/phpcrbrowser.xml
@@ -89,8 +102,7 @@ phpcrbrowser:
 phpcrodmbrowser:
     resource: @SonataDoctrinePHPCRAdminBundle/Resources/config/routing/phpcrodmbrowser.xml
     prefix: /admin/browser
-    
+
+
 create:
     resource: "@SymfonyCmfCreateBundle/Resources/config/routing/rest.xml"
-create_iamge:
-    resource: "@SymfonyCmfCreateBundle/Resources/config/routing/image.xml"

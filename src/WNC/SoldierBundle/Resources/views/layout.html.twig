@@ -7,36 +7,34 @@
 	<meta name="viewport" content="width=device-width" />
   {{ sonata_seo_title() }}
   {{ sonata_seo_metadatas() }}
-  
+
 {% block stylesheets %}
 	<!-- Included CSS Files -->
     <link rel="stylesheet"  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" media="screen" >
     <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
-    {% stylesheets 
+    {% stylesheets filter='cssrewrite' output='css/total.css'
         'bundles/wncsoldier/stylesheets/foundation.min.css'
         'bundles/wncsoldier/stylesheets/page.css'
         'bundles/wncsoldier/stylesheets/app.css'
         'bundles/wncsoldier/stylesheets/colorbox/colorbox.css'
         'bundles/wncsoldier/stylesheets/ui-lightness/jquery.css'
-        'bundles/wncsoldier/javascripts/uploadify/uploadify.css'
-        'bundles/wncsoldier/javascripts/chosen/chosen.css'
-        output='css/total.css' filter='cssrewrite'
-        %}
-        <link rel="stylesheet"  href="{{ asset_url }}" media="screen" >
         
+        %}
+        <link rel="stylesheet"  href="{{ asset_url }}" media="screen" />
+        
+        
+    {% endstylesheets %}
         {% block includes %}
-        {#
-            {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}
+        
+            {% if is_granted("ROLE_SUPER_ADMIN") %}
                 {% include "SymfonyCmfCreateBundle::includecssfiles.html.twig" %}
             {% endif %}
 
-#}
+
         {% endblock %}
 
         {% block top_scripts %}
         {% endblock %}
-    {% endstylesheets %}
-
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="public/css/ie.css">
@@ -143,6 +141,7 @@
             </div>
         </div>
         <div class="six columns">
+          <div id="fb-root"></div>
           <div class="fb-like-box right" data-href="http://www.facebook.com/platform" data-width="426" data-height="206" data-colorscheme="dark" data-show-faces="true" data-stream="false" data-header="true"></div>
         </div>
       </div>
@@ -152,21 +151,20 @@
 
   {% block javascripts %}
           <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-          <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-          <script type="text/javascript" src="{{ asset('bundles/wncsoldier/javascripts/jquery.colorbox.js') }}"></script>
-          <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
           
           
           <script type="text/javascript">
   
-        jQuery.fn.jtTabs = jQuery.fn.tabs;
-        </script>
+            jQuery.fn.jtTabs = jQuery.fn.tabs;
+          </script>
           <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-          <script src="{{ asset('bundles/sonatajquery/jquery-ui-i18n.js') }}" type="text/javascript"></script>
           
             {% javascripts 
-                'bundles/wncsoldier/javascripts/app.js'
+                'bundles/sonatajquery/jquery-ui-i18n.js'
+                'bundles/wncsoldier/javascripts/jquery.colorbox.js'
                 'bundles/wncsoldier/javascripts/chosen/chosen.jquery.min.js'
+                'bundles/fosjsrouting/js/router.js'
+                'bundles/wncsoldier/javascripts/app.js'
                 
                 output='js/all.js'
                 %}
@@ -175,23 +173,16 @@
 
 
             {% endjavascripts %}
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
          
               
 
-{#
+{% if is_granted("ROLE_SUPER_ADMIN") %}
                     {% block bottom_scripts %}
             {% render "symfony_cmf_create.jsloader.controller:includeJSFilesAction" %}
         {% endblock %}
-#}
+{% endif %}
 
-                  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=200123070080537";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
   {% endblock %}
 

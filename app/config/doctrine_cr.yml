@@ -1,0 +1,10 @@
+parameters:
+    phpcr_backend:
+        type: doctrinedbal
+        connection: doctrine.dbal.default_connection
+#        caches:
+#            meta: liip_doctrine_cache.ns.meta
+#            nodes: liip_doctrine_cache.ns.nodes
+    phpcr_workspace: sandbox
+    phpcr_user: root
+    phpcr_pass: lukasz.123

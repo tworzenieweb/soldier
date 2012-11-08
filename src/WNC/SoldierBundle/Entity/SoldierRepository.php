@@ -22,6 +22,8 @@ class SoldierRepository extends EntityRepository
                 ->addSelect(sprintf('MATCH(s.city = %d) AS orderColumn', $participant->getCityId()))
                 ->from('WNC\SoldierBundle\Entity\Soldier', 's')
                 ->orderBy('orderColumn', 'DESC')
+                ->where('s.service_end_date > ?1')
+                ->setParameter(1, date('Y-m-d'))
                 ->setMaxResults(1);
         
         $rs = $q->getQuery()->getOneOrNullResult();

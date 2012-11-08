@@ -30,11 +30,13 @@
     
     $('input.date').datepicker({
 			showOn: "button",
-			buttonText: '<span class="ui-icon ui-icon-calendar"></span>'
+			buttonText: '<span class="ui-icon ui-icon-calendar"></span>',
+      dateFormat: 'mm-dd-yy'
 		});
     
     $('.register_button').colorbox({
-      height: '480px'
+      height: '520px',
+      width: '477px',
     });
     
     
@@ -46,3 +48,12 @@
     // $('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'left'});
   
 })(jQuery);
+
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=200123070080537";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

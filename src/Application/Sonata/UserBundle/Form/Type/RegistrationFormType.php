@@ -45,7 +45,6 @@ class RegistrationFormType extends BaseForm {
       $form = '\WNC\SoldierBundle\Form\SoldierType';
     }
 
-
     $builder->add('firstname', null, array(
                 'label' => 'First Name',
                 'attr' => array(
@@ -73,8 +72,14 @@ class RegistrationFormType extends BaseForm {
   }
 
   public function setDefaultOptions(OptionsResolverInterface $resolver) {
+    
+    $type = $this->type ? $this->type : $this->container->get('request')->get('type');
+    
+    $group = $type == 'participant' ? 'Participant' : 'Soldier';
+    
+    
     $resolver->setDefaults(array(
-        'validation_groups' => array('Soldier'),
+        'validation_groups' => array($group),
         'cascade_validation' => true,
         'data_class' => "Application\Sonata\UserBundle\Entity\User"
     ));
