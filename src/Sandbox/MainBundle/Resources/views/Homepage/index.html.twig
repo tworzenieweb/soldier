@@ -1,29 +1,13 @@
-{% extends "SandboxMainBundle::skeleton.html.twig" %}
+{% extends 'WNCSoldierBundle::layout.html.twig' %}
 
 {% block content %}
-    <p><em>We are on the homepage which uses a special template</em></p>
+    
 
     {% createphp cmfMainContent as="rdf" %}
     {{ rdf|raw }}
     {% endcreatephp %}
 
-    <hr/>
+    
 
-    <div class="row">
-        {{ sonata_block_render({
-            'name': 'additionalInfoBlock'
-        }) }}
-    </div>
-
-    <div>
-        <h2>Some additional links:</h2>
-        <ul>
-            {% for child in cmf_children(cmf_find('/cms/simple/service')) %}
-                <li>
-                    <a href="{{ path(child) }}">{{ child.title|striptags }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
 {% endblock %}
 

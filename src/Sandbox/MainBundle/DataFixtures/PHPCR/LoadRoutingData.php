@@ -46,109 +46,36 @@ class LoadRoutingData extends ContainerAware implements FixtureInterface, Ordere
 
         $locales = $this->container->getParameter('locales');
         foreach ($locales as $locale) {
+            
             $home = new Route;
             $home->setPosition($parent, $locale);
-            $home->setDefault('_locale', $locale);
             $home->setDefault(RouteObjectInterface::TEMPLATE_NAME, 'SandboxMainBundle:Homepage:index.html.twig');
-            $home->setRequirement('_locale', $locale);
             $home->setRouteContent($dm->find(null, "$content_path/home"));
             $dm->persist($home);
 
-            $company = new Route;
-            $company->setPosition($home, 'company');
-            $company->setDefault('_locale', $locale);
-            $company->setRequirement('_locale', $locale);
-            $company->setRouteContent($dm->find(null, "$content_path/company"));
-            $dm->persist($company);
+            $mission = new Route;
+            $mission->setPosition($home, 'mission');
+            $mission->setRouteContent($dm->find(null, "$content_path/mission"));
+            $dm->persist($mission);
+            
+            $about = new Route;
+            $about->setPosition($home, 'about');
+            $about->setRouteContent($dm->find(null, "$content_path/about"));
+            $dm->persist($about);
+            
+            $contact = new Route;
+            $contact->setPosition($home, 'contact');
+            $contact->setRouteContent($dm->find(null, "$content_path/contact"));
+            $dm->persist($contact);
 
-            $team = new Route;
-            $team->setPosition($company, 'team');
-            $team->setDefault('_locale', $locale);
-            $team->setRequirement('_locale', $locale);
-            $team->setRouteContent($dm->find(null, "$content_path/team"));
-            $dm->persist($team);
+            $donate = new Route;
+            $donate->setPosition($home, 'donate');
+            $donate->setRouteContent($dm->find(null, "$content_path/donate"));
+            $dm->persist($donate);
 
-            $more = new Route;
-            $more->setPosition($company, 'more');
-            $more->setDefault('_locale', $locale);
-            $more->setRequirement('_locale', $locale);
-            $more->setRouteContent($dm->find(null, "$content_path/more"));
-            $dm->persist($more);
-
-            $projects = new Route;
-            $projects->setPosition($home, 'projects');
-            $projects->setDefault('_locale', $locale);
-            $projects->setRequirement('_locale', $locale);
-            $projects->setRouteContent($dm->find(null, "$content_path/projects"));
-            $dm->persist($projects);
-
-            $cmf = new Route;
-            $cmf->setPosition($projects, 'cmf');
-            $cmf->setDefault('_locale', $locale);
-            $cmf->setRequirement('_locale', $locale);
-            $cmf->setRouteContent($dm->find(null, "$content_path/cmf"));
-            $dm->persist($cmf);
         }
 
-        // demo features of routing
-
-        // we can create routes without locales, but will lose the language context of course
-
-        $demo = new Route;
-        $demo->setPosition($parent, 'demo');
-        $demo->setRouteContent($dm->find(null, "$content_path/demo"));
-        $demo->setDefault(RouteObjectInterface::TEMPLATE_NAME, 'SandboxMainBundle:Demo:template_explicit.html.twig');
-        $dm->persist($demo);
-
-        // explicit template
-        $template = new Route;
-        $template->setPosition($demo, 'atemplate');
-        $template->setRouteContent($dm->find(null, "$content_path/demo_template"));
-        $template->setDefault(RouteObjectInterface::TEMPLATE_NAME, 'SandboxMainBundle:Demo:template_explicit.html.twig');
-        $dm->persist($template);
-
-        // explicit controller
-        $controller = new Route;
-        $controller->setPosition($demo, 'controller');
-        $controller->setRouteContent($dm->find(null, "$content_path/demo_controller"));
-        $controller->setDefault('_controller', 'sandbox_main.controller:specialAction');
-        $dm->persist($controller);
-
-        // alias to controller mapping
-        $alias = new Route;
-        $alias->setPosition($demo, 'alias');
-        $alias->setRouteContent($dm->find(null, "$content_path/demo_alias"));
-        $alias->setDefault(RouteObjectInterface::CONTROLLER_ALIAS, 'demo_alias');
-        $dm->persist($alias);
-
-        // class to controller mapping
-        $class = new Route;
-        $class->setPosition($demo, 'class');
-        $class->setRouteContent($dm->find(null, "$content_path/demo_class"));
-        $dm->persist($class);
-
-        // redirections
-
-        // redirect to uri
-        $redirect = new RedirectRoute();
-        $redirect->setPosition($parent, 'external');
-        $redirect->setUri('http://cmf.symfony.com');
-        $dm->persist($redirect);
-
-        // redirect to other doctrine route
-        $redirectRoute = new RedirectRoute();
-        $redirectRoute->setPosition($parent, 'short');
-        $redirectRoute->setRouteTarget($cmf);
-        $dm->persist($redirectRoute);
-
-        // redirect to Symfony route
-        $redirectS = new RedirectRoute();
-        $redirectS->setPosition($parent, 'short1');
-        $redirectS->setRouteName('test');
-        $dm->persist($redirectS);
-
-        // class to template mapping is used for all the rest
-
+        
         $dm->flush();
     }
 }

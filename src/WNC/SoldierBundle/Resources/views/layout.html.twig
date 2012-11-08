@@ -10,31 +10,51 @@
 
 {% block stylesheets %}
 	<!-- Included CSS Files -->
-    <link rel="stylesheet"  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" media="screen" >
+    
     <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
-    {% stylesheets filter='cssrewrite' output='css/total.css'
+    {% stylesheets output='css/total.css' filter='cssrewrite'
+
         'bundles/wncsoldier/stylesheets/foundation.min.css'
         'bundles/wncsoldier/stylesheets/page.css'
         'bundles/wncsoldier/stylesheets/app.css'
         'bundles/wncsoldier/stylesheets/colorbox/colorbox.css'
-        'bundles/wncsoldier/stylesheets/ui-lightness/jquery.css'
-        
+
         %}
         <link rel="stylesheet"  href="{{ asset_url }}" media="screen" />
         
-        
     {% endstylesheets %}
-        {% block includes %}
+    {% block includes %}
+
+        {% if is_granted("ROLE_SUPER_ADMIN") and "cmf_routing_dynamic" in app.request.attributes.get('_route') %}
         
-            {% if is_granted("ROLE_SUPER_ADMIN") %}
-                {% include "SymfonyCmfCreateBundle::includecssfiles.html.twig" %}
-            {% endif %}
+            {% stylesheets output='css/bootstrap.css' filter='cssrewrite'
+
+            '@SandboxMainBundle/Resources/public/bootstrap/css/bootstrap.css'
+
+            %}
+            <link rel="stylesheet"  href="{{ asset_url }}" media="screen" />
+
+            {% endstylesheets %}
+
+            {% include "SymfonyCmfCreateBundle::includecssfiles.html.twig" %}
+
+        {% else %}
+            {% stylesheets output='css/ui.css' filter='cssrewrite'
+
+            'bundles/wncsoldier/stylesheets/ui-lightness/jquery.css'
+
+            %}
+            
+            <link rel="stylesheet"  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" media="screen" >
+            {% endstylesheets %}
+        {% endif %}
 
 
-        {% endblock %}
 
-        {% block top_scripts %}
-        {% endblock %}
+    {% endblock %}
+
+    {% block top_scripts %}
+    {% endblock %}
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="public/css/ie.css">
@@ -70,10 +90,10 @@
 	</div>
 </header>
 	<div class="container">
+
 		 {% block container %}
 		<div class="row content">
 			<div class="twelve columns">		
-
             {% block content %}
             {% endblock content %}
 			</div>
@@ -100,16 +120,16 @@
               <div class="eight columns centered">
 
                 <div class="three columns">
-                  <a href="#" class="icon icon-flickr"><span>Connect Twitter</span></a>
+                  <a href="#" class="ico ico-flickr"><span>Connect Twitter</span></a>
                 </div>
                 <div class="three columns">
-                  <a href="#" class="icon icon-facebook"><span>Connect Linkedin</span></a>
+                  <a href="#" class="ico ico-facebook"><span>Connect Linkedin</span></a>
                 </div>
                 <div class="three columns">
-                  <a href="#" class="icon icon-delicious"><span>Connect Google</span></a>
+                  <a href="#" class="ico ico-delicious"><span>Connect Google</span></a>
                 </div>
                 <div class="three columns">
-                  <a href="#" class="icon icon-rss"><span>Connect Youtube</span></a>
+                  <a href="#" class="ico ico-rss"><span>Connect Youtube</span></a>
                 </div>
 
               </div>
@@ -117,16 +137,16 @@
             <div class="row">
               <div class="eight columns centered">
                 <div class="three columns">
-                  <a href="#" class="icon icon-twitter"><span>Connect Twitter</span></a>
+                  <a href="#" class="ico ico-twitter"><span>Connect Twitter</span></a>
                 </div>
                 <div class="three columns">
-                  <a href="#" class="icon icon-linkedin"><span>Connect Linkedin</span></a>
+                  <a href="#" class="ico ico-linkedin"><span>Connect Linkedin</span></a>
                 </div>
                 <div class="three columns">
-                  <a href="#" class="icon icon-google"><span>Connect Google</span></a>
+                  <a href="#" class="ico ico-google"><span>Connect Google</span></a>
                 </div>
                 <div class="three columns">
-                  <a href="#" class="icon icon-youtube"><span>Connect Youtube</span></a>
+                  <a href="#" class="ico ico-youtube"><span>Connect Youtube</span></a>
                 </div>
               </div>
             </div>
@@ -151,10 +171,8 @@
 
   {% block javascripts %}
           <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-          
-          
+                    
           <script type="text/javascript">
-  
             jQuery.fn.jtTabs = jQuery.fn.tabs;
           </script>
           <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
@@ -176,9 +194,9 @@
             <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
          
               
-
-{% if is_granted("ROLE_SUPER_ADMIN") %}
-                    {% block bottom_scripts %}
+          
+        {% if is_granted("ROLE_SUPER_ADMIN") and "cmf_routing_dynamic" in app.request.attributes.get('_route') %}
+        {% block bottom_scripts %}
             {% render "symfony_cmf_create.jsloader.controller:includeJSFilesAction" %}
         {% endblock %}
 {% endif %}

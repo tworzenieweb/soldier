@@ -1,147 +1,147 @@
 static:
-    -
-        name: "home"
-        title:
-            en: "Homepage"
-            fr: "Page principale"
-            de: "Startseite"
-        content:
-            en: |
-                <h2>Welcome to the Symfony CMF Demo</h2>
-                <p>If you see this page, it means that the <a href="http://cmf.symfony.com">Symfony CMF</a> installation ran successfully!</p>
-                <h2>How to proceed</h2>
-                <p>There is a couple of bundles to look into in the vendor/symfony-cmf/ folder. Look at the main README but also at the individual README files of the bundles.</p>
-            fr: |
-                <h2>Bienvenue dans la démo de Symfony CMF</h2>
-                <p>Si vous voyez cette page, c'est que l'installation de <a href="http://cmf.symfony.com">Symfony CMF</a> a fonctionné !</p>
-                <h2>Que faire maintenant ?</h2>
-                <p>Plusieurs bundles se trouvent dans le répertoire vendor/symfony-cmf/. Lisez le README principal ainsi que les README propres à chaque bundle.</p>
-            de: |
-                <h2>Willkommen zur Symfony CMF Demo</h2>
-                <p>Wenn du diese Seite siehst, bedeutet das dass die Installation des <a href="http://cmf.symfony.com">Symfony CMF</a> erfolgreich war!</p>
-                <h2>Was nun?</h2>
-                <p>Es gibt einige Bundles im Verzeichnis vendor/symfony-cmf/. Lies die README Datei im Hauptverzeichnis, und dann die README der einzelnen Bundles.</p>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-                children:
-                    child1:
-                        class: Symfony\Cmf\Bundle\BlockBundle\Document\SimpleBlock
-                        properties:
-                            title: Editable Simpleblock
-                            content: This is a simple block. It is stored on the homepage, but also referenced from the company page.
-                    child2:
-                        class: Symfony\Cmf\Bundle\BlockBundle\Document\SimpleBlock
-                        properties:
-                            title: Another editable SimpleBlock
-                            content: Both title and content of this block are editable.
-                    child3:
-                        class: Symfony\Cmf\Bundle\BlockBundle\Document\ActionBlock
-                        actionName: SandboxBlockBundle:Default:block
-    -
-        name: "company"
-        title: "The Company"
-        content: |
-            <h2>Who is behind the Symfony CMF project?</h2>
-            <p>The content management framework is a joint effort by various developers and companies</p>
-            <h2>dicta facete eu vis</h2>
-            <p>Sonet affert an has. Nam id odio nisl eruditi. Te quo falli propriae delectus, ut animal meliore est, agam decore in sea. Prima debet fierent id sed. Usu debet paulo argumentum ex, solum homero in sed, modus laboramus et usu. Brute legendos contentiones ex pri.
+    -   
+        name: "mission"
+        title: 
+          en: "Mission"
+        content: 
+          en: |
+            <div>
+            <img src="{{ asset('bundles/wncsoldier/images/about.png') }}" align="right" />
+            <p>In 2011, our son decided to move to Israel and enlist in the Paratroopers as a &ldquo;Chayal boded&rdquo; a &ldquo;Lone Soldier&rdquo;. Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m&rsquo;fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave, idealistic and somewhat crazy, our son went off to training and jump out of perfectly good airplanes.</p>
+            </div>
+            <div>
+            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What should we do?&nbsp;</p>
+            </div>
+            <div>&nbsp;</div>
+            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone&rsquo;s merit provides protection.&nbsp;</p>
+            <div>&nbsp;</div>
+            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one&rsquo;s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.&nbsp;</p>
+            <div>&nbsp;</div>
+            <div>
+            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook&rsquo;s Yeshiva in 2009 during Israel&rsquo;s Operation Cast Lead. With a click of a link, it offered the first name and the mother&rsquo;s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt&rdquo;l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed Mitzvot on behalf of these soldiers.</p>
+            </div>
+            <div>&nbsp;</div>
+            <div>
+            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.&nbsp;</p>
+            </div>
+            <div>&nbsp;</div>
+            <div><strong>So, who are we?</strong></div>
+            <div>&nbsp;</div>
+            <div>
+            <p>We are people with sons, daughters and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. &nbsp;There is a tremendous opportunity for a spiritual response to open hearts throughout the world. There is tremendous space in a Jewish heart that is available for acts of loving kindness and gratitude to others.&nbsp;</p>
+            </div>
+            
+    -        
+        name: "about"
+        title: 
+          en: "About"
+        content: 
+          en: |          
+            <div><img src="{{ asset('bundles/wncsoldier/images/about.png') }}" align="right" />
+            <p>In 2011, our son decided to move to Israel and enlist in the Paratroopers as a &ldquo;Chayal boded&rdquo; a &ldquo;Lone Soldier&rdquo;. Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m&rsquo;fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave, idealistic and somewhat crazy, our son went off to training and jump out of perfectly good airplanes.</p>
+            </div>
+            <div>
+            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What should we do?&nbsp;</p>
+            </div>
+            <div>&nbsp;</div>
+            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone&rsquo;s merit provides protection.&nbsp;</p>
+            <div>&nbsp;</div>
+            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one&rsquo;s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.&nbsp;</p>
+            <div>&nbsp;</div>
+            <div>
+            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook&rsquo;s Yeshiva in 2009 during Israel&rsquo;s Operation Cast Lead. With a click of a link, it offered the first name and the mother&rsquo;s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt&rdquo;l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed Mitzvot on behalf of these soldiers.</p>
+            </div>
+            <div>&nbsp;</div>
+            <div>
+            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.&nbsp;</p>
+            </div>
+            <div>&nbsp;</div>
+            <div><strong>So, who are we?</strong></div>
+            <div>&nbsp;</div>
+            <div>
+            <p>We are people with sons, daughters and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. &nbsp;There is a tremendous opportunity for a spiritual response to open hearts throughout the world. There is tremendous space in a Jewish heart that is available for acts of loving kindness and gratitude to others.&nbsp;</p>
+            </div>
 
-            Ut suscipit honestatis sed, per id facer euismod probatus. Ne persius posidonium eum, has elaboraret philosophia eu. No eam wisi choro labores. Sit id oratio aperiam electram, quodsi deterruisset no eum, vel modo quaeque ei</p>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ReferenceBlock
-                referencedBlock: /cms/content/home/additionalInfoBlock/child1
-    -
-        name: "team"
-        title: "The Team"
-        content: |
-            <h2>Our Team</h2>
-            <p>There are some core developers and many other contributors. We need more help, so please contribute.</p>
-            <h2>dicta facete eu vis</h2>
-            <p>Sonet affert an has. Nam id odio nisl eruditi. Te quo falli propriae delectus, ut animal meliore est, agam decore in sea. Prima debet fierent id sed. Usu debet paulo argumentum ex, solum homero in sed, modus laboramus et usu. Brute legendos contentiones ex pri.
 
-            Ut suscipit honestatis sed, per id facer euismod probatus. Ne persius posidonium eum, has elaboraret philosophia eu. No eam wisi choro labores. Sit id oratio aperiam electram, quodsi deterruisset no eum, vel modo quaeque ei</p>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "more"
-        title: "More Information"
-        content: |
-            <h2>Yet another page</h2>
-            <p>About the companies, though we don't have more to say here. But you want pages to see the navigation in action.</p>
-            <h2>dicta facete eu vis</h2>
-            <p>Sonet affert an has. Nam id odio nisl eruditi. Te quo falli propriae delectus, ut animal meliore est, agam decore in sea. Prima debet fierent id sed. Usu debet paulo argumentum ex, solum homero in sed, modus laboramus et usu. Brute legendos contentiones ex pri.
+            <div class="row collapse">
+              <div class="eight columns spoiler">
+                <div class="eight columns blue">
+                  <h3>Join L'Shem Shmirah Project.</h3>
+                  <p>It's personal. It's powerful. It's one name at a time.<br />
+                  It's guard duty for the rest of us.
+                  </p>
 
-            Ut suscipit honestatis sed, per id facer euismod probatus. Ne persius posidonium eum, has elaboraret philosophia eu. No eam wisi choro labores. Sit id oratio aperiam electram, quodsi deterruisset no eum, vel modo quaeque ei</p>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "projects"
-        title: "The projects"
-        content: |
-            <h2>We do a lot of projects</h2>
-            <p>Sed sale modus nusquam ne. At omnesque senserit vel, veritus denique epicuri pri eu, nam illud constituam in. Id sit convenire mediocrem. Erant facilisi pri ea, quo ignota graeci dolores in, idque legere commune nam an. Eros fabulas scripserit mea ea. Mei everti hendrerit et, sit in harum vituperata.</p>
-            <h2>dicta facete eu vis</h2>
-            <p>Sonet affert an has. Nam id odio nisl eruditi. Te quo falli propriae delectus, ut animal meliore est, agam decore in sea.
-            Ut suscipit honestatis sed, per id facer euismod probatus. Ne persius posidonium eum, has elaboraret philosophia eu. No eam wisi choro labores. Sit id oratio aperiam electram, quodsi deterruisset no eum, vel modo quaeque ei</p>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "cmf"
-        title: "Content Management Framework"
-        content: |
-            <h2>The CMF is what this is all about</h2>
-            <p>Sed sale modus nusquam ne. At omnesque senserit vel, veritus denique epicuri pri eu, nam illud constituam in. Id sit convenire mediocrem. Erant facilisi pri ea, quo ignota graeci dolores in, idque legere commune nam an. Eros fabulas scripserit mea ea. Mei everti hendrerit et, sit in harum vituperata.</p>
-            <h2>dicta facete eu vis</h2>
-            <p>Sonet affert an has. Nam id odio nisl eruditi. Te quo falli propriae delectus, ut animal meliore est, agam decore in sea.
-            Ut suscipit honestatis sed, per id facer euismod probatus. Ne persius posidonium eum, has elaboraret philosophia eu. No eam wisi choro labores. Sit id oratio aperiam electram, quodsi deterruisset no eum, vel modo quaeque ei</p>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "demo"
-        title: "Routing demo"
-        content: |
-            <p>The Children of this page show the various use cases of the cmf menu and the cmf content routing.</p>
-            <p>There are also some routes that have no menu entry:</p>
-            <ul>
-                <li><a href="/app_dev.php/short">A short url that redirects to another doctrine route</a></li>
-                <li><a href="/app_dev.php/short1">A short url that redirects to a standard Symfony route</a></li>
-                <li><a href="/app_dev.php/external">A short url that redirects to an external URL</a></li>
-            </ul>
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "demo_controller"
-        title: "Explicit Controller"
-        content: "<p>This content is routed through an explicit controller that can do additional things.</p>"
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "demo_template"
-        title: "Explicit template"
-        content: "<p>This content is rendered through the generic content controller with an explicitly specified template.</p>"
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "demo_alias"
-        title: "Controller by alias"
-        content: "<p>This content is routed through a controller found by the route controller alias.</p>"
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
-    -
-        name: "demo_class"
-        title: "Controller by class"
-        content: "<p>This content is routed through a controller found by the content class.</p>"
-        class: "Sandbox\MainBundle\Document\DemoClassContent"
-        blocks:
-            additionalInfoBlock:
-                class: Symfony\Cmf\Bundle\BlockBundle\Document\ContainerBlock
+                </div>
+                <div class="four columns gray text-center">
+
+                  <a href="{{ path('fos_user_registration_ajax') }}" class="register_button button">SIGN UP</a>
+
+                </div>
+              </div>
+            </div>
+    
+    -        
+        name: "contact"
+        title: 
+          en: "Conact"
+        content: 
+          en: |
+            <div class="row space-25">
+            <div class="six columns">
+              <div class="six columns">
+
+                <div class="twelve columns">
+                  <h6>Main Office</h4>
+                </div>
+                <div class="twelve columns">
+                  Tel: 0800 1 55 98 98
+                </div>
+
+                <div class="twelve columns">
+                  Fax: 0800 1 55 40 61
+                </div>
+
+                <div class="twelve columns">
+                  E-mail: info@lshemshmira.com
+                </div>
+
+              </div>
+
+              <div class="six columns">
+
+                <div class="twelve columns">
+                  <h6>Postal Address</h4>
+                </div>
+                <div class="twelve columns">
+                  34 Bury Old Road,<br />
+                  Prestwich,
+                  Manchester, M1 2FG
+                </div>
+
+
+
+              </div>
+            </div>
+                </div>
+
+            <div class="row space-15">
+              <div class="twelve columns">
+            <iframe width="625" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=34+Bury+Old+Road,+Prestwich,+Wielka+Brytania&amp;aq=0&amp;oq=34+bury+old+road+pre&amp;sll=53.520176,-2.259513&amp;sspn=0.011762,0.033023&amp;ie=UTF8&amp;hq=&amp;hnear=34+Bury+Old+Rd,+Prestwich,+Manchester+M25+0FT,+Wielka+Brytania&amp;t=m&amp;z=14&amp;ll=53.520176,-2.259513&amp;output=embed"></iframe>
+            </div>
+            </div>
+    
+    -        
+        name: "donate"
+        title: 
+          en: "Donate"
+        content: 
+          en: |
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur, nibh sed aliquet molestie, magna mi auctor sapien, eget ornare mi sapien et odio. Nunc sodales eleifend ipsum eu tempor. Suspendisse tempor viverra ligula quis gravida. Aliquam erat volutpat. Etiam rhoncus lectus quis felis scelerisque mollis. Pellentesque porttitor consequat eleifend. Donec varius fringilla felis, ac dictum nibh tempor vel. Aenean aliquet accumsan neque. Nunc varius leo tortor, eu congue enim. Nullam magna ante, semper et lacinia id, sagittis at risus. Ut bibendum volutpat accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean iaculis tortor at tortor dapibus vehicula. Vestibulum ultricies, mi vitae suscipit viverra, erat odio malesuada metus, eu tincidunt neque lacus sit amet dolor. Duis pretium nunc eget metus egestas blandit. Phasellus justo ligula, vulputate nec sagittis a, pretium et velit.
+            </p>
+            <p>
+            <img src="{{ asset('bundles/wncsoldier/images/donate.png') }}" style="margin-right: 20px;" align="left"/>Cras pretium sapien feugiat tellus rutrum a tincidunt lectus molestie. Sed lacinia, erat sed dictum auctor, dolor metus elementum nibh, eu scelerisque felis massa sit amet ligula. Vestibulum luctus est in augue mattis consequat. Suspendisse condimentum euismod eleifend. Quisque facilisis purus ac lorem lacinia bibendum ac in sapien. Nunc adipiscing feugiat neque, non vehicula ligula lobortis at. In elementum luctus neque et ornare. Suspendisse potenti. Aliquam eu dui dolor. Aliquam rhoncus vulputate dapibus.
+
+
+            </p>
+
+            <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">

@@ -2512,7 +2512,7 @@ table .span24 {
   filter: alpha(opacity=100);
 }
 
-.collapse {
+/*.collapse {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -2525,7 +2525,7 @@ table .span24 {
 
 .collapse.in {
   height: auto;
-}
+}*/
 
 .close {
   float: right;

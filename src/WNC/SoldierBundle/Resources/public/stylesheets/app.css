@@ -372,13 +372,13 @@ footer h4 {
   font-family: 'Nixie One', cursive;
   font-size: 12pt;
 }
-.icon {
+.ico {
   background: url(../images/sprite.png) no-repeat top left;
   width: 32px; height: 32px;
   display: block;
 }
 
-.row .icon span {
+.row .ico span {
   display:none;
 }
 
@@ -390,14 +390,14 @@ footer h4 {
   margin-top: 30px;
 }
 
-.icon-delicious{ background-position: 0 0;  } 
-.icon-facebook{ background-position: 0 -82px; } 
-.icon-flickr{ background-position: 0 -164px;} 
-.icon-google{ background-position: 0 -246px; } 
-.icon-linkedin{ background-position: 0 -328px;} 
-.icon-rss{ background-position: 0 -410px; } 
-.icon-twitter{ background-position: 0 -492px; } 
-.icon-youtube{ background-position: 0 -574px; } 
+.ico-delicious{ background-position: 0 0;  } 
+.ico-facebook{ background-position: 0 -82px; } 
+.ico-flickr{ background-position: 0 -164px;} 
+.ico-google{ background-position: 0 -246px; } 
+.ico-linkedin{ background-position: 0 -328px;} 
+.ico-rss{ background-position: 0 -410px; } 
+.ico-twitter{ background-position: 0 -492px; } 
+.ico-youtube{ background-position: 0 -574px; } 
 
 
 
@@ -556,4 +556,19 @@ ul.tabs a.xl.current { background-position: 0 -62px; }
 .top-15 {
 margin-top: 15px;
 
+}
+.inlineImage-left, .inlineImage-right, .inlineImage-middle {
+    margin: 5px;
+    left: 0;
+}
+.inlineImage-left {
+    float: left;
+    margin-right: 10px;
+}
+.inlineImage-right {
+    float: right;
+    margin-left: 10px;
+}
+.inlineImage-middle {
+    float: none;
 }

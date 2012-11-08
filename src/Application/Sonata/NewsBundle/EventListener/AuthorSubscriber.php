@@ -24,7 +24,8 @@ class AuthorSubscriber
         $entityManager = $args->getEntityManager();
         $securityContext = $this->container->get('security.context');
         
-        $user = $securityContext->getToken()->getUser();
+        if($securityContext->getToken())
+            $user = $securityContext->getToken()->getUser();
         
         if ($entity instanceof \Application\Sonata\NewsBundle\Entity\Post) {
         

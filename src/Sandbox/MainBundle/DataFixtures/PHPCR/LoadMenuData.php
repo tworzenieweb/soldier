@@ -35,30 +35,19 @@ class LoadMenuData extends ContainerAware implements FixtureInterface, OrderedFi
         $root = $dm->find(null, $basepath);
 
         /** @var $menuitem MenuItem */
-        $main = $this->createMenuItem($dm, $root, 'main', array('en' => 'Home', 'de' => 'Start', 'fr' => 'Accueil'), $dm->find(null, "$content_path/home"));
+        $main = $this->createMenuItem($dm, $root, 'main', 'homepage', null, null, 'homepage');
         $main->setChildrenAttributes(array("class" => "menu_main"));
 
-        if ($session->getRepository()->getDescriptor(RepositoryInterface::QUERY_FULL_TEXT_SEARCH_SUPPORTED)) {
-            $this->createMenuItem($dm, $main, 'search-item', 'Search', null, null, 'search');
-        }
 
-        $this->createMenuItem($dm, $main, 'admin-item', 'Admin', null, null, 'sonata_admin_dashboard');
+        $this->createMenuItem($dm, $main, 'about', 'About', $dm->find(null, "$content_path/about"));
+        $this->createMenuItem($dm, $main, 'mission', 'Mission', $dm->find(null, "$content_path/mission"));
+        $this->createMenuItem($dm, $main, 'faq', 'FAQ', null, null, 'evercode_faq_faq_faq');
+        $this->createMenuItem($dm, $main, 'press', 'Press', null, null, 'sonata_news_news');
+        $this->createMenuItem($dm, $main, 'contact', 'Contact', $dm->find(null, "$content_path/contact"));
+        $this->createMenuItem($dm, $main, 'contact', 'Donate', $dm->find(null, "$content_path/donate"));
+        $this->createMenuItem($dm, $main, 'signup', 'Signup', null, null, 'fos_user_registration_ajax');
 
-        $projects = $this->createMenuItem($dm, $main, 'projects-item', array('en' => 'Projects', 'de' => 'Projekte', 'fr' => 'Projets'), $dm->find(null, "$content_path/projects"));
-        $this->createMenuItem($dm, $projects, 'cmf-item', 'Symfony CMF', $dm->find(null, "$content_path/cmf"));
 
-        $company = $this->createMenuItem($dm, $main, 'company-item', array('en' => 'Company', 'de' => 'Firma', 'fr' => 'Entreprise'), $dm->find(null, "$content_path/company"));
-        $this->createMenuItem($dm, $company, 'team-item', array('en' => 'Team', 'de' => 'Team', 'fr' => 'Equipe'), $dm->find(null, "$content_path/team"));
-        $this->createMenuItem($dm, $company, 'more-item', array('en' => 'More', 'de' => 'Mehr', 'fr' => 'Plus'), $dm->find(null, "$content_path/more"));
-
-        $demo = $this->createMenuItem($dm, $main, 'demo-item', 'Demo', $dm->find(null, "$content_path/demo"));
-        //TODO: this should be possible without a content as the controller might not need a content. support directly having the route document as "content" in the menu document?
-        $this->createMenuItem($dm, $demo, 'controller-item', 'Explicit controller', $dm->find(null, "$content_path/demo_controller"));
-        $this->createMenuItem($dm, $demo, 'template-item', 'Explicit template', $dm->find(null, "$content_path/demo_template"));
-        $this->createMenuItem($dm, $demo, 'alias-item', 'Route alias to controller', $dm->find(null, "$content_path/demo_alias"));
-        $this->createMenuItem($dm, $demo, 'class-item', 'Class to controller', $dm->find(null, "$content_path/demo_class"));
-        $this->createMenuItem($dm, $demo, 'test-item', 'Normal Symfony Route', null, null, 'test');
-        $this->createMenuItem($dm, $demo, 'external-item', 'External Link', null, 'http://cmf.symfony.com/');
 
         $dm->flush();
     }

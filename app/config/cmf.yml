@@ -32,7 +32,7 @@ symfony_cmf_routing_extra:
 symfony_cmf_simple_cms:
     routing:
         templates_by_class:
-            Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:  SymfonyCmfSimpleCmsBundle:Page:index.html.twig
+            Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:  SandboxMainBundle:Homepage:page.html.twig
 
 knp_menu:
     twig: true
@@ -75,6 +75,7 @@ sonata_admin:
             - { position: left, type: sonata_admin_doctrine_phpcr.tree_block }
         groups: ~
             
+
 sonata_doctrine_phpcr_admin:
     document_tree:
         Doctrine\PHPCR\Odm\Document\Generic:
@@ -141,3 +142,7 @@ lunetics_locale:
         - router
         - browser
     allowed_locales: %locales%
+    
+fos_rest:
+    view:
+        view_response_listener: true

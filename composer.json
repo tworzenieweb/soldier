@@ -4,6 +4,7 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -27,7 +28,6 @@
         "knplabs/knp-gaufrette-bundle": "dev-master",
         "vich/uploader-bundle": "dev-master",
         "stfalcon/tinymce-bundle": "dev-master",
-        "sonata-project/page-bundle": "dev-master",
         "genemu/form-bundle": "2.1.x-dev",
         "sensio/generator-bundle": "2.1.x-dev",
         "sonata-project/news-bundle": "dev-master",
@@ -37,23 +37,22 @@
         "sonata-project/intl-bundle": "dev-master",
         "evercodelab/evercode-faq-bundle": "dev-master",
         
+        "gedmo/doctrine-extensions":      "dev-master",
         
-        "symfony-cmf/symfony-cmf": "1.0.*",
-        
+        "symfony-cmf/symfony-cmf": "dev-master",
         "symfony-cmf/simple-cms-bundle": "1.0.*",
         "symfony-cmf/search-bundle": "dev-master",
         "symfony-cmf/create-bundle": "dev-master",
-        "jackalope/jackalope-doctrine-dbal": "1.0.*",
-        "doctrine/doctrine-bundle": "1.0.*",
+        "jackalope/jackalope-jackrabbit": "1.0.*",
         "doctrine/data-fixtures": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "liip/functional-test-bundle": "dev-master",
         "sonata-project/doctrine-phpcr-admin-bundle": "1.0.*",
         "lunetics/locale-bundle": "dev-master",
         "symfony-cmf/tree-browser-bundle":"1.0.*",
+        "jackalope/jackalope-doctrine-dbal": "1.0.*"
         
-        "gedmo/doctrine-extensions":      "dev-master",
-        "liip/search-bundle": "dev-master"
+        
     },
      "scripts": {
         "post-install-cmd": [

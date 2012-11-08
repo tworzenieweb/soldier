@@ -29,7 +29,7 @@ class DefaultController extends Controller
             'about' => array(
                 'label' => 'ABOUT',
                 'hebrev' => 'ונחנא ימ',
-                'route' => 'about',
+                'route' => 'cmf_routing_dynamic_route_cms_routes_en_about',
                 'parameters' => array(
                 )
                 
@@ -37,7 +37,7 @@ class DefaultController extends Controller
             'mission' => array(
                 'label' => 'MISSION',
                 'hebrev' => 'רטמ',
-                'route' => 'mission',
+                'route' => 'cmf_routing_dynamic_route_cms_routes_en_mission',
                 'parameters' => array(
                 )
                 
@@ -60,7 +60,7 @@ class DefaultController extends Controller
             'contact' => array(
                 'label' => 'CONTACT',
                 'hebrev' => 'רשק רוצ',
-                'route' => 'contact',
+                'route' => 'cmf_routing_dynamic_route_cms_routes_en_contact',
                 'parameters' => array(
                    
                 )
@@ -69,7 +69,7 @@ class DefaultController extends Controller
             'donate' => array(
                 'label' => 'DONATE',
                 'hebrev' => 'וישכע םורת',
-                'route' => 'donate',
+                'route' => 'cmf_routing_dynamic_route_cms_routes_en_donate',
                 'parameters' => array()
                 
             ),
@@ -168,14 +168,6 @@ class DefaultController extends Controller
       
     }
 
-    /**
-     * @route("/mission", name="mission") 
-     * @template
-     */
-    public function missionAction(Request $request)
-    {
-      
-    }
     
     
     /**
@@ -233,18 +225,14 @@ class DefaultController extends Controller
     
     /**
      * @route("/", name="homepage") 
-     * @template
      */
     public function indexAction(\Symfony\Component\HttpFoundation\Request $request)
     {
         
-        
+        return $this->render('WNCSoldierBundle:Default:index.html.twig', array());
         
     }
     
-    /**
-     * @template
-     */
     public function participantsAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -262,10 +250,10 @@ class DefaultController extends Controller
         
         $query->setMaxResults(10);
         
-        
-        return array(
+    
+        return $this->render('WNCSoldierBundle:Default:participants.html.twig', array(
             'participants' => $query->getResult()
-        );
+        ));
     }
     
         

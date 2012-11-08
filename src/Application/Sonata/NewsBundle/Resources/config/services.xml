@@ -5,6 +5,7 @@
 
     <parameters>
         <parameter key="sonata.media.resizer.simple.class">Application\Sonata\MediaBundle\Resizer\CropResizer</parameter>
+        
     </parameters>
 
 

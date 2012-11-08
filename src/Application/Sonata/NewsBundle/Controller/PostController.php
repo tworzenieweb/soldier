@@ -24,14 +24,13 @@ class PostController extends BaseController
   /**
    * 
    * @param type $limit
-   * @template
    */
   public function latestAction($limit=1)
   {
-    
-    return array(
+      
+    return $this->render('ApplicationSonataNewsBundle:Post:latest.html.twig', array(
         'posts' => $this->getDoctrine()->getRepository('ApplicationSonataNewsBundle:Post')->getLatest($limit)
-    );
+    ));
     
     
     
@@ -181,15 +180,13 @@ class PostController extends BaseController
   
   }
   
-  /**
-   * @template
-   */
+
   public function sliderAction($limit = 10)
   {
-    
-    return array(
+
+      return $this->render('ApplicationSonataNewsBundle:Post:slider.html.twig', array(
         'posts' => $this->getDoctrine()->getRepository('ApplicationSonataNewsBundle:Post')->getLatest($limit)
-    );
+        ));
     
   }
   
