@@ -5,6 +5,7 @@ imports:
     - { resource: doctrine_extensions.yml }
     - { resource: cmf.yml }
     - { resource: doctrine_cr.yml }
+    - { resource: menu.yml }
 
 framework:
     #esi:             ~
