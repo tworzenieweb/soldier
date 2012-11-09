@@ -20,5 +20,14 @@
               <argument>WNCSoldierBundle</argument>
           </call>
       </service>
+       <service id="sonata.admin.activity" class="WNC\SoldierBundle\Admin\ActivityAdmin">
+          <tag name="sonata.admin" manager_type="orm" label="Activities"/>
+          <argument />
+          <argument>WNC\SoldierBundle\Entity\Activity</argument>
+          <argument>SonataAdminBundle:CRUD</argument>
+          <call method="setTranslationDomain">
+              <argument>WNCSoldierBundle</argument>
+          </call>
+      </service>
    </services>
 </container>

@@ -3,7 +3,6 @@
 namespace WNC\SoldierBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections;
 
 /**
  * WNC\SoldierBundle\Entity\Activity
@@ -35,7 +34,7 @@ class Activity
     private $participants;
     
     public function __construct() {
-      $this->participants = ArrayCollection();
+      $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
