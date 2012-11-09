@@ -2,12 +2,12 @@
 
 {% block content %}
 
-
+<div class="twelve columns">
 {% createphp cmfMainContent as="rdf" %}
 <div {{ createphp_attributes(rdf) }}>
     <h2 {{ createphp_attributes( rdf.title ) }}>{{ createphp_content( rdf.title ) }}</h1>
     <div {{ createphp_attributes( rdf.body ) }}>{{ createphp_content( rdf.body ) }}</div>
 </div>
 {% endcreatephp %}
-
+</div>
 {% endblock %}

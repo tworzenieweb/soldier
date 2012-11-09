@@ -24,7 +24,7 @@
        var maxOffset = current - min;
        var prevIndex = 0;
       
-
+      $('.prev, .next').on('click', function(e) { e.preventDefault(); });
       
        
 

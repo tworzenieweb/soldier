@@ -572,3 +572,9 @@ margin-top: 15px;
 .inlineImage-middle {
     float: none;
 }
+
+
+.create-ui-logo {
+ bottom:0 !important; 
+ display:none;
+}
