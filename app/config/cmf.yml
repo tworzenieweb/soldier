@@ -69,6 +69,8 @@ sonata_block:
             contexts:   [admin]
 
 sonata_admin:
+    title:      L'Shem Shmira
+    title_logo: /bundles/sonataadmin/logo_title.png
     templates:
         # default global templates
         ajax:    SonataAdminBundle::ajax_layout.html.twig
