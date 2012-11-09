@@ -25,7 +25,7 @@ parameters:
         hebrev: 'רשק רוצ'
         route: cmf_routing_dynamic_route_cms_routes_en_contact
         key: contact
-      donate:
+      /end/donate:
         label: DONATE
         hebrev: 'וישכע םורת'
         route: cmf_routing_dynamic_route_cms_routes_en_donate
