@@ -1,3 +1,4 @@
+
 # cmf configuration
 doctrine_phpcr:
     # configure the PHPCR session
@@ -99,6 +100,7 @@ sonata_admin:
                 items:
                   - symfony_cmf_content.multilang.admin
                   - symfony_cmf_routing_extra.route_admin
+                  - evercode_faq.admin.faq
             
 
 sonata_doctrine_phpcr_admin:
