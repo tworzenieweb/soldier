@@ -29,10 +29,13 @@ symfony_cmf_routing_extra:
         templates_by_class:
             Symfony\Cmf\Bundle\ContentBundle\Document\MultilangStaticContent: SandboxMainBundle:MultilangStaticContent:index.html.twig
 
-symfony_cmf_simple_cms:
-    routing:
-        templates_by_class:
-            Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:  SandboxMainBundle:Homepage:page.html.twig
+parameters:
+  symfony_cmf_content.multilang.admin_class: WNC\SoldierBundle\Admin\StaticContentAdmin
+
+#symfony_cmf_simple_cms:
+#    routing:
+#        templates_by_class:
+#            Symfony\Cmf\Bundle\SimpleCmsBundle\Document\Page:  SandboxMainBundle:Homepage:page.html.twig
 
 knp_menu:
     twig: true
@@ -50,9 +53,9 @@ symfony_cmf_content:
     multilang:
       locales: %locales%
 
-symfony_cmf_menu:
-    multilang:
-      locales: %locales%
+#symfony_cmf_menu:
+#    multilang:
+#      locales: %locales%
 
 sonata_block:
     default_contexts: [cms]
@@ -68,12 +71,34 @@ sonata_admin:
     templates:
         # default global templates
         ajax:    SonataAdminBundle::ajax_layout.html.twig
+        layout:  SonataAdminBundle::admin_layout.html.twig
     dashboard:
         blocks:
             # display a dashboard block
             - { position: right, type: sonata.admin.block.admin_list }
             - { position: left, type: sonata_admin_doctrine_phpcr.tree_block }
-        groups: ~
+        groups: 
+          sonata_user:
+                label: Users
+                items: 
+                  - sonata.user.admin.user
+                  - sonata.admin.soldier
+                  - sonata.admin.participant
+                
+          sonata_news:
+                label: Blog
+                items: 
+                  - sonata.news.admin.post
+                  - sonata.news.admin.comment
+          sonata_media:
+                label: Medias
+                items: 
+                  - sonata.media.admin.media
+          cms:
+                label: CMS
+                items:
+                  - symfony_cmf_content.multilang.admin
+                  - symfony_cmf_routing_extra.route_admin
             
 
 sonata_doctrine_phpcr_admin:
@@ -125,23 +150,23 @@ sensio_framework_extra:
     router:  { annotations: true }
     request: { converters: true }
 
-liip_search:
-    restrict_by_language: true;
-
-symfony_cmf_search:
-    translation_strategy: child
-#    translation_strategy: attribute
-#    search_path: /cms/simple
-    search_fields:
-        title: title
-        summary: body
-
-lunetics_locale:
-    guessing_order:
-        - cookie
-        - router
-        - browser
-    allowed_locales: %locales%
+#liip_search:
+#    restrict_by_language: true;
+#
+#symfony_cmf_search:
+#    translation_strategy: child
+##    translation_strategy: attribute
+##    search_path: /cms/simple
+#    search_fields:
+#        title: title
+#        summary: body
+#
+#lunetics_locale:
+#    guessing_order:
+#        - cookie
+#        - router
+#        - browser
+#    allowed_locales: %locales%
     
 fos_rest:
     view:

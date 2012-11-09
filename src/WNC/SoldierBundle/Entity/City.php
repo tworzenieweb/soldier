@@ -103,4 +103,8 @@ class City
     {
         return $this->soldiers;
     }
+    
+    public function __toString() {
+      return $this->name;
+    }
 }

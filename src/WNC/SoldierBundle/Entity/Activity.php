@@ -104,4 +104,8 @@ class Activity
     {
         return $this->participants;
     }
+    
+    public function __toString() {
+      return $this->name;;
+    }
 }

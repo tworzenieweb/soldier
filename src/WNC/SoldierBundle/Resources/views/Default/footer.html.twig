@@ -1,0 +1,72 @@
+<footer>
+  <div class="container">
+    <div class="row collapse">
+      <div class="twelve columns bg">
+        <div class="three columns icons">
+          <div class="eleven columns centered text-left">
+            
+            <div class="row">
+              <div class="eight columns centered">
+                <h4>Connect with us!</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="eight columns centered">
+
+                <div class="three columns">
+                  <a href="#" class="ico ico-facebook"><span>Connect Linkedin</span></a>
+                </div>
+                <!--
+                <div class="three columns">
+                  <a href="#" class="ico ico-flickr"><span>Connect Twitter</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="ico ico-delicious"><span>Connect Google</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="ico ico-rss"><span>Connect Youtube</span></a>
+                </div>
+-->
+              </div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="eight columns centered">
+                <div class="three columns">
+                  <a href="#" class="ico ico-twitter"><span>Connect Twitter</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="ico ico-linkedin"><span>Connect Linkedin</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="ico ico-google"><span>Connect Google</span></a>
+                </div>
+                <div class="three columns">
+                  <a href="#" class="ico ico-youtube"><span>Connect Youtube</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+            -->
+            </div>
+        </div>
+            
+        <div class="three columns participants">
+          
+          {% if participants >= 5000 %}
+            <h4>Worldwide Participants</h4>
+            <div class="twelve columns">
+              <p class="text-center">
+                {{ participants }}
+              </p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="six columns">
+          <div id="fb-root"></div>
+          <div class="fb-like-box right" data-href="http://www.facebook.com/platform" data-width="426" data-height="206" data-colorscheme="dark" data-show-faces="true" data-stream="false" data-header="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

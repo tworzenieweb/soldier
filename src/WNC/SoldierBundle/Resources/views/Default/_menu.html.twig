@@ -1,37 +1,21 @@
 <div class="twelve columns" id="menu">
   <div class="row collapse">
     
-      {% for entry in groups %}
+      {% for key, entry in menu %}
         
-        <div class="four columns">
+        <div style="width: {% if entry.width is not defined %}{{ default_width }}{% else %}{{ entry.width }}{% endif %}px; float:left;">
     
-        {% if loop.index == 1 %}
-          
 
-            <div class="menu-block {{ entry }} active">
-              <a href="{{ path(menu[entry].route, menu[entry].parameters) }}" class="{% if menu[entry].class is defined %}{{ menu[entry].class }}{% endif %}">
+            <div class="menu-block {{ entry.key }} {% if entry.active is defined %}active{% endif %}">
+              <a href="{{ key}}" class="{% if entry.class is defined %}{{ entry.class }}{% endif %}">
                 <span>
-                  <strong>{{ menu[entry].hebrev }}</strong>
-                  <big>{{ menu[entry].label }}</big>
+                  <strong>{{ entry.hebrev }}</strong>
+                  <big>{{ entry.label }}</big>
                 </span>
               </a>
             </div>
           
-        {% else %}
-            
-            {% for index in entry  %}
-              <div class="four columns">
-                <div class="menu-block {{ index }}">
-                  <a href="{{ path(menu[index].route, menu[index].parameters) }}" class="{% if menu[index].class is defined %}{{ menu[index].class }}{% endif %}">
-                    <span>
-                      <strong>{{ menu[index].hebrev }}</strong>
-                      <big>{{ menu[index].label }}</big>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            {% endfor %}
-        {% endif %}
+        
         </div>
         
       {% endfor %}

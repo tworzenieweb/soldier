@@ -30,10 +30,8 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             
             new Sonata\SeoBundle\SonataSeoBundle(),
-            new WNC\SoldierBundle\WNCSoldierBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Symfony\Cmf\Bundle\RoutingExtraBundle\SymfonyCmfRoutingExtraBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
@@ -45,22 +43,23 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             
+            new WNC\SoldierBundle\WNCSoldierBundle(),
             new Evercode\Bundle\FaqBundle\EvercodeFaqBundle(),
             
             // enable cmf bundles
             new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
             new Symfony\Cmf\Bundle\CoreBundle\SymfonyCmfCoreBundle(),
-            new Symfony\Cmf\Bundle\MenuBundle\SymfonyCmfMenuBundle(),
+//            new Symfony\Cmf\Bundle\MenuBundle\SymfonyCmfMenuBundle(),
             new Symfony\Cmf\Bundle\ContentBundle\SymfonyCmfContentBundle(),
             new Symfony\Cmf\Bundle\TreeBundle\SymfonyCmfTreeBundle(),
             new Symfony\Cmf\Bundle\TreeBrowserBundle\SymfonyCmfTreeBrowserBundle(),
             new Symfony\Cmf\Bundle\BlockBundle\SymfonyCmfBlockBundle(),
-            new Symfony\Cmf\Bundle\SimpleCmsBundle\SymfonyCmfSimpleCmsBundle(),
-            new Liip\SearchBundle\LiipSearchBundle(),
-            new Symfony\Cmf\Bundle\SearchBundle\SymfonyCmfSearchBundle(),
+//            new Symfony\Cmf\Bundle\SimpleCmsBundle\SymfonyCmfSimpleCmsBundle(),
+//            new Liip\SearchBundle\LiipSearchBundle(),
+//            new Symfony\Cmf\Bundle\SearchBundle\SymfonyCmfSearchBundle(),
 
-            // language switcher
-            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
+//            // language switcher
+//            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
 
             // create.js editing related
             new Symfony\Cmf\Bundle\CreateBundle\SymfonyCmfCreateBundle(),
@@ -71,7 +70,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             
-            new Sandbox\BlockBundle\SandboxBlockBundle(),
+//            new Sandbox\BlockBundle\SandboxBlockBundle(),
             new Sandbox\MainBundle\SandboxMainBundle(),
 
         );

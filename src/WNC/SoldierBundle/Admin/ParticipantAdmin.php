@@ -8,19 +8,24 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class SoldierAdmin extends Admin
+class ParticipantAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('mothers_name')
+            ->add('birth_date')
+            ->add('city', 'city_selector')
+            ->add('activity')
+            ->add('phone_number')
+            ->add('occupation')
+            ->add('activity_start_date')
+            ->add('activity_end_date')
+            ->add('volunteer')
+            ->add('organization')
+            ->add('comments', 'textarea')
+            ->add('self_description', 'textarea')
             ->add('picture',  'sonata_type_model_list', array(), array('link_parameters' => array('context' => 'news')))
             ->add('video',  'sonata_type_model_list', array(), array('link_parameters' => array('context' => 'news')))
-            ->add('service_end_date')
-            ->add('army_unit')
-            ->add('wants_to_contact')
-            ->add('comments')
-            ->add('self_description')
         ;
     }
 
@@ -37,23 +42,38 @@ class SoldierAdmin extends Admin
             ->add('user.firstname', null, array(
                 'label' => 'Firstname'
             ))
-            ->add('mothers_name', null, array(
-                'label' => 'Mother\'s Name'
+            ->add('user.lastname', null, array(
+                'label' => 'Lastname'
             ))
             ->add('user.email', null, array(
                 'label' => 'Email'
             ))
-            ->add('service_end_date', null, array(
-                'label' => 'Service End Date'
+            ->add('city.name', null, array(
+                'label' => 'City'
             ))
-            ->add('army_unit', null, array(
-                'label' => 'Army Unit'
+            ->add('activity.name', null, array(
+                'label' => 'Activity'
             ))
-            ->add('wants_to_contact', null, array(
-                'label' => 'Wants To Contact'
+            ->add('phone_number', null, array(
+                'label' => 'Phone'
             ))
-            ->add('participant.user', null, array(
-                'label' => 'Connected with'
+            ->add('occupation', null, array(
+                'label' => 'Occupation'
+            ))
+            ->add('activity_start_date', null, array(
+                'label' => 'Activity starts'
+            ))
+            ->add('activity_end_date', null, array(
+                'label' => 'Activity ends'
+            ))
+            ->add('birth_date', null, array(
+                'label' => 'Birth Date'
+            ))
+            ->add('volunteer', null, array(
+                'label' => 'Volunteer'
+            ))
+            ->add('organization', null, array(
+                'label' => 'Organization'
             ))
             ->add('_action', 'actions', array(
                 'actions' => array(
