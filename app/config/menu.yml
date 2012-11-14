@@ -1,5 +1,10 @@
 parameters:
     menu:
+#      /:
+#        label: HOMEPAGE
+#        hebrev: 'ונחנא ימ'
+#        route: homepage
+#        key: homepage
       /en/about:
         label: ABOUT
         hebrev: 'ונחנא ימ'
@@ -15,17 +20,17 @@ parameters:
         hebrev: 'תוצופנ תולאש'
         route: evercode_faq_faq_faq
         key: faq
-      /en/press:
+      /press:
         label: PRESS
         hebrev: 'רשק רוצ'
-        route: cmf_routing_dynamic_route_cms_routes_en_press
+        route: news_archive
         key: press
       /en/contact:
         label: CONTACT
         hebrev: 'רשק רוצ'
         route: cmf_routing_dynamic_route_cms_routes_en_contact
         key: contact
-      /end/donate:
+      /en/donate:
         label: DONATE
         hebrev: 'וישכע םורת'
         route: cmf_routing_dynamic_route_cms_routes_en_donate
