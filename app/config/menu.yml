@@ -20,7 +20,7 @@ parameters:
         hebrev: 'תוצופנ תולאש'
         route: evercode_faq_faq_faq
         key: faq
-      /press:
+      /press/:
         label: PRESS
         hebrev: 'רשק רוצ'
         route: news_archive

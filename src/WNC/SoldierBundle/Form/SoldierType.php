@@ -21,6 +21,7 @@ class SoldierType extends AbstractType
                 ->add('service_end_date', 'date', array(
                     'widget' => 'single_text',
                     'format' => 'MM-dd-yyyy',
+                    'label' => 'End of Service Date',
                     'attr' => array('class' => 'date six columns')
                 ))
                 ->add('army_unit')
