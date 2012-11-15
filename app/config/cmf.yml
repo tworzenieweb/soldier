@@ -14,6 +14,10 @@ doctrine_phpcr:
         locales:
             en:
                 - en
+                - il
+            il:
+                - il
+                - en
 
 symfony_cmf_routing_extra:
     chain:

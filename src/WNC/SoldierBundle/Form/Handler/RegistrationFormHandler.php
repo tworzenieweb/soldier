@@ -37,4 +37,4 @@ class RegistrationFormHandler extends BaseHandler
 
         return false;
     }
-}
+    }

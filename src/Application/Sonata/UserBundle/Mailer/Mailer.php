@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Routing\RouterInterface;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Mailer\MailerInterface;
-use FOS\UserBundle\Mailer\Mailer as BaseMailer;
+use FOS\UserBundle\Mailer\TwigSwiftMailer as BaseMailer;
 
 /**
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
@@ -36,11 +36,13 @@ class Mailer extends BaseMailer
         
         
         $url = $this->router->generate('fos_user_registration_confirm', array('token' => $user->getConfirmationToken()), true);
-        $rendered = $this->templating->render($template, array(
+        $context =  array(
             'user' => $user,
             'confirmationUrl' =>  $url
-        ));
-        $this->sendEmailMessage($rendered, $this->parameters['from_email']['confirmation'], $user->getEmail());
+        );
+        
+        $this->sendMessage($template, $context, $this->parameters['from_email']['confirmation'], $user->getEmail());
+
     }
 
     

@@ -50,16 +50,22 @@ class LoadRoutingData extends ContainerAware implements FixtureInterface, Ordere
             $home = new Route;
             $home->setPosition($parent, $locale);
             $home->setDefault(RouteObjectInterface::TEMPLATE_NAME, 'SandboxMainBundle:Homepage:index.html.twig');
+            $home->setDefault('_locale', $locale);
+            $home->setRequirement('_locale', $locale);
             $home->setRouteContent($dm->find(null, "$content_path/home"));
             $dm->persist($home);
 
             $mission = new Route;
             $mission->setPosition($home, 'mission');
+            $mission->setDefault('_locale', $locale);
+            $mission->setRequirement('_locale', $locale);
             $mission->setRouteContent($dm->find(null, "$content_path/mission"));
             $dm->persist($mission);
             
             $about = new Route;
             $about->setPosition($home, 'about');
+            $about->setDefault('_locale', $locale);
+            $about->setRequirement('_locale', $locale);
             $about->setRouteContent($dm->find(null, "$content_path/about"));
             $dm->persist($about);
             
@@ -70,12 +76,20 @@ class LoadRoutingData extends ContainerAware implements FixtureInterface, Ordere
             
             $dm->persist($contact);
 
-            
-            
             $donate = new Route;
             $donate->setPosition($home, 'donate');
             $donate->setRouteContent($dm->find(null, "$content_path/donate"));
+            $donate->setDefault('_locale', $locale);
+            $donate->setRequirement('_locale', $locale);
             $dm->persist($donate);
+            
+            
+            $privacy = new Route;
+            $privacy->setPosition($home, 'privacy');
+            $privacy->setRouteContent($dm->find(null, "$content_path/privacy"));
+            $privacy->setDefault('_locale', $locale);
+            $privacy->setRequirement('_locale', $locale);
+            $dm->persist($privacy);
 
         }
 

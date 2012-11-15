@@ -1,0 +1,7 @@
+<dl class="sub-nav language-selector">
+  {% for locale, label in {'en': "English", 'il': 'Hebrew - עברית'} %}
+      <dd {% if locale == app.request.locale %}class="active"{% endif %}>
+          <a href="{{ path('change_language', {'_locale' : locale}) }}">{{ label }}</a>
+      </dd>
+    {% endfor %}
+</dl>

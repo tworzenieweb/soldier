@@ -13,7 +13,7 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
-    contact_email:     tworzenieweb@gmail.com
+    contact_email:     shmirahproject@gmail.com
 
     liip_vie.use_coffee: false
     # a little hack to avoid errors on missing node/coffescript.
@@ -22,4 +22,4 @@ parameters:
     coffee.bin: ''
     coffee.node: ''
     
-    locales: [en]
+    locales: [en, il]

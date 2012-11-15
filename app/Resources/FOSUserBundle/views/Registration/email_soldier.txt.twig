@@ -3,15 +3,18 @@
 {{ 'registration.email.subject'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}, 'FOSUserBundle') }}
 {% endautoescape %}
 {% endblock %}
-{% block body_text %}
+
+{% block body_html %}
 
 {% autoescape false %}
 {{ 'registration.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}, 'FOSUserBundle') }}
 {% endautoescape %}
 
-Login: {{ user.username}}
+<h4>Your credentials:</h4>
+<p>
+Login: {{ user.username}}<br />
 Password: {{ user.openPassword }}
+</p>
 
 
 {% endblock %}
-{% block body_html %}{% endblock %}

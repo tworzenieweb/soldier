@@ -22,6 +22,8 @@ class DefaultController extends Controller
     {
       $menu = $this->container->getParameter('menu');
 
+      $menu = $menu[$this->getRequest()->getLocale()];
+      
       $path = $this->getRequest()->getPathInfo();
       
       $founded = isset($menu[$path]) ? true : false;
@@ -140,6 +142,16 @@ class DefaultController extends Controller
     }
     
     
+    
+    /**
+     * @route("/language/{_locale}", name="change_language", requirements={"_locale" = "en|il"}) 
+     */
+    public function changeLanguageAction(\Symfony\Component\HttpFoundation\Request $request)
+    {
+        
+        return $this->redirect($this->generateUrl('homepage'));
+        
+    }
     
     /**
      * @route("/", name="homepage") 

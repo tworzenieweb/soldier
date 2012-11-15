@@ -6,7 +6,7 @@ use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use Symfony\Cmf\Bundle\ContentBundle\Admin\StaticContentAdmin as Base;
+use Symfony\Cmf\Bundle\ContentBundle\Admin\MultilangStaticContentAdmin as Base;
 
 class StaticContentAdmin extends Base
 {

@@ -31,7 +31,6 @@ class AppKernel extends Kernel
             
             new Sonata\SeoBundle\SonataSeoBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Symfony\Cmf\Bundle\RoutingExtraBundle\SymfonyCmfRoutingExtraBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),

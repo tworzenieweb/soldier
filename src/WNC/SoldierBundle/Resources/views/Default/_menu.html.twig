@@ -1,13 +1,12 @@
 <div class="twelve columns" id="menu">
   <div class="row collapse">
-    
       {% for key, entry in menu %}
         
         <div style="width: {% if entry.width is not defined %}{{ default_width }}{% else %}{{ entry.width }}{% endif %}px; float:left;">
     
 
             <div class="menu-block {{ entry.key }} {% if entry.active is defined %}active{% endif %}">
-              <a href="{{ key}}" class="{% if entry.class is defined %}{{ entry.class }}{% endif %}">
+              <a href="{{ key| format(app.request.locale) }}" class="{% if entry.class is defined %}{{ entry.class }}{% endif %}">
                 <span>
                   <strong>{{ entry.hebrev }}</strong>
                   <big>{{ entry.label }}</big>

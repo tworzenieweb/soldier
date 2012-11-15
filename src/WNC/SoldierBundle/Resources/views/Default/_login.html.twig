@@ -9,19 +9,34 @@
         <input type="password" id="password" name="_password" class="rounded eleven" placeholder="Password" />
     </div>
     <div class="two columns">
-        <button type="submit" id="_submit" name="_submit" class="login">LOGIN</button>
+        <button type="submit" id="_submit" name="_submit" class="login">{% trans %}LOGIN{% endtrans %}</button>
     </div>
         </div>
     <div class="row collapse">
       <div class="twelve columns">
-        <p class="text-right"><a href="{{ path('fos_user_resetting_request') }}">Forgot password?</a></p>
+        
+          <div class="six columns">
+         {% include 'WNCSoldierBundle:Default:language_selector.html.twig' %}
+              </div>
+        
+        <div class="six columns">
+        <p class="text-right"><a href="{{ path('fos_user_resetting_request') }}">{% trans %}Forgot password?{% endtrans %}</a></p>
+        </div>
+   
+        
       </div>
     </div>
 </form>
 {% else %}
 <div class="twelve columns">
 
-   <p class="text-right">You're logged as <a href="{{ path('sonata_user_profile_show') }}"><span class="radius label">{{ app.user.firstname }} {{ app.user.lastname }}</span></a> <a href="{{ path('fos_user_security_logout') }}">Logout</a></p>
+  
+  
+   <p class="text-right">{% trans %}You're logged as{% endtrans %} <a href="{{ path('sonata_user_profile_show') }}"><span class="radius label">{{ app.user.firstname }} {{ app.user.lastname }}</span></a> <a href="{{ path('fos_user_security_logout') }}">{% trans %}Logout{% endtrans %}</a></p>
+   
+   
+   {% include 'WNCSoldierBundle:Default:language_selector.html.twig' %}
+   
 
 </div>
 

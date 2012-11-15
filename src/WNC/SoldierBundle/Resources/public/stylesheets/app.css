@@ -578,3 +578,11 @@ margin-top: 15px;
  bottom:0 !important; 
  display:none;
 }
+
+.language-selector {
+  float: right;
+}
+
+.language-selector a {
+  color: #000;
+}

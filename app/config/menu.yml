@@ -1,43 +1,86 @@
 parameters:
     menu:
+      en:
 #      /:
 #        label: HOMEPAGE
 #        hebrev: 'ונחנא ימ'
 #        route: homepage
 #        key: homepage
-      /en/about:
-        label: ABOUT
-        hebrev: 'ונחנא ימ'
-        route: cmf_routing_dynamic_route_cms_routes_en_about
-        key: about
-      /en/mission:
-        label: MISSION
-        hebrev: 'רטמ'
-        route: cmf_routing_dynamic_route_cms_routes_en_mission
-        key: mission
-      /faq:
-        label: FAQ
-        hebrev: 'תוצופנ תולאש'
-        route: evercode_faq_faq_faq
-        key: faq
-      /press/:
-        label: PRESS
-        hebrev: 'רשק רוצ'
-        route: news_archive
-        key: press
-      /en/contact:
-        label: CONTACT
-        hebrev: 'רשק רוצ'
-        route: cmf_routing_dynamic_route_cms_routes_en_contact
-        key: contact
-      /en/donate:
-        label: DONATE
-        hebrev: 'וישכע םורת'
-        route: cmf_routing_dynamic_route_cms_routes_en_donate
-        key: donate
-      /register:
-        label: SIGNUP
-        hebrev: 'המשרה'
-        route: fos_user_registration_ajax
-        class: register_button
-        key: signup
+        /en/mission:
+          label: MISSION
+          hebrev: 'רטמ'
+          route: cmf_routing_dynamic_route_cms_routes_en_mission
+          key: mission
+        /en/about:
+          label: ABOUT US
+          hebrev: 'ונחנא ימ'
+          route: cmf_routing_dynamic_route_cms_routes_en_about
+          key: about
+        /faq:
+          label: FAQ
+          hebrev: 'תוצופנ תולאש'
+          route: evercode_faq_faq_faq
+          key: faq
+        /press/:
+          label: PRESS
+          hebrev: 'רשק רוצ'
+          route: news_archive
+          key: press
+        /en/contact:
+          label: CONTACT
+          hebrev: 'רשק רוצ'
+          route: cmf_routing_dynamic_route_cms_routes_en_contact
+          key: contact
+        /en/donate:
+          label: DONATE
+          hebrev: 'וישכע םורת'
+          route: cmf_routing_dynamic_route_cms_routes_en_donate
+          key: donate
+        /register:
+          label: SIGNUP
+          hebrev: 'המשרה'
+          route: fos_user_registration_ajax
+          class: register_button
+          key: signup
+      il:
+#      /:
+#        label: HOMEPAGE
+#        hebrev: 'ונחנא ימ'
+#        route: homepage
+#        key: homepage
+        /il/mission:
+          label: MISSION
+          hebrev: 'רטמ'
+          route: cmf_routing_dynamic_route_cms_routes_il_mission
+          key: mission
+        /il/about:
+          label: ABOUT US
+          hebrev: 'ונחנא ימ'
+          route: cmf_routing_dynamic_route_cms_routes_il_about
+          key: about
+        /faq:
+          label: FAQ
+          hebrev: 'תוצופנ תולאש'
+          route: evercode_faq_faq_faq
+          key: faq
+        /press/:
+          label: PRESS
+          hebrev: 'רשק רוצ'
+          route: news_archive
+          key: press
+        /il/contact:
+          label: CONTACT
+          hebrev: 'רשק רוצ'
+          route: cmf_routing_dynamic_route_cms_routes_il_contact
+          key: contact
+        /il/donate:
+          label: DONATE
+          hebrev: 'וישכע םורת'
+          route: cmf_routing_dynamic_route_cms_routes_il_donate
+          key: donate
+        /register:
+          label: SIGNUP
+          hebrev: 'המשרה'
+          route: fos_user_registration_ajax
+          class: register_button
+          key: signup

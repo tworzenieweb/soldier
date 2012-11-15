@@ -2,96 +2,90 @@ static:
     -   
         name: "mission"
         title: 
-          en: "Mission"
+          en: "Mission: Why This Matters"
+          il: 'רטמ'
         content: 
+          il: |
+            <h5>The Shmirah Project: Guard Duty for the Rest of Us</span></h5>
+            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt=""> <span>This is a grassroots program that pairs individual Jews worldwide with an Israeli soldier for the sake of doing good deeds, prayer and learning Torah to add to the spiritual merit of that soldier.</span><br><br><span>This program has been started by the parents of one soldier to create an international network of Jews and Jewish communities focusing on spiritually protecting every Israeli soldier. &nbsp;</span><br><br><span>By increasing the amount of good deeds brought into the world, we can help protect the people of Israel from our enemies. &nbsp;</span><br><br><span>The soldier signs up with only his full Hebrew name and his mother’s Hebrew name, hometown, and end date of service. An email address is needed for our team to be in contact with him; it is not shared with other parties. He is automatically paired with a person or family for the length of his service.</span><br><br><span>The participants call, fax or email to receive the name of the soldier. The soldier receives the name and hometown of the person or family who is doing good deeds in his merit. &nbsp;Needless to say, all contact info you share with us is private and will not be given out to the solider or anyone else.</span><br><br><span>By starting this program now, it would be set up in advance of a larger conflict (God forbid), and scale-able in nature should others wish to join at any time. It costs no money to participate.</span><br><br><span>While it is easy to get stuck in the mire of political divisiveness, this program rises above the fray to capture the hearts of Jews everywhere. This is not a political program, nor is it politically motivated. This is a person to person match that bypasses the complications of Israeli politics.</span><br><br><span>This is a true kindness for the soldier; those individuals and families who volunteer to include “their” soldier would be giving to them in an open-hearted way.</span></p>
+            <ul class="square">
+            <li><span>The soldiers would receive the benefit of spiritual protection. The impact of this gift is impossible to measure.</span></li>
+            <li><span>The families of the soldiers would enjoy the reassurance that Jews around the world are spiritually supporting their children.</span></li>
+            <li><span>All participants are helping to bring about unity, connectedness and the spiritual growth of the Jewish People.</span></li>
+            <li>Everyone wins.</li>
+            </ul>
+            <h5>Why wait for a war to activate the potential we all have for greater connection?</h5>
+            <p><br><span>Why let our enemies choose the time for us to express this unity and caring we have for one another? &nbsp;With all of the disharmony and the fear of attack from abroad, this is a good time to help protect other Jews. &nbsp;Join us in this plan for shmira and get matched with a soldier, for their protection and ours.&nbsp;</span><br><br><span>It’s guard duty for the rest of us.</span></p>
           en: |
-            <div>
-            <img src="/symfony-cmf/create/image/about.png" class="imageInText inlineImage-right ui-draggable">
-            <p>In 2011, our son decided to move to Israel and enlist in the Paratroopers as a &ldquo;Chayal boded&rdquo; a &ldquo;Lone Soldier&rdquo;. Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m&rsquo;fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave, idealistic and somewhat crazy, our son went off to training and jump out of perfectly good airplanes.</p>
-            </div>
-            <div>
-            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What should we do?&nbsp;</p>
-            </div>
-            <div>&nbsp;</div>
-            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone&rsquo;s merit provides protection.&nbsp;</p>
-            <div>&nbsp;</div>
-            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one&rsquo;s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.&nbsp;</p>
-            <div>&nbsp;</div>
-            <div>
-            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook&rsquo;s Yeshiva in 2009 during Israel&rsquo;s Operation Cast Lead. With a click of a link, it offered the first name and the mother&rsquo;s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt&rdquo;l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed Mitzvot on behalf of these soldiers.</p>
-            </div>
-            <div>&nbsp;</div>
-            <div>
-            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.&nbsp;</p>
-            </div>
-            <div>&nbsp;</div>
-            <div><strong>So, who are we?</strong></div>
-            <div>&nbsp;</div>
-            <div>
-            <p>We are people with sons, daughters and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. &nbsp;There is a tremendous opportunity for a spiritual response to open hearts throughout the world. There is tremendous space in a Jewish heart that is available for acts of loving kindness and gratitude to others.&nbsp;</p>
-            </div>
-            
-    -        
+            <h5>The Shmirah Project: Guard Duty for the Rest of Us</span></h5>
+            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt=""> <span>This is a grassroots program that pairs individual Jews worldwide with an Israeli soldier for the sake of doing good deeds, prayer and learning Torah to add to the spiritual merit of that soldier.</span><br><br><span>This program has been started by the parents of one soldier to create an international network of Jews and Jewish communities focusing on spiritually protecting every Israeli soldier. &nbsp;</span><br><br><span>By increasing the amount of good deeds brought into the world, we can help protect the people of Israel from our enemies. &nbsp;</span><br><br><span>The soldier signs up with only his full Hebrew name and his mother’s Hebrew name, hometown, and end date of service. An email address is needed for our team to be in contact with him; it is not shared with other parties. He is automatically paired with a person or family for the length of his service.</span><br><br><span>The participants call, fax or email to receive the name of the soldier. The soldier receives the name and hometown of the person or family who is doing good deeds in his merit. &nbsp;Needless to say, all contact info you share with us is private and will not be given out to the solider or anyone else.</span><br><br><span>By starting this program now, it would be set up in advance of a larger conflict (God forbid), and scale-able in nature should others wish to join at any time. It costs no money to participate.</span><br><br><span>While it is easy to get stuck in the mire of political divisiveness, this program rises above the fray to capture the hearts of Jews everywhere. This is not a political program, nor is it politically motivated. This is a person to person match that bypasses the complications of Israeli politics.</span><br><br><span>This is a true kindness for the soldier; those individuals and families who volunteer to include “their” soldier would be giving to them in an open-hearted way.</span></p>
+            <ul class="square">
+            <li><span>The soldiers would receive the benefit of spiritual protection. The impact of this gift is impossible to measure.</span></li>
+            <li><span>The families of the soldiers would enjoy the reassurance that Jews around the world are spiritually supporting their children.</span></li>
+            <li><span>All participants are helping to bring about unity, connectedness and the spiritual growth of the Jewish People.</span></li>
+            <li>Everyone wins.</li>
+            </ul>
+            <h5>Why wait for a war to activate the potential we all have for greater connection?</h5>
+            <p><br><span>Why let our enemies choose the time for us to express this unity and caring we have for one another? &nbsp;With all of the disharmony and the fear of attack from abroad, this is a good time to help protect other Jews. &nbsp;Join us in this plan for shmira and get matched with a soldier, for their protection and ours.&nbsp;</span><br><br><span>It’s guard duty for the rest of us.</span></p>
+     
+    -
         name: "about"
         title: 
-          en: "About"
-        content: 
-          en: |          
-            <div><img src="/symfony-cmf/create/image/about.png" align="right" />
-            <p>In 2011, our son decided to move to Israel and enlist in the Paratroopers as a &ldquo;Chayal boded&rdquo; a &ldquo;Lone Soldier&rdquo;. Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m&rsquo;fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave, idealistic and somewhat crazy, our son went off to training and jump out of perfectly good airplanes.</p>
-            </div>
-            <div>
-            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What should we do?&nbsp;</p>
-            </div>
-            <div>&nbsp;</div>
-            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone&rsquo;s merit provides protection.&nbsp;</p>
-            <div>&nbsp;</div>
-            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one&rsquo;s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.&nbsp;</p>
-            <div>&nbsp;</div>
-            <div>
-            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook&rsquo;s Yeshiva in 2009 during Israel&rsquo;s Operation Cast Lead. With a click of a link, it offered the first name and the mother&rsquo;s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt&rdquo;l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed Mitzvot on behalf of these soldiers.</p>
-            </div>
-            <div>&nbsp;</div>
-            <div>
-            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.&nbsp;</p>
-            </div>
-            <div>&nbsp;</div>
-            <div><strong>So, who are we?</strong></div>
-            <div>&nbsp;</div>
-            <div>
-            <p>We are people with sons, daughters and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. &nbsp;There is a tremendous opportunity for a spiritual response to open hearts throughout the world. There is tremendous space in a Jewish heart that is available for acts of loving kindness and gratitude to others.&nbsp;</p>
-            </div>
-
-
+          en: "About Us"
+          il: 'ונחנא ימ'
+        content:
+          il: |
+            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt="" width="305" height="203">In 2011, our son decided to move to Israel and enlist in the Paratroopers as a "Chayal boded" a "Lone Soldier". Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m'fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave and idealistic, our son went off to training and jump out of perfectly good airplanes.</p>
+            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What could we do?</p>
+            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone’s merit provides protection.</p>
+            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one’s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.</p>
+            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook's Yeshiva in 2009 during Israel's Operation Cast Lead. With a click of a link, it offered the first name and the mother’s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt''l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed mitzvot on behalf of these soldiers.</p>
+            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook’s Yeshiva in 2009 during Israel’s Operation Cast Lead. With a click of a link, it offered the first name and the mother’s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt”l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed mitzvot on behalf of these soldiers.</p>
+            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.</p>
+            <h3>So, who are we?</h3>
+            <p>We have family and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. This is a grassroots organization that began in Baltimore, Maryland and is looking to expand throughout the world.</p>
             <div class="row collapse">
-              <div class="eight columns spoiler">
-                <div class="eight columns blue">
-                  <h3>Join L'Shem Shmirah Project.</h3>
-                  <p>It's personal. It's powerful. It's one name at a time.<br />
-                  It's guard duty for the rest of us.
-                  </p>
-
-                </div>
-                <div class="four columns gray text-center">
-
-                  <a href="/register" class="register_button button">SIGN UP</a>
-
-                </div>
-              </div>
+            <div class="eight columns spoiler">
+            <div class="eight columns blue">
+            <h3>Join L'Shem Shmirah Project.</h3>
+            <p>It's personal. It's powerful. It's one name at a time.<br> It's guard duty for the rest of us.</p>
+            </div>
+            <div class="four columns gray text-center"><a class="register_button button cboxElement" href="/register">SIGN UP</a></div>
+            </div>
+            </div>
+          en: |          
+            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt="" width="305" height="203">In 2011, our son decided to move to Israel and enlist in the Paratroopers as a "Chayal boded" a "Lone Soldier". Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m'fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave and idealistic, our son went off to training and jump out of perfectly good airplanes.</p>
+            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What could we do?</p>
+            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone’s merit provides protection.</p>
+            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one’s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.</p>
+            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook's Yeshiva in 2009 during Israel's Operation Cast Lead. With a click of a link, it offered the first name and the mother’s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt''l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed mitzvot on behalf of these soldiers.</p>
+            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook’s Yeshiva in 2009 during Israel’s Operation Cast Lead. With a click of a link, it offered the first name and the mother’s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt”l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed mitzvot on behalf of these soldiers.</p>
+            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.</p>
+            <h3>So, who are we?</h3>
+            <p>We have family and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. This is a grassroots organization that began in Baltimore, Maryland and is looking to expand throughout the world.</p>
+            <div class="row collapse">
+            <div class="eight columns spoiler">
+            <div class="eight columns blue">
+            <h3>Join L'Shem Shmirah Project.</h3>
+            <p>It's personal. It's powerful. It's one name at a time.<br> It's guard duty for the rest of us.</p>
+            </div>
+            <div class="four columns gray text-center"><a class="register_button button cboxElement" href="/register">SIGN UP</a></div>
+            </div>
             </div>
     
     -        
         name: "contact"
         title: 
           en: "Contact"
-        content: 
-          en: |
+          il: 'רשק רוצ'
+        content:
+          il: |
             <div class="row space-25">
             <div class="twelve columns">
               <div class="six columns">
 
                 <div class="twelve columns">
-                  <h6>Main Office</h4>
+                  <h6>Main Office</h6>
                 </div>
                 <div class="twelve columns">
                   Tel: 0800 1 55 98 98
@@ -110,33 +104,76 @@ static:
               <div class="six columns">
 
                 <div class="twelve columns">
-                  <h6>Postal Address</h4>
+                  <h6>Postal Address</h6>
                 </div>
                 <div class="twelve columns">
-                  34 Bury Old Road,<br />
+                  34 Bury Old Road,<br>
                   Prestwich,
                   Manchester, M1 2FG
                 </div>
-
-
-
               </div>
             </div>
                 </div>
+          en: |
+            <div class="row space-25">
+            <div class="twelve columns">
+              <div class="six columns">
 
-    
+                <div class="twelve columns">
+                  <h6>Main Office</h6>
+                </div>
+                <div class="twelve columns">
+                  Tel: 0800 1 55 98 98
+                </div>
+
+                <div class="twelve columns">
+                  Fax: 0800 1 55 40 61
+                </div>
+
+                <div class="twelve columns">
+                  E-mail: info@lshemshmira.com
+                </div>
+
+              </div>
+
+              <div class="six columns">
+
+                <div class="twelve columns">
+                  <h6>Postal Address</h6>
+                </div>
+                <div class="twelve columns">
+                  34 Bury Old Road,<br>
+                  Prestwich,
+                  Manchester, M1 2FG
+                </div>
+              </div>
+            </div>
+                </div>
     -        
         name: "donate"
         title: 
           en: "Donate"
+          il: 'וישכע םורת'
         content: 
+          il: |
+            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/donate.png" alt="">The Shmirah Project is a registered (501C) Charitable <strong>Non-Profit</strong> Organization, all donations are tax deductible. Help us spread the word about Jewish unity.</p>
+            <p><a href="/">Donate here</a></p>
           en: |
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur, nibh sed aliquet molestie, magna mi auctor sapien, eget ornare mi sapien et odio. Nunc sodales eleifend ipsum eu tempor. Suspendisse tempor viverra ligula quis gravida. Aliquam erat volutpat. Etiam rhoncus lectus quis felis scelerisque mollis. Pellentesque porttitor consequat eleifend. Donec varius fringilla felis, ac dictum nibh tempor vel. Aenean aliquet accumsan neque. Nunc varius leo tortor, eu congue enim. Nullam magna ante, semper et lacinia id, sagittis at risus. Ut bibendum volutpat accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean iaculis tortor at tortor dapibus vehicula. Vestibulum ultricies, mi vitae suscipit viverra, erat odio malesuada metus, eu tincidunt neque lacus sit amet dolor. Duis pretium nunc eget metus egestas blandit. Phasellus justo ligula, vulputate nec sagittis a, pretium et velit.
-            </p>
-            <p>
-            <img src="/symfony-cmf/create/image/donate.png" style="margin-right: 20px;" align="left"/>Cras pretium sapien feugiat tellus rutrum a tincidunt lectus molestie. Sed lacinia, erat sed dictum auctor, dolor metus elementum nibh, eu scelerisque felis massa sit amet ligula. Vestibulum luctus est in augue mattis consequat. Suspendisse condimentum euismod eleifend. Quisque facilisis purus ac lorem lacinia bibendum ac in sapien. Nunc adipiscing feugiat neque, non vehicula ligula lobortis at. In elementum luctus neque et ornare. Suspendisse potenti. Aliquam eu dui dolor. Aliquam rhoncus vulputate dapibus.
-
-
-            </p>
-
-            <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">
+            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/donate.png" alt="">The Shmirah Project is a registered (501C) Charitable <strong>Non-Profit</strong> Organization, all donations are tax deductible. Help us spread the word about Jewish unity.</p>
+            <p><a href="/">Donate here</a></p>
+    -        
+        name: "privacy"
+        title: 
+          en: "Privacy Policy"
+          il: 'וישכע םורת'
+        content: 
+          il: |
+            <p>Your privacy is important to us. To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used.
+              The Information We Collect
+              This notice applies to all information collected or submitted on this website. The Way We Use Information
+              We use the information you provide about yourself only to complete the matching process and let you know that it has been completed. We do not share this information with outside parties. We use return e-mail addresses to answer the e-mail we receive. Such addresses are not used for any other purpose and are not shared with outside parties.</p>
+          en: |
+            <p>Your privacy is important to us. To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used.
+              The Information We Collect
+              This notice applies to all information collected or submitted on this website. The Way We Use Information
+              We use the information you provide about yourself only to complete the matching process and let you know that it has been completed. We do not share this information with outside parties. We use return e-mail addresses to answer the e-mail we receive. Such addresses are not used for any other purpose and are not shared with outside parties.</p>

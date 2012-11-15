@@ -25,7 +25,6 @@
         "sonata-project/seo-bundle": "dev-master",
         "sonata-project/notification-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "knplabs/knp-gaufrette-bundle": "dev-master",
         "vich/uploader-bundle": "dev-master",
         "stfalcon/tinymce-bundle": "dev-master",
         "genemu/form-bundle": "2.1.x-dev",

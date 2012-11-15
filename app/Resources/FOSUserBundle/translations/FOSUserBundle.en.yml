@@ -1,0 +1,30 @@
+# Registration
+registration:
+    email:
+        subject: Welcome to Shmira Network
+        message: |
+            <h1>Dear Soldier</h1>
+
+            <p>You might be asking yourself, "Why do I want to sign up?"</p>
+
+            <p>You, Dear Soldier, with your dedication of your time and your daily efforts, are doing it not
+            only to protect your own home, or your own family and friends. You are doing all of these acts
+            for the entire Jewish people, so the Jewish people will have a its own homeland, and will have
+            a place that unites the entire Jewish people.  We admire your efforts and are eternally grateful.</p>
+
+            <p>In your unit, you focus on a group effort. You give every ounce of your strength in
+            training, in serving. The success of your pluga depends on everyone's success. It’s no
+            different here. Unity is what we are striving for. You can help teach the Jewish People that
+            we're all in it together - it is truly a group effort.</p>
+
+            <p>Here's how it works.  <strong><em>In your merit</em></strong>, a girl in Florida runs errands for an elderly
+            woman who is homebound. A young man in Paris volunteers to become a big brother to
+            a troubled teen. A middle-aged woman in Los Angeles takes upon herself to study the Book
+            of Ruth with her friend. A man in Jerusalem studies an extra half hour of Talmud every
+            night. We spiritually watch your back while you guard us. Think of it as a "spiritual iron dome".</p>
+
+            <p>You can increase our interconnectedness.</p>
+
+            <p>You can make the world a better place.</p>
+
+            <p>To finish activating your account - please visit %confirmationUrl%</p>
