@@ -83,11 +83,11 @@ static:
     -        
         name: "contact"
         title: 
-          en: "Conact"
+          en: "Contact"
         content: 
           en: |
             <div class="row space-25">
-            <div class="six columns">
+            <div class="twelve columns">
               <div class="six columns">
 
                 <div class="twelve columns">
@@ -124,11 +124,6 @@ static:
             </div>
                 </div>
 
-            <div class="row space-15">
-              <div class="twelve columns">
-            <iframe width="625" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=34+Bury+Old+Road,+Prestwich,+Wielka+Brytania&amp;aq=0&amp;oq=34+bury+old+road+pre&amp;sll=53.520176,-2.259513&amp;sspn=0.011762,0.033023&amp;ie=UTF8&amp;hq=&amp;hnear=34+Bury+Old+Rd,+Prestwich,+Manchester+M25+0FT,+Wielka+Brytania&amp;t=m&amp;z=14&amp;ll=53.520176,-2.259513&amp;output=embed"></iframe>
-            </div>
-            </div>
     
     -        
         name: "donate"

@@ -66,8 +66,12 @@ class LoadRoutingData extends ContainerAware implements FixtureInterface, Ordere
             $contact = new Route;
             $contact->setPosition($home, 'contact');
             $contact->setRouteContent($dm->find(null, "$content_path/contact"));
+            $contact->setDefault(RouteObjectInterface::CONTROLLER_NAME, 'WNCSoldierBundle:Default:contact');
+            
             $dm->persist($contact);
 
+            
+            
             $donate = new Route;
             $donate->setPosition($home, 'donate');
             $donate->setRouteContent($dm->find(null, "$content_path/donate"));

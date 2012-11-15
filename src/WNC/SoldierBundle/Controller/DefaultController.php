@@ -176,12 +176,13 @@ class DefaultController extends Controller
     
         
     /**
-     * @route("/contact-us", name="contact") 
      * @template
      */
-    public function contactAction(Request $request)
+    public function contactAction($contentDocument)
     {
         $form   = $this->createForm(new ContactType());
+        
+        $request = $this->getRequest();
         
         if($request->getMethod() == 'POST')
         {
@@ -208,7 +209,16 @@ class DefaultController extends Controller
             }
         }
         
-        return array('form' => $form->createView());
+        if (!$contentDocument) {
+            throw new NotFoundHttpException('Content not found');
+        }
+        
+        return array(
+            'form' => $form->createView(),
+            'contentDocument' => $contentDocument
+        );
+        
+        
         
     }
 }

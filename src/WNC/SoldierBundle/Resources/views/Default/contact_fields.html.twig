@@ -1,0 +1,16 @@
+{% block form_row %}
+{% spaceless %}
+    <div class="row {{ id }} space-15 {% if errors|length > 0 %}error{% endif %}">
+        <div class="twelve columns">
+            {{ form_label(form) }}
+        </div>
+        <div class="twelve columns">
+            
+            {{ form_widget(form) }}
+        </div>
+        <div class="errors twelve columns">
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
