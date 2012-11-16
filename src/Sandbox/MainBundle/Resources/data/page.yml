@@ -3,19 +3,92 @@ static:
         name: "mission"
         title: 
           en: "Mission: Why This Matters"
-          il: 'רטמ'
+          il: 'מדוע זה משנה?'
         content: 
           il: |
-            <h5>The Shmirah Project: Guard Duty for the Rest of Us</span></h5>
-            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt=""> <span>This is a grassroots program that pairs individual Jews worldwide with an Israeli soldier for the sake of doing good deeds, prayer and learning Torah to add to the spiritual merit of that soldier.</span><br><br><span>This program has been started by the parents of one soldier to create an international network of Jews and Jewish communities focusing on spiritually protecting every Israeli soldier. &nbsp;</span><br><br><span>By increasing the amount of good deeds brought into the world, we can help protect the people of Israel from our enemies. &nbsp;</span><br><br><span>The soldier signs up with only his full Hebrew name and his mother’s Hebrew name, hometown, and end date of service. An email address is needed for our team to be in contact with him; it is not shared with other parties. He is automatically paired with a person or family for the length of his service.</span><br><br><span>The participants call, fax or email to receive the name of the soldier. The soldier receives the name and hometown of the person or family who is doing good deeds in his merit. &nbsp;Needless to say, all contact info you share with us is private and will not be given out to the solider or anyone else.</span><br><br><span>By starting this program now, it would be set up in advance of a larger conflict (God forbid), and scale-able in nature should others wish to join at any time. It costs no money to participate.</span><br><br><span>While it is easy to get stuck in the mire of political divisiveness, this program rises above the fray to capture the hearts of Jews everywhere. This is not a political program, nor is it politically motivated. This is a person to person match that bypasses the complications of Israeli politics.</span><br><br><span>This is a true kindness for the soldier; those individuals and families who volunteer to include “their” soldier would be giving to them in an open-hearted way.</span></p>
-            <ul class="square">
-            <li><span>The soldiers would receive the benefit of spiritual protection. The impact of this gift is impossible to measure.</span></li>
-            <li><span>The families of the soldiers would enjoy the reassurance that Jews around the world are spiritually supporting their children.</span></li>
-            <li><span>All participants are helping to bring about unity, connectedness and the spiritual growth of the Jewish People.</span></li>
-            <li>Everyone wins.</li>
-            </ul>
-            <h5>Why wait for a war to activate the potential we all have for greater connection?</h5>
-            <p><br><span>Why let our enemies choose the time for us to express this unity and caring we have for one another? &nbsp;With all of the disharmony and the fear of attack from abroad, this is a good time to help protect other Jews. &nbsp;Join us in this plan for shmira and get matched with a soldier, for their protection and ours.&nbsp;</span><br><br><span>It’s guard duty for the rest of us.</span></p>
+                <h5 style="text-align: right;">פרויקט "השמירה": חובת השמירה עבור כולנו<br></h5><div><br></div>
+                <p class="ui-droppable"><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt="" aria-disabled="false"> 
+
+                </p><p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">זהו&nbsp;פרויקט&nbsp;עממי
+                המחבר בין יהודים ברחבי העולם לבין חיילים
+                ישראלים למטרת שמירה רוחנית</span></font><font face="Arial, sans-serif">.
+                </font><font face="Arial, sans-serif"><span lang="he-IL">כל משתתף
+                מקבל על עצמו לעשות מעשים טובים</span></font><font face="Arial, sans-serif">,
+                </font><font face="Arial, sans-serif"><span lang="he-IL">להתפלל
+                או ללמוד לזכות החייל אליו צוות</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">התכנית החלה
+                על יד הורים של חייל בודד במטרה לייצור
+                רשת בינלאומית של יהודים וקהילות יהודיות
+                שיקבלו על עצמם</span></font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">על ידי הגברת
+                המעשים הטובים בעולם</span></font><font face="Arial, sans-serif">,
+                </font><font face="Arial, sans-serif"><span lang="he-IL">אנו
+                יכולים לסייע בהגנה על תושבי המדינה מפני
+                אויביה</span></font><font face="Arial, sans-serif">. </font><font face="Arial, sans-serif"><span lang="he-IL">בשונה
+                משאר התכניות הנפלאות התומכות בחיילי&nbsp;צה</span></font><font face="Arial, sans-serif">"</font><font face="Arial, sans-serif"><span lang="he-IL">ל</span></font><font face="Arial, sans-serif">,
+                </font><font face="Arial, sans-serif"><span lang="he-IL">התכנית
+                הזאת לא מצריכה השקעה כספית</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">החייל נרשם
+                באמצעות הרשמה הכוללת את שמם ושם אמם
+                בעברית</span></font><font face="Arial, sans-serif">, </font><font face="Arial, sans-serif"><span lang="he-IL">אימייל
+                או מספר טלפון</span></font><font face="Arial, sans-serif">,
+                </font><font face="Arial, sans-serif"><span lang="he-IL">עיר
+                מגורים ותאריך סיום השירות</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">המשתתפים&nbsp;בפרויקט&nbsp;יכולים
+                להירשם באמצעות אתר האינטרנט או על ידי
+                פנייה טלפונית או&nbsp;טלפקס</span></font><font face="Arial, sans-serif">.
+                </font><font face="Arial, sans-serif"><span lang="he-IL">לאחר
+                הציוות יקבל החייל את שמו ועיר מגוריו של
+                המשתתף המבצע מעשים טובים לזכותו לכל
+                אורך שירותו הצבאי</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">באמצעות
+                השקת&nbsp;הפרויקט&nbsp;עכשיו בתקופת שלום
+                נהיה מוכנים חס וחלילה למצב של עימות</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">במקום&nbsp;להתפס&nbsp;לחילוקי
+                דעות פוליטיים</span></font><font face="Arial, sans-serif">,
+                </font><font face="Arial, sans-serif"><span lang="he-IL">אידאולוגיים
+                ודתיים</span></font><font face="Arial, sans-serif">,&nbsp;</font><font face="Arial, sans-serif"><span lang="he-IL">הפרויקט&nbsp;מתעלה
+                מעל כל אלה ומתחבר ישר ללבם של כל יהודי
+                באשר הוא</span></font><font face="Arial, sans-serif">. </font><font face="Arial, sans-serif"><span lang="he-IL">התכנית
+                אינה פוליטית ואינה מונעת ממניעים
+                פוליטיים</span></font><font face="Arial, sans-serif">, </font><font face="Arial, sans-serif"><span lang="he-IL">היא
+                מחברת בין אדם לאדם ועוקפת את סיבוכי
+                הפוליטיקה</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">זהו&nbsp;אקט&nbsp;אמיתי&nbsp;של
+                הכרת הטוב כלפי חיילי צה</span></font><font face="Arial, sans-serif">"</font><font face="Arial, sans-serif"><span lang="he-IL">ל</span></font><font face="Arial, sans-serif">.</font></p>
+                <span style="font-family: Arial, sans-serif; line-height: 150%; "><div style="text-align: right;"><span style="line-height: 150%; ">החייל מרוויח
+                  משמירה רוחנית -</span></div></span><div style="text-align: right;"><span style="font-family: Arial, sans-serif; line-height: 150%; ">משפחות
+                  החיילים מרוויחות מהידיעה שיש מי שמתפלל
+                  ופועל לזכות יקירם -</span></div><div style="text-align: right;"><span style="font-family: Arial, sans-serif; line-height: 150%; ">המשתתפים
+                  מגדילים את רמת האחדות והצמיחה הרוחנית
+                  בעם היהודי -</span></div><div style="text-align: right;"><span style="font-family: Arial, sans-serif; line-height: 150%; ">כולם מנצחים -</span></div>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                &nbsp;</p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">מדוע לחכות
+                למלחמה כדי לעורר את האחדות בעם</span></font><font face="Arial, sans-serif">?
+                </font><font face="Arial, sans-serif"><span lang="he-IL">מדוע
+                שניתן לאויבינו את האפשרות להחליט מתי
+                נביע את האכפתיות הטבועה עמוק&nbsp;בליבנו&nbsp;</span></font><font face="Arial, sans-serif">?</font></p>
+                <p lang="en-US" class="western" align="RIGHT" style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 150%">
+                <font face="Arial, sans-serif"><span lang="he-IL">עם כל העוינות
+                הקיימת בינינו לבין עצמינו והפחד מפני
+                תקיפה מבחוץ</span></font><font face="Arial, sans-serif">,
+                </font><font face="Arial, sans-serif"><span lang="he-IL">זהו עיתוי
+                מושלם לסייע בהגנה על יהודים אחרים</span></font><font face="Arial, sans-serif">.
+                </font><font face="Arial, sans-serif"><span lang="he-IL">השתתפו&nbsp;עימנו&nbsp;בפרויקט
+                </span></font><font face="Arial, sans-serif">"</font><font face="Arial, sans-serif"><span lang="he-IL">השמירה</span></font><font face="Arial, sans-serif">"&nbsp;&nbsp;</font><font face="Arial, sans-serif"><span lang="he-IL">למען
+                החיילים ולמעננו</span></font><font face="Arial, sans-serif">.</font></p>
+                <p lang="en-US" class="western" style="margin-bottom: 0.35cm"><br><br>
+                </p><p></p>
           en: |
             <h5>The Shmirah Project: Guard Duty for the Rest of Us</span></h5>
             <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt=""> <span>This is a grassroots program that pairs individual Jews worldwide with an Israeli soldier for the sake of doing good deeds, prayer and learning Torah to add to the spiritual merit of that soldier.</span><br><br><span>This program has been started by the parents of one soldier to create an international network of Jews and Jewish communities focusing on spiritually protecting every Israeli soldier. &nbsp;</span><br><br><span>By increasing the amount of good deeds brought into the world, we can help protect the people of Israel from our enemies. &nbsp;</span><br><br><span>The soldier signs up with only his full Hebrew name and his mother’s Hebrew name, hometown, and end date of service. An email address is needed for our team to be in contact with him; it is not shared with other parties. He is automatically paired with a person or family for the length of his service.</span><br><br><span>The participants call, fax or email to receive the name of the soldier. The soldier receives the name and hometown of the person or family who is doing good deeds in his merit. &nbsp;Needless to say, all contact info you share with us is private and will not be given out to the solider or anyone else.</span><br><br><span>By starting this program now, it would be set up in advance of a larger conflict (God forbid), and scale-able in nature should others wish to join at any time. It costs no money to participate.</span><br><br><span>While it is easy to get stuck in the mire of political divisiveness, this program rises above the fray to capture the hearts of Jews everywhere. This is not a political program, nor is it politically motivated. This is a person to person match that bypasses the complications of Israeli politics.</span><br><br><span>This is a true kindness for the soldier; those individuals and families who volunteer to include “their” soldier would be giving to them in an open-hearted way.</span></p>
@@ -32,27 +105,22 @@ static:
         name: "about"
         title: 
           en: "About Us"
-          il: 'ונחנא ימ'
+          il: 'מי אנחנו'
         content:
           il: |
-            <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt="" width="305" height="203">In 2011, our son decided to move to Israel and enlist in the Paratroopers as a "Chayal boded" a "Lone Soldier". Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m'fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave and idealistic, our son went off to training and jump out of perfectly good airplanes.</p>
-            <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What could we do?</p>
-            <p>Throughout the millennia, Jews around the globe have been taking upon themselves the performance of additional spiritual deeds, and saying tehillim (Psalms) in times of danger or distress. In addition, our tradition tells us that Torah study in someone’s merit provides protection.</p>
-            <p>So we decided, why not increase our spiritual deeds on his behalf? But what about everyone else in his pluga (platoon)? The army forces one to think in terms of one’s unit, first and foremost. We knew we had to think in terms of our unit as well: the Jewish People. The only way we can overcome our enemies is if we band together.</p>
-            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook's Yeshiva in 2009 during Israel's Operation Cast Lead. With a click of a link, it offered the first name and the mother’s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt''l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed mitzvot on behalf of these soldiers.</p>
-            <p>We got a glimpse of optimism when we received notice of a webpage created by Rav Simcha Kook’s Yeshiva in 2009 during Israel’s Operation Cast Lead. With a click of a link, it offered the first name and the mother’s name of a soldier in ground combat in Gaza. Most importantly, Jews from all over the world got behind it. Endorsed by such prominent Israeli Rabbis as Rav Kook, the Bostoner Rebbe, zt”l and many others, there were over 100,000 people who took a name and studied Torah, prayed, and performed mitzvot on behalf of these soldiers.</p>
-            <p>The picture became clear. Make this process into a permanent website. Open up the forum to all Jews. Encourage soldiers to sign up and encourage the rest of us to do good deeds on their behalf. Make it a person to person connection. Do it before a war starts, God forbid.</p>
-            <h3>So, who are we?</h3>
-            <p>We have family and friends in the IDF. We believe that this program can speak to all Jews: religious or secular, no matter where you live. This is a grassroots organization that began in Baltimore, Maryland and is looking to expand throughout the world.</p>
+            <p class="ui-droppable"><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt="" width="305" height="203" aria-disabled="false"></p><p class="ui-droppable">בשנת 2011 הבן שלנו קיבל החלטה אמיצה לעלות ארצה ולהתגייס לצנחנים.בתור חייל בלי משפחה בארץ קיבל מיידית סטטוס של "חייל בודד".&nbsp;</p><p class="ui-droppable">בישראל האפשרות של מלחמה היא מציאות יום יומית, ידענו שאנו רוצים לסייע ולתמוך בו, אבל איך? כשאנו נמצאים בביתנו השליו ,הרחק בארצות הברית?</p><p class="ui-droppable">את התשובה מצאנו באתר שהוקם על ידי ישיבתו של הרב שמחה קוק במהלך מבצע חומת מגן . האתר הציע לגולשים לבחור שם של חייל הנלחם בעזה ולקיים בזכותו מעשים טובים בכדי לספק לו הגנה רוחנית. התכנית קיבלה את ברכתם של רבנים רבים וכמאה אלף יהודים מכל רחבי העולם הצטרפו לפרויקט, למדו תורה, אמרו תהילים, וקבלו על עצמם לעשות מעשים טובים לזכות החיילים שסיכנו את נפשם במהלך המבצע.</p><p class="ui-droppable">במהלך ההיסטוריה של העם היהודי, יהודים נהגו לומר תהילים ולעשות מעשים טובים בשעת צרה ומצור. המסורת היהודית מספרת לנו שלימוד תורה בזכות אדם מסוים מספקת הגנה שמימית, זאת משום שלימוד תורה מפיץ שלווה וחמלה אלוקית בעולם.</p><p class="ui-droppable">אך לאחר שהבנו שבננו יכול להרוויח מהגנה רוחנית התחלנו לחשוב על שאר חבריו ליחידה, מה איתם? מי יספק להם הגנה רוחנית?</p><p class="ui-droppable">ואז נפל לנו האסימון,, אנחנו נקים אתר שיאפשר ליהודים מכל רחבי העולם להתחבר למאגר שמות של חיילים המשרתים בסדיר ו"לאמץ" חייל רוחנית לכל מהלך שירותו הצבאי. ניצור חיבור עממי בין אדם לאדם לפני שיתפתח מצב חירום חס וחלילה.</p><p></p>
+            <h3>אז מי אנחנו?<br></h3>
+            <p class="ui-droppable"></p><p class="ui-droppable">אנחנו הורים לילדים המשרתים בצה"ל המאמינים שהתכנית מתאימה ליהודים מכל הזרמים, דתיים או חילוניים, בכל מקום בעולם.זוהי הזדמנות אדירה לגעת בלבבות בכל רחבי העולם. הלב היהודי הרחב פתוח תמיד למעשי חסד והכרת הטוב.</p><p class="ui-droppable">הצטרפו לפרויקט "לשם שמירה"- חובת השמירה האזרחית, זה אישי, וזה עוצמתי.</p><p></p>
             <div class="row collapse">
             <div class="eight columns spoiler">
             <div class="eight columns blue">
-            <h3>Join L'Shem Shmirah Project.</h3>
-            <p>It's personal. It's powerful. It's one name at a time.<br> It's guard duty for the rest of us.</p>
+            <h3>הצטרפו לפרויקט "לשם שמירה"</h3>
+            <p class="ui-droppable">חובת השמירה האזרחית, זה אישי, וזה עוצמתי.<br></p>
             </div>
-            <div class="four columns gray text-center"><a class="register_button button cboxElement" href="/register">SIGN UP</a></div>
+            <div class="four columns gray text-center"><a class="register_button button cboxElement" href="/register">להירשם</a></div>
             </div>
             </div>
+
           en: |          
             <p><img class="imageInText inlineImage-right ui-draggable" src="/symfony-cmf/create/image/about.png" alt="" width="305" height="203">In 2011, our son decided to move to Israel and enlist in the Paratroopers as a "Chayal boded" a "Lone Soldier". Not having immediate family in Israel to support you, rub your shoulders after a masa (hike with gear), talk to your m'fakdim (commanders), and of course, do your laundry, categorizes you as a Lone Soldier. Brave and idealistic, our son went off to training and jump out of perfectly good airplanes.</p>
             <p>The possibility of war is a constant presence in Israel. We knew we wanted to support him, however we could, even from a distance. What could we do?</p>
