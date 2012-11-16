@@ -48,7 +48,7 @@ class AppKernel extends Kernel
             // enable cmf bundles
             new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
             new Symfony\Cmf\Bundle\CoreBundle\SymfonyCmfCoreBundle(),
-//            new Symfony\Cmf\Bundle\MenuBundle\SymfonyCmfMenuBundle(),
+            new Symfony\Cmf\Bundle\MenuBundle\SymfonyCmfMenuBundle(),
             new Symfony\Cmf\Bundle\ContentBundle\SymfonyCmfContentBundle(),
             new Symfony\Cmf\Bundle\TreeBundle\SymfonyCmfTreeBundle(),
             new Symfony\Cmf\Bundle\TreeBrowserBundle\SymfonyCmfTreeBrowserBundle(),
