@@ -42,7 +42,7 @@ class LoadMenuData extends ContainerAware implements FixtureInterface, OrderedFi
 
         $mission = $this->createMenuItem($dm, $main, 'mission-item', array('en' => 'Mission', 'il' => 'רטמ'), $dm->find(null, "$content_path/mission"));
         $about = $this->createMenuItem($dm, $main, 'about-item', array('en' => 'About', 'il' => 'ונחנא ימ'), $dm->find(null, "$content_path/about"));
-        $faq = $this->createMenuItem($dm, $main, 'faq-item', array('en' => 'FAQ', 'il' => 'ונחנא ימ'), null, null, 'evercode_faq_faq_faq');
+        $faq = $this->createMenuItem($dm, $main, 'faq-item', array('en' => 'FAQ', 'il' => 'ונחנא ימ'), null, null, 'wnc_faq_faq_faq');
         $press = $this->createMenuItem($dm, $main, 'press-item', array('en' => 'Press', 'il' => 'רשק רו'), null, null, 'sonata_news_news');
         $contact = $this->createMenuItem($dm, $main, 'contact-item', array('en' => 'Contact', 'il' => 'רשק רו'), null, null, 'cmf_routing_dynamic_route_cms_routes_en_contact');
         $donate = $this->createMenuItem($dm, $main, 'donate-item', array('en' => 'Donate', 'il' =>'וישכע םורת'), $dm->find(null, "$content_path/donate"));

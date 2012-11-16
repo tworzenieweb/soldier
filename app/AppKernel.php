@@ -71,7 +71,7 @@ class AppKernel extends Kernel
             
 //            new Sandbox\BlockBundle\SandboxBlockBundle(),
             new Sandbox\MainBundle\SandboxMainBundle(),
-
+            new WNC\FaqBundle\WNCFaqBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
