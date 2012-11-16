@@ -5,6 +5,7 @@ namespace Application\Sonata\UserBundle\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use WNC\SoldierBundle\Entity\Soldier;
+use Application\Sonata\UserBundle\Entity\User;
 use WNC\SoldierBundle\Entity\Participant;
 use WNC\SoldierBundle\Form\SoldierType;
 use WNC\SoldierBundle\Form\ParticipantType;
@@ -13,16 +14,21 @@ class RegistrationController extends BaseController
   
     public function ajaxAction()
     {
-        $participant = new Participant();
-        $soldier = new Soldier();
+        
         
         $f = new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType();
         $f2 = new \Application\Sonata\UserBundle\Form\Type\RegistrationFormType();
+        
+        $soldier = new User();
+        $soldier->setEmail(substr(uniqid(), 0,8) . '@protectisraelisoldiers.com');
         
         $f->setType('participant');
         $f2->setType('soldier');
         
         $form2   = $this->container->get('form.factory')->create($f2);
+        
+        $form2->setData($soldier);
+        
         $form   = $this->container->get('form.factory')->create($f);
       
         return $this->container->get('templating')->renderResponse('ApplicationSonataUserBundle:User:ajax.html.'.$this->getEngine(), array(

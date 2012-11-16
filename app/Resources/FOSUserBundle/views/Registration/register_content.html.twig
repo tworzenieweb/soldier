@@ -2,13 +2,13 @@
     
     {{ form_errors(form) }}
     
-    <div class="six columns">{{ form_row(form.firstname) }}</div>
-    <div class="six columns">{{ form_row(form.email) }}</div>
-  
+    
 
     {% if type == 'soldier' %}
     
     <div class="six columns">
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.email) }}
     {{ form_row(form.soldier.mothers_name) }}
     {{ form_row(form.soldier.service_end_date) }}
         
@@ -63,6 +63,11 @@
 
     {% else %}
     
+    <div class="six columns">{{ form_row(form.firstname) }}</div>
+
+    
+    <div class="six columns">{{ form_row(form.email) }}</div>
+
     <div class="six columns">
         {{ form_row(form.lastname) }}
         {{ form_row(form.participant.birth_date) }}

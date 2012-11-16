@@ -40,9 +40,11 @@ class RegistrationFormType extends BaseForm {
     if ($type == 'participant') {
       $label = 'participant';
       $form = '\WNC\SoldierBundle\Form\ParticipantType';
+      $type = 'email';
     } else if($type == 'soldier') {
       $label = 'soldier';
       $form = '\WNC\SoldierBundle\Form\SoldierType';
+      $type = 'hidden';
     }
 
     $builder->add('firstname', null, array(
@@ -58,11 +60,10 @@ class RegistrationFormType extends BaseForm {
             ->add('plainPassword', 'hidden', array(
                 'data' => substr(uniqid(), 0, 8),
             ))
-            ->add('email', 'email', array(
+            ->add('email', $type, array(
                 'attr' => array(
                     'placeholder' => 'Your Email'
-                ),
-                'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+                )))
             ->add($label, new $form($this->options));
 
   }
