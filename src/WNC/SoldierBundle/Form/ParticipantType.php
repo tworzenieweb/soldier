@@ -65,9 +65,6 @@ class ParticipantType extends AbstractType
                     'context'  => 'user',
                     'label' => 'Video (youtube link)'
                 ))
-                ->add('wants_to_contact', null, array(
-                    'label' => Participant::getLabel('wants_to_contact')
-                ))
                 ->add('volunteer', 'choice', array(
                     'choices' => array(0 => 'No', 1 => 'Yes'),
                     'expanded' => true,

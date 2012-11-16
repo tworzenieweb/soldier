@@ -46,10 +46,6 @@ class SoldierType extends AbstractType
                     'context'  => 'user',
                     'label' => 'Video (youtube link)'
                 ))
-                ->add('wants_to_contact', 'checkbox', array(
-                    'label' => Soldier::getLabel('wants_to_contact'),
-                    'required' => false
-                ))
                 ->add('comments', 'textarea', array(
                     'required' => false
                 ))

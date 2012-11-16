@@ -15,10 +15,6 @@ use Symfony\Component\Validator\ExecutionContext;
 class Soldier
 {
     
-    private static $_labels = array(
-        'wants_to_contact' => 'Do you want to be in contact with people who are participating on your behalf'
-    );
-    
     /**
      * @var integer $id
      *
@@ -65,12 +61,6 @@ class Soldier
     
     private $video_id;
 
-    /**
-     * @var boolean $wants_to_contact
-     *
-     * @ORM\Column(name="wants_to_contact", type="boolean", nullable=true)
-     */
-    private $wants_to_contact;
 
     /**
      * @var string $comments
@@ -258,30 +248,7 @@ class Soldier
     {
         return $this->self_description;
     }
-
-
-    /**
-     * Set wants_to_contact
-     *
-     * @param boolean $wantsToContact
-     * @return Soldier
-     */
-    public function setWantsToContact($wantsToContact)
-    {
-        $this->wants_to_contact = $wantsToContact;
     
-        return $this;
-    }
-
-    /**
-     * Get wants_to_contact
-     *
-     * @return boolean 
-     */
-    public function getWantsToContact()
-    {
-        return $this->wants_to_contact;
-    }
 
     /**
      * Set comments

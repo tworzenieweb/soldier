@@ -184,7 +184,7 @@ class PostController extends BaseController
   public function sliderAction($limit = 10)
   {
 
-      return $this->render('ApplicationSonataNewsBundle:Post:slider.html.twig', array(
+      return $this->render('ApplicationSonataNewsBundle:Post:slider_mockup.html.twig', array(
         'posts' => $this->getDoctrine()->getRepository('ApplicationSonataNewsBundle:Post')->getLatest($limit)
         ));
     

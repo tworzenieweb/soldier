@@ -62,9 +62,10 @@ margin: 14px 39px;
 .slider h2 {
     color: #fff;
     font-family: 'Nixie One',cursive;
-    font-size: 26px;
+    font-size: 25px;
     font-weight: normal;
     margin-top:0;
+    margin-bottom: 46px;
 }
 
 .slider h2 a {
@@ -84,6 +85,10 @@ margin: 14px 39px;
 .slider .text p {
     border-bottom: 1px dashed #c0c0a6;
     padding-bottom: 5px;
+}
+
+.slider .text p.noborder {
+    border: none;
 }
 
 /* single tab */

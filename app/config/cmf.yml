@@ -45,6 +45,10 @@ parameters:
 knp_menu:
     twig: true
 
+symfony_cmf_menu:
+    multilang:
+      locales: %locales%
+
 symfony_cmf_create:
     phpcr_odm: true
     map:
@@ -105,6 +109,7 @@ sonata_admin:
                 label: CMS
                 items:
                   - symfony_cmf_content.multilang.admin
+                  - symfony_cmf_menu.admin
                   - symfony_cmf_routing_extra.route_admin
                   - evercode_faq.admin.faq
                   - sonata.admin.activity

@@ -586,3 +586,16 @@ margin-top: 15px;
 .language-selector a {
   color: #000;
 }
+
+.menus {
+    margin-top:20px;
+}
+
+.menus .sub-nav {
+    float: right;
+}
+
+.menus .sub-nav dd {
+    border-right: 1px solid gray;
+    padding-right: 5px;
+}

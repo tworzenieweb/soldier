@@ -15,9 +15,6 @@ use Symfony\Component\Validator\ExecutionContext;
 class Participant
 {
     
-    private static $_labels = array(
-        'wants_to_contact' => 'Do you want to be in contact with people on whose behalf you are participating'
-    );
     
     /**
      * @var integer $id
@@ -107,12 +104,6 @@ class Participant
      */
     private $birth_date;
     
-    /**
-     * @var boolean $wants_to_contact
-     *
-     * @ORM\Column(name="wants_to_contact", type="boolean")
-     */
-    private $wants_to_contact;
 
     
    /**
@@ -386,34 +377,7 @@ class Participant
     {
         return $this->comments;
     }
-
-    /**
-     * Set wants_to_contact
-     *
-     * @param boolean $wantsToContact
-     * @return Participant
-     */
-    public function setWantsToContact($wantsToContact)
-    {
-        $this->wants_to_contact = $wantsToContact;
     
-        return $this;
-    }
-
-    /**
-     * Get wants_to_contact
-     *
-     * @return boolean 
-     */
-    public function getWantsToContact()
-    {
-        return $this->wants_to_contact;
-    }
-    
-    public function getWantsToContactText()
-    {
-        return $this->wants_to_contact ? 'yes' : 'no';
-    }
 
     /**
      * Set user
